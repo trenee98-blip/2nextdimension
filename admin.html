@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ניהול הרשמות — ריני טוויל</title>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0b0a09; --panel: #14120f; --line: rgba(201,162,75,0.28);
+      --gold: #c9a24b; --gold-bright: #f3dca6; --cream: #f4ecda; --muted: #a89e86;
+      --green: #6fae6f; --red: #d98a8a;
+    }
+    body { font-family: 'Assistant', 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--cream); font-weight: 400; line-height: 1.6; padding: 24px; }
+    h1, h2 { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; }
+    a { color: var(--gold-bright); }
+    .wrap { max-width: 1000px; margin: 0 auto; }
+
+    /* login */
+    .login { max-width: 360px; margin: 12vh auto; text-align: center; }
+    .login h1 { font-size: 1.7rem; margin-bottom: 8px; }
+    .login p { color: var(--muted); margin-bottom: 28px; font-size: 0.95rem; }
+    .field { margin-bottom: 16px; text-align: right; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px; }
+    input[type=email], input[type=password] {
+      width: 100%; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line);
+      color: var(--cream); font-family: inherit; font-size: 1rem; border-radius: 3px; outline: none;
+    }
+    input:focus { border-color: var(--gold); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: inherit; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.03em;
+      padding: 12px 26px; color: #0b0a09; background: linear-gradient(115deg,#a9822f,#f0d59a,#c9a24b);
+      border: none; border-radius: 3px; cursor: pointer; text-decoration: none;
+    }
+    .btn.secondary { background: transparent; color: var(--gold-bright); border: 1px solid var(--gold); }
+    .btn:disabled { opacity: 0.5; cursor: default; }
+    .msg { margin-top: 14px; font-size: 0.9rem; min-height: 1.2em; }
+
+    /* dashboard */
+    .topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+    .topbar h1 { font-size: 1.5rem; }
+    .topbar .who { font-size: 0.85rem; color: var(--muted); }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 18px 16px; text-align: center; }
+    .card .n { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: 2rem; color: var(--gold-bright); }
+    .card .l { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 4px; }
+
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+    select { padding: 9px 12px; background: var(--panel); border: 1px solid var(--line); color: var(--cream); font-family: inherit; border-radius: 3px; }
+    .toolbar .spacer { flex: 1; }
+    .pill { font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    th { color: var(--gold); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; }
+    tr:hover td { background: rgba(201,162,75,0.05); }
+    td.c { text-align: center; }
+    .tag-nl { color: var(--muted); font-size: 0.82rem; }
+    .empty { text-align: center; color: var(--muted); padding: 40px; }
+    .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+    .foot { margin-top: 20px; font-size: 0.8rem; color: var(--muted); text-align: center; }
+    @media (max-width: 560px) { body { padding: 14px; } th:nth-child(4), td:nth-child(4) { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginView" class="login" style="display:none">
+  <h1>ניהול הרשמות</h1>
+  <p>התחברות למנהלת האתר</p>
+  <div class="field"><label>אימייל</label><input type="email" id="li-email" autocomplete="username" /></div>
+  <div class="field"><label>סיסמה</label><input type="password" id="li-pass" autocomplete="current-password" /></div>
+  <button class="btn" id="li-btn" style="width:100%">התחברות</button>
+  <p class="msg" id="li-msg" style="color:var(--red)"></p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash" class="wrap" style="display:none">
+  <div class="topbar">
+    <div>
+      <h1>הרשמות · <span id="d-lecture-name">לבחור במקום לברוח</span></h1>
+      <div class="who" id="d-who"></div>
+    </div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="pill" id="d-countdown"></span>
+      <button class="btn secondary" id="d-logout">יציאה</button>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n" id="s-total">–</div><div class="l">נרשמו</div></div>
+    <div class="card"><div class="n" id="s-paid">–</div><div class="l">שילמו</div></div>
+    <div class="card"><div class="n" id="s-today">–</div><div class="l">היום</div></div>
+    <div class="card"><div class="n" id="s-target">–</div><div class="l">מתוך היעד</div></div>
+    <div class="card"><div class="n" id="s-nl">–</div><div class="l">רשימת תפוצה</div></div>
+  </div>
+
+  <div class="toolbar">
+    <select id="f-lecture"></select>
+    <button class="btn secondary" id="b-refresh">רענון</button>
+    <button class="btn secondary" id="b-csv">ייצוא CSV</button>
+    <button class="btn secondary" id="b-wa">העתקת טלפונים</button>
+    <span class="spacer"></span>
+    <button class="btn secondary" id="b-toggle">–</button>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>שם</th><th>אימייל</th><th>טלפון</th><th>תאריך הרשמה</th><th class="c">שולם</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="5" class="empty">טוען…</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="foot">מתרענן אוטומטית כל 60 שניות · <span id="d-updated"></span></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SB_URL = 'https://pruogkxvrvighbezokgu.supabase.co';
+  const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
+  const LECTURE = 'לבחור במקום לברוח 8.9.26';
+  const EVENT_AT = new Date('2026-09-08T20:00:00+03:00');
+  const sb = supabase.createClient(SB_URL, SB_KEY);
+  const $ = id => document.getElementById(id);
+  let allRows = [];
+
+  // ---------- auth ----------
+  $('li-btn').addEventListener('click', login);
+  $('li-pass').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
+  $('d-logout').addEventListener('click', async () => { await sb.auth.signOut(); location.reload(); });
+
+  async function login() {
+    const email = $('li-email').value.trim(), password = $('li-pass').value;
+    $('li-btn').disabled = true; $('li-msg').textContent = '';
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+    $('li-btn').disabled = false;
+    if (error) { $('li-msg').textContent = 'התחברות נכשלה: ' + error.message; return; }
+    boot();
+  }
+
+  async function init() {
+    const { data } = await sb.auth.getSession();
+    if (data.session) boot(); else $('loginView').style.display = 'block';
+  }
+
+  async function boot() {
+    $('loginView').style.display = 'none';
+    $('dash').style.display = 'block';
+    const { data } = await sb.auth.getUser();
+    $('d-who').textContent = data.user ? data.user.email : '';
+    $('d-lecture-name').textContent = LECTURE;
+    tickCountdown(); setInterval(tickCountdown, 60000);
+    await load();
+    setInterval(load, 60000);
+  }
+
+  // ---------- data ----------
+  $('b-refresh').addEventListener('click', load);
+  $('f-lecture').addEventListener('change', render);
+  $('b-csv').addEventListener('click', exportCsv);
+  $('b-wa').addEventListener('click', copyPhones);
+  $('b-toggle').addEventListener('click', toggleRegistration);
+
+  const NL = 'רשימת תפוצה';
+  const tagOf = r => r.lecture || (r.name === NL ? NL : '(ללא תיוג)');
+
+  async function load() {
+    const { data: regs, error } = await sb.from('registrations').select('*').order('created_at', { ascending: false });
+    if (error) { $('rows').innerHTML = '<tr><td colspan="5" class="empty">שגיאה: ' + error.message + '</td></tr>'; return; }
+    allRows = regs || [];
+    let views = 0;
+    const pv = await sb.from('page_views').select('id', { count: 'exact', head: true }).eq('page', 'landing');
+    if (!pv.error && pv.count != null) views = pv.count;
+    const st = await sb.from('settings').select('*');
+    const settings = {}; (st.data || []).forEach(r => settings[r.key] = r.value);
+    window.__settings = settings; window.__views = views;
+    buildFilter();
+    render();
+    $('d-updated').textContent = 'עודכן ' + new Date().toLocaleTimeString('he-IL');
+  }
+
+  function buildFilter() {
+    const sel = $('f-lecture');
+    const prev = sel.value;
+    const tags = Array.from(new Set(allRows.map(tagOf)));
+    // current lecture first, then others, newsletter, then all
+    const order = [LECTURE].concat(tags.filter(t => t !== LECTURE && t !== NL).sort()).concat(tags.includes(NL) ? [NL] : []);
+    sel.innerHTML = order.map(t => '<option value="' + esc(t) + '">' + esc(t === LECTURE ? t + '  (הרצאה נוכחית)' : t) + '</option>').join('')
+      + '<option value="__all">— הכול —</option>';
+    sel.value = prev && (order.includes(prev) || prev === '__all') ? prev : LECTURE;
+  }
+
+  function render() {
+    const mode = $('f-lecture').value;
+    const list = mode === '__all' ? allRows : allRows.filter(r => tagOf(r) === mode);
+    const isNlView = mode === NL;
+
+    const today = new Date().toDateString();
+    $('s-total').textContent = list.filter(r => !isNlView || true).length;
+    $('s-paid').textContent = list.filter(r => r.paid).length;
+    $('s-today').textContent = list.filter(r => new Date(r.created_at).toDateString() === today).length;
+    const target = (window.__settings && window.__settings.target) || '80';
+    $('s-target').textContent = list.length + ' / ' + target;
+    $('s-nl').textContent = allRows.filter(r => tagOf(r) === NL).length;
+
+    const open = !window.__settings || window.__settings.registration_open !== 'false';
+    $('b-toggle').textContent = open ? 'סגירת הרשמה' : 'פתיחת הרשמה';
+    $('b-toggle').style.borderColor = open ? 'var(--red)' : 'var(--green)';
+    $('b-toggle').style.color = open ? 'var(--red)' : 'var(--green)';
+
+    const isNl = r => tagOf(r) === NL;
+    const tb = $('rows');
+    if (!list.length) { tb.innerHTML = '<tr><td colspan="5" class="empty">אין עדיין הרשמות</td></tr>'; return; }
+    tb.innerHTML = list.map(r => {
+      const d = new Date(r.created_at).toLocaleString('he-IL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+      const nl = isNl(r);
+      return '<tr>' +
+        '<td>' + esc(r.name || '') + (nl ? ' <span class="tag-nl">(תפוצה)</span>' : '') + '</td>' +
+        '<td>' + esc(r.email || '') + '</td>' +
+        '<td>' + esc(r.phone || '') + '</td>' +
+        '<td>' + d + '</td>' +
+        '<td class="c">' + (nl ? '' : '<input type="checkbox" data-id="' + r.id + '"' + (r.paid ? ' checked' : '') + '>') + '</td>' +
+      '</tr>';
+    }).join('');
+    tb.querySelectorAll('input[type=checkbox]').forEach(cb => cb.addEventListener('change', async () => {
+      cb.disabled = true;
+      const { error } = await sb.from('registrations').update({ paid: cb.checked }).eq('id', cb.dataset.id);
+      cb.disabled = false;
+      if (error) { alert('שגיאה: ' + error.message); cb.checked = !cb.checked; return; }
+      const row = allRows.find(x => x.id === cb.dataset.id); if (row) row.paid = cb.checked;
+      render();
+    }));
+  }
+
+  async function toggleRegistration() {
+    const cur = !window.__settings || window.__settings.registration_open !== 'false';
+    const next = cur ? 'false' : 'true';
+    const { error } = await sb.from('settings').update({ value: next }).eq('key', 'registration_open');
+    if (error) { alert('שגיאה: ' + error.message); return; }
+    window.__settings.registration_open = next; render();
+  }
+
+  function tickCountdown() {
+    const ms = EVENT_AT - new Date();
+    if (ms <= 0) { $('d-countdown').textContent = 'האירוע התקיים'; return; }
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5);
+    $('d-countdown').textContent = 'עוד ' + d + ' ימים ו-' + h + ' שעות';
+  }
+
+  function currentList() {
+    const mode = $('f-lecture').value;
+    return mode === '__all' ? allRows : allRows.filter(r => tagOf(r) === mode);
+  }
+
+  function exportCsv() {
+    const list = currentList();
+    const head = ['שם', 'אימייל', 'טלפון', 'תאריך', 'שולם', 'הרצאה'];
+    const lines = [head.join(',')].concat(list.map(r => [
+      q(r.name), q(r.email), q(r.phone), q(new Date(r.created_at).toLocaleString('he-IL')), r.paid ? 'כן' : 'לא', q(r.lecture)
+    ].join(',')));
+    const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'registrations-' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+  }
+
+  function copyPhones() {
+    const list = currentList().filter(r => r.phone);
+    const text = list.map(r => (r.name || '') + ' ' + r.phone).join('\n');
+    navigator.clipboard.writeText(text).then(() => alert('הועתקו ' + list.length + ' שורות'));
+  }
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  const q = s => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"';
+
+  init();
+</script>
+</body>
+</html>
