@@ -63,6 +63,33 @@
     .empty { text-align: center; color: var(--muted); padding: 40px; }
     .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
     .foot { margin-top: 20px; font-size: 0.8rem; color: var(--muted); text-align: center; }
+
+    /* analytics */
+    .section-title { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: 1.15rem; color: var(--cream); margin: 26px 0 12px; }
+    .analytics { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-bottom: 8px; }
+    @media (max-width: 720px) { .analytics { grid-template-columns: 1fr; } }
+    .box { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 18px; }
+    .box h3 { font-family: 'Assistant', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 14px; }
+
+    .funnel { display: flex; flex-direction: column; gap: 8px; }
+    .fstep { position: relative; background: rgba(201,162,75,0.08); border-radius: 3px; padding: 9px 12px; overflow: hidden; }
+    .fstep .fill { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, rgba(201,162,75,0.35), rgba(201,162,75,0.15)); }
+    .fstep .lbl, .fstep .val { position: relative; z-index: 1; font-size: 0.9rem; }
+    .fstep .val { float: left; font-weight: 800; color: var(--gold-bright); }
+    .fstep .rate { position: relative; z-index: 1; font-size: 0.78rem; color: var(--muted); margin-right: 8px; }
+
+    .brow { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; font-size: 0.88rem; }
+    .brow .bn { width: 82px; flex-shrink: 0; color: var(--cream); }
+    .brow .bt { flex: 1; height: 16px; background: rgba(201,162,75,0.10); border-radius: 3px; overflow: hidden; }
+    .brow .bt i { display: block; height: 100%; background: linear-gradient(90deg, #c9a24b, #f0d59a); }
+    .brow .bv { width: 34px; text-align: left; color: var(--muted); flex-shrink: 0; }
+
+    .spark { display: flex; align-items: flex-end; gap: 5px; height: 90px; direction: ltr; }
+    .spark .day { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+    .spark .day .bar { width: 100%; background: linear-gradient(180deg, #f0d59a, #c9a24b); border-radius: 2px 2px 0 0; min-height: 2px; }
+    .spark .day .dl { font-size: 0.66rem; color: var(--muted); }
+    .spark .day .dv { font-size: 0.7rem; color: var(--gold-bright); font-weight: 700; }
+
     @media (max-width: 560px) { body { padding: 14px; } th:nth-child(4), td:nth-child(4) { display: none; } }
   </style>
 </head>
@@ -92,11 +119,31 @@
   </div>
 
   <div class="cards">
+    <div class="card"><div class="n" id="s-visits">–</div><div class="l">כניסות (7 ימים)</div></div>
     <div class="card"><div class="n" id="s-total">–</div><div class="l">נרשמו</div></div>
+    <div class="card"><div class="n" id="s-conv">–</div><div class="l">אחוז המרה</div></div>
     <div class="card"><div class="n" id="s-paid">–</div><div class="l">שילמו</div></div>
-    <div class="card"><div class="n" id="s-today">–</div><div class="l">היום</div></div>
+    <div class="card"><div class="n" id="s-today">–</div><div class="l">נרשמו היום</div></div>
     <div class="card"><div class="n" id="s-target">–</div><div class="l">מתוך היעד</div></div>
     <div class="card"><div class="n" id="s-nl">–</div><div class="l">רשימת תפוצה</div></div>
+  </div>
+
+  <div class="section-title">תנועה באתר · <span id="a-range" style="font-weight:400;color:var(--muted);font-size:0.85rem;">7 ימים אחרונים</span></div>
+  <div class="analytics">
+    <div class="box">
+      <h3>המשפך — מכניסה להרשמה</h3>
+      <div class="funnel" id="funnel"></div>
+    </div>
+    <div class="box">
+      <h3>מאיפה הגיעו</h3>
+      <div id="sources"></div>
+      <h3 style="margin-top:18px;">מכשיר</h3>
+      <div id="devices"></div>
+    </div>
+  </div>
+  <div class="box" style="margin-bottom:8px;">
+    <h3>כניסות ליום</h3>
+    <div class="spark" id="spark"></div>
   </div>
 
   <div class="toolbar">
@@ -168,19 +215,85 @@
   const NL = 'רשימת תפוצה';
   const tagOf = r => r.lecture || (r.name === NL ? NL : '(ללא תיוג)');
 
+  let events = [];
+
   async function load() {
     const { data: regs, error } = await sb.from('registrations').select('*').order('created_at', { ascending: false });
     if (error) { $('rows').innerHTML = '<tr><td colspan="5" class="empty">שגיאה: ' + error.message + '</td></tr>'; return; }
     allRows = regs || [];
-    let views = 0;
-    const pv = await sb.from('page_views').select('id', { count: 'exact', head: true }).eq('page', 'landing');
-    if (!pv.error && pv.count != null) views = pv.count;
+    const since = new Date(Date.now() - 8 * 864e5).toISOString();
+    const ev = await sb.from('page_views').select('*').gte('created_at', since).order('created_at');
+    events = ev.error ? [] : (ev.data || []);
     const st = await sb.from('settings').select('*');
     const settings = {}; (st.data || []).forEach(r => settings[r.key] = r.value);
-    window.__settings = settings; window.__views = views;
+    window.__settings = settings;
     buildFilter();
     render();
+    renderAnalytics();
     $('d-updated').textContent = 'עודכן ' + new Date().toLocaleTimeString('he-IL');
+  }
+
+  function renderAnalytics() {
+    const cnt = e => events.filter(x => x.event === e).length;
+    const visits = cnt('visit'), cta = cnt('cta_click'), fstart = cnt('form_start');
+    // registrations in the last 7 days for the current lecture
+    const since = Date.now() - 7 * 864e5;
+    const regs7 = allRows.filter(r => tagOf(r) === LECTURE && new Date(r.created_at).getTime() >= since).length;
+
+    $('s-visits').textContent = visits;
+    $('s-conv').textContent = visits ? Math.round(regs7 / visits * 100) + '%' : '–';
+
+    const steps = [
+      ['נכנסו לאתר', visits, visits],
+      ['לחצו "הרשמה"', cta, visits],
+      ['התחילו למלא', fstart, visits],
+      ['השלימו הרשמה', regs7, visits]
+    ];
+    $('funnel').innerHTML = steps.map((s, i) => {
+      const [lbl, val, base] = s;
+      const pct = base ? Math.round(val / base * 100) : 0;
+      const stepRate = i > 0 && steps[i - 1][1] ? Math.round(val / steps[i - 1][1] * 100) + '% מהשלב הקודם' : '';
+      return '<div class="fstep"><span class="fill" style="width:' + Math.max(pct, val ? 6 : 0) + '%"></span>' +
+        '<span class="val">' + val + '</span>' +
+        '<span class="lbl">' + lbl + '</span>' +
+        '<span class="rate">' + stepRate + '</span></div>';
+    }).join('');
+
+    // sources (of visits)
+    const bySrc = {};
+    events.filter(x => x.event === 'visit').forEach(x => { const s = x.source || 'לא ידוע'; bySrc[s] = (bySrc[s] || 0) + 1; });
+    $('sources').innerHTML = bars(bySrc, visits) || '<div style="color:var(--muted);font-size:0.85rem;">אין נתונים עדיין</div>';
+
+    // devices
+    const byDev = {};
+    events.filter(x => x.event === 'visit').forEach(x => { const d = x.device || '?'; byDev[d] = (byDev[d] || 0) + 1; });
+    $('devices').innerHTML = bars(byDev, visits) || '<div style="color:var(--muted);font-size:0.85rem;">אין נתונים עדיין</div>';
+
+    // 7-day sparkline of visits
+    const days = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(Date.now() - i * 864e5);
+      const key = d.toDateString();
+      const n = events.filter(x => x.event === 'visit' && new Date(x.created_at).toDateString() === key).length;
+      days.push({ n, lbl: d.toLocaleDateString('he-IL', { day: 'numeric', month: 'numeric' }) });
+    }
+    const max = Math.max(1, ...days.map(d => d.n));
+    $('spark').innerHTML = days.map(d =>
+      '<div class="day"><div class="dv">' + (d.n || '') + '</div>' +
+      '<div class="bar" style="height:' + (d.n / max * 70) + 'px"></div>' +
+      '<div class="dl">' + d.lbl + '</div></div>'
+    ).join('');
+  }
+
+  function bars(obj, total) {
+    const entries = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+    if (!entries.length) return '';
+    return entries.map(([k, v]) => {
+      const pct = total ? Math.round(v / total * 100) : 0;
+      return '<div class="brow"><span class="bn">' + esc(k) + '</span>' +
+        '<span class="bt"><i style="width:' + pct + '%"></i></span>' +
+        '<span class="bv">' + v + '</span></div>';
+    }).join('');
   }
 
   function buildFilter() {

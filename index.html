@@ -565,14 +565,46 @@
   const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
   const sb = supabase.createClient(SB_URL, SB_KEY);
 
-  // count one visit per browser per day (for the admin conversion stat)
-  try {
-    var _k = 'pv_' + new Date().toDateString();
-    if (!localStorage.getItem(_k)) {
-      sb.from('page_views').insert({ page: 'landing' }).then(function () {});
-      localStorage.setItem(_k, '1');
-    }
-  } catch (e) {}
+  // ---- lightweight funnel analytics · no cookies, no third-party tracker ----
+  function _source() {
+    try {
+      var p = new URLSearchParams(location.search);
+      var u = p.get('utm_source') || p.get('ref') || p.get('src');
+      if (u) return u.toLowerCase().slice(0, 32);
+      if (/fbclid/.test(location.search)) return 'facebook';
+      var r = document.referrer || '';
+      if (!r) return 'ישיר';
+      var h = new URL(r).hostname.replace(/^www\./, '').toLowerCase();
+      if (/facebook|fb\.com|fb\.me/.test(h)) return 'facebook';
+      if (/instagram/.test(h)) return 'instagram';
+      if (/whatsapp|wa\.me/.test(h)) return 'whatsapp';
+      if (/t\.co|twitter|x\.com/.test(h)) return 'twitter';
+      if (/google\./.test(h)) return 'google';
+      if (/2nextdimension/.test(h)) return 'ישיר';
+      return h.slice(0, 32);
+    } catch (e) { return 'לא ידוע'; }
+  }
+  function _device() {
+    return (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) ||
+      /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
+  }
+  var _src = _source(), _dev = _device();
+  function track(ev) {
+    try {
+      var k = 'ev_' + ev;
+      if (sessionStorage.getItem(k)) return;      // once per browser session per step
+      sessionStorage.setItem(k, '1');
+      sb.from('page_views').insert({ page: 'landing', event: ev, source: _src, device: _dev }).then(function () {});
+    } catch (e) {}
+  }
+  track('visit');
+  document.querySelectorAll('a[href="#register"], .nav-cta').forEach(function (el) {
+    el.addEventListener('click', function () { track('cta_click'); });
+  });
+  ['name', 'email', 'phone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('focus', function () { track('form_start'); }, { once: true });
+  });
 
   const PAYBOX_LINK = 'https://links.payboxapp.com/xBo61NszX3b';
   const BIT_PHONE = '052-6788944';
@@ -591,6 +623,7 @@
     btn.disabled = false;
     btn.innerHTML = 'אני רוצה להירשם <svg><use href="#i-arrow"/></svg>';
     if (error) { msg.textContent = 'אירעה שגיאה: ' + error.message; msg.style.color = '#e0a3a3'; return; }
+    track('register');
     $('formCard').innerHTML =
       '<div style="text-align:center; padding:6px 0;">' +
         '<svg style="width:26px;height:26px;fill:#c9a24b;margin-bottom:16px;"><use href="#i-star"/></svg>' +
