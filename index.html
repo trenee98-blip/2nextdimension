@@ -158,10 +158,13 @@
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero .sub {
-      font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+      font-size: clamp(1.15rem, 2.5vw, 1.42rem);
       color: #f2ecdd; font-weight: 500;
-      max-width: 640px; margin: 0 auto 36px;
+      max-width: 640px; margin: 0 auto 14px;
     }
+    .hero .sub .em { color: var(--gold-bright); }
+    .hero .sub .ex { color: var(--gold-bright); font-size: 0.92em; }
+    .hero .tagline { margin: 10px auto 34px; }
     .hero-meta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 46px; }
     .hero-meta-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
     .hero-meta span {
@@ -365,7 +368,7 @@
       <a href="#lecture">נושאי ההרצאה</a>
       <a href="#contact">יצירת קשר</a>
     </nav>
-    <a href="#register" class="nav-cta">להצטרף למסע</a>
+    <a href="#register" class="nav-cta">להרשמה</a>
   </div>
 </header>
 
@@ -376,9 +379,11 @@
     <span class="kicker">המסע למימד הבא</span>
     <h1><span class="gold-text">לבחור במקום לברוח</span></h1>
     <p class="sub">
-      התמכרויות יומיומיות לוקחות את חופש הבחירה.<br />
-      תצטרפו אלי למסע שבו נלמד להרחיב את הבחירה בחזרה.
+      לפעמים אנחנו מחליטים <span class="em">שלא</span> — ואז מוצאים את עצמנו עושים בדיוק את מה שלא רצינו:<br />
+      <span class="ex">שעות במסך, אכילה לא מבוקרת, שינה ממושכת, מין לא מחובר.</span><br /><br />
+      כאילו הבחירה שלנו נעלמת.
     </p>
+    <div class="tagline">וזה בדיוק מה שנפרק יחד</div>
     <div class="hero-meta">
       <div class="hero-meta-row">
         <span>יום שלישי · 8 בספטמבר 2026</span>
@@ -389,7 +394,7 @@
         <span>50 ₪</span>
       </div>
     </div>
-    <a href="#register" class="btn">להצטרף למסע <svg><use href="#i-arrow"/></svg></a>
+    <a href="#register" class="btn">להירשם להרצאה <svg><use href="#i-arrow"/></svg></a>
   </div>
   <div class="scroll-cue"></div>
 </section>
@@ -398,11 +403,9 @@
 <section class="statement reveal">
   <div class="wrap">
     <p>
-      לפעמים אנחנו מחליטים <span class="em">שלא</span> — ואז מוצאים את עצמנו עושים בדיוק את מה שלא רצינו:<br />
-      <span class="ex">שעות במסך, אכילה לא מבוקרת, שינה ממושכת, מין לא מחובר.</span><br /><br />
-      כאילו הבחירה שלנו נעלמת.
+      התמכרויות יומיומיות לוקחות את חופש הבחירה.<br />
+      תצטרפו אלי למסע שבו נלמד <span class="em">להרחיב את הבחירה בחזרה</span>.
     </p>
-    <div class="tagline">וזה בדיוק מה שנפרק יחד</div>
   </div>
 </section>
 
