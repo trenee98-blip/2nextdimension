@@ -1,0 +1,14 @@
+
+# raw image sources (kept local, processed h-*.jpg are committed)
+assets/*.avif
+assets/*.png
+!assets/stars.png
+assets/Gemini_*
+assets/WhatsApp*
+assets/amir-mahmoodi*
+assets/erik-karits*
+assets/denfran-*
+assets/duycuong*
+assets/patrizia08-*
+assets/ri_ya-*
+assets/*_1920.jpg
