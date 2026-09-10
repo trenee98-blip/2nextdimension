@@ -72,19 +72,30 @@
     .fits li:first-child { border-top: 1px solid var(--line); }
     .fits li svg { width: 15px; height: 15px; fill: var(--gold); flex-shrink: 0; margin-top: 8px; }
 
-    /* programs */
+    /* framed image */
+    .framed { padding: 9px; border: 1px solid var(--gold); background: var(--bg); }
+    .framed > img { display: block; width: 100%; }
+
+    /* programs — alternating framed rows */
     .programs { background: var(--bg); }
-    .plist { display: grid; gap: 22px; }
-    .prog { background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: 1fr auto; gap: 20px 36px; align-items: start; }
-    .prog .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 4px; }
-    .prog h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 4px; }
-    .prog .tagline { color: var(--berry); font-weight: 600; font-size: 0.95rem; }
-    .prog p { color: var(--ink-soft); font-size: 1.02rem; margin-top: 12px; }
-    .prog .price { text-align: left; }
-    .prog .price .n { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.2rem); color: var(--ink); white-space: nowrap; }
-    .prog .price .u { display: block; font-size: 0.85rem; color: var(--muted); }
-    .chip { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-deep); background: rgba(176,134,60,0.12); padding: 5px 12px; border-radius: 40px; }
-    @media (max-width: 620px) { .prog { grid-template-columns: 1fr; } .prog .price { text-align: right; } }
+    .plist { display: grid; gap: clamp(48px, 7vw, 84px); margin-top: 20px; }
+    .prog { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items: center; }
+    .prog:nth-child(even) { direction: ltr; }
+    .prog:nth-child(even) > * { direction: rtl; }
+    .prog .pimg { position: relative; }
+    .prog .pnum { position: absolute; top: -18px; inset-inline-start: -14px; font-family: 'Frank Ruhl Libre', serif; font-size: 3.2rem; color: var(--gold); background: var(--bg); padding: 0 10px; line-height: 1; z-index: 2; }
+    .prog h3 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin-bottom: 6px; }
+    .prog .tagline { color: var(--berry); font-weight: 600; font-size: 0.98rem; margin-bottom: 14px; }
+    .prog p { color: var(--ink-soft); font-size: 1.04rem; }
+    .prog .pmeta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+    .prog .price { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--ink); }
+    .prog .price small { font-family: 'Assistant', sans-serif; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+    .chip { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em; color: var(--gold-deep); background: rgba(176,134,60,0.12); padding: 5px 13px; border-radius: 40px; }
+    @media (max-width: 780px) {
+      .prog, .prog:nth-child(even) { grid-template-columns: 1fr; gap: 26px; direction: rtl; }
+      .prog .pimg { max-width: 460px; }
+      .prog .pnum { font-size: 2.6rem; top: -14px; }
+    }
 
     .note { max-width: 720px; margin-top: 26px; color: var(--muted); font-size: 0.92rem; }
 
@@ -144,7 +155,7 @@
         <p>בליווי אנחנו מתבוננים יחד על החיים כפי שהם היום, ועל הפער בינם לבין מה שהיית רוצה. הפער הזה יכול להרגיש כמו סבל, אכזבה, תקיעות או חוסר אונים — ולפעמים צריך עזרה רק כדי להגדיר מה בעצם רוצים, ולגלות למה זה עוד לא נגיש.</p>
         <p>משם מתחילה העבודה: לשמוע את החלקים ההישרדותיים ואת מה שהם שמרו עליו, להכיר תודה על הדאגה, ולמצוא דרכים חדשות — כאלה שמאפשרות יותר חופש ויותר בחירה.</p>
       </div>
-      <div class="imgcol"><img src="assets/h-butterfly-2.jpg" alt="" /></div>
+      <div class="imgcol framed"><img src="assets/h-butterfly-2.jpg" alt="" /></div>
     </div>
   </div>
 </section>
@@ -165,39 +176,49 @@
 <section class="programs reveal" id="programs">
   <div class="wrap">
     <span class="kicker">התוכניות</span>
-    <h2>שלוש דרכים להיכנס לתהליך</h2>
+    <h2>ארבע דרכים להיכנס לתהליך</h2>
     <p class="lead">מתחילים תמיד בשיחת היכרות קצרה, בלי התחייבות — לראות אם והיכן נכון לנו להתחיל.</p>
 
     <div class="plist">
 
       <div class="prog">
+        <div class="pimg framed"><span class="pnum">01</span><img src="assets/c-grip.jpg" alt="" /></div>
+        <div>
+          <h3>האם אני מכור?</h3>
+          <div class="tagline">שיחת בירור אחת — האם יש משהו שגוזל ממני את הבחירה</div>
+          <p>לפעמים משהו משתלט על החיים בשקט — מסך, אוכל, מערכת יחסים, הרגל — וגוזל בלי שנשים לב את מרחב הבחירה. שיחה אחת ממוקדת כדי לראות בבהירות אם יש כאן משהו, ומה הצעד הראשון.</p>
+          <div class="pmeta"><span class="chip">מפגש אחד</span><span class="chip">נקודת פתיחה</span><span class="price">300 ₪ <small>למפגש</small></span></div>
+        </div>
+      </div>
+
+      <div class="prog">
+        <div class="pimg framed"><span class="pnum">02</span><img src="assets/c-choice.jpg" alt="" /></div>
         <div>
           <h3>איך לקבל בחירה</h3>
           <div class="tagline">שלושה מפגשים ממוקדים סביב בחירה אחת חשובה</div>
           <p>לפעמים קשה לקבל החלטה בהירה ונוכחת. יש דפוסים ואמונות שאספנו, יש תגובתיות, ויש קושי לשהות עם חוסר בהירות ובלבול. שלושה מפגשים ממוקדים סביב בחירה חשובה שעל הפרק — כדי לצאת ממנה בבהירות.</p>
+          <div class="pmeta"><span class="chip">3 מפגשים</span><span class="chip">מיקוד: בחירה אחת</span><span class="price">1,000 ₪</span></div>
         </div>
-        <div class="price"><span class="n">1,000 ₪</span><span class="u">3 מפגשים</span></div>
-        <div class="meta"><span class="chip">3 מפגשים</span><span class="chip">מיקוד: בחירה אחת</span></div>
       </div>
 
       <div class="prog">
+        <div class="pimg framed"><span class="pnum">03</span><img src="assets/c-leap.jpg" alt="" /></div>
         <div>
           <h3>קפיצת מדרגה בתחום אחד</h3>
           <div class="tagline">עשרה מפגשים לתנועה משמעותית בתחום חיים אחד</div>
           <p>בוחרים תחום אחד שבו מרגישים תקיעות — זוגיות, עבודה, גוף, כסף, יצירה — ועובדים בו לעומק. מגדירים מה רוצים, מגלים מה עוצר, ומפנים מקום לתנועה אמיתית קדימה.</p>
+          <div class="pmeta"><span class="chip">10 מפגשים</span><span class="chip">תחום חיים אחד</span><span class="price">300 ₪ <small>למפגש</small></span></div>
         </div>
-        <div class="price"><span class="n">300 ₪</span><span class="u">למפגש · 10 מפגשים</span></div>
-        <div class="meta"><span class="chip">10 מפגשים</span><span class="chip">תחום חיים אחד</span></div>
       </div>
 
       <div class="prog">
+        <div class="pimg framed"><span class="pnum">04</span><img src="assets/c-journey.jpg" alt="" /></div>
         <div>
           <h3>המסע</h3>
           <div class="tagline">מסלול ליווי עמוק — מי אני רוצה להיות</div>
           <p>מתבוננים על מי שאני רוצה להיות בעוד עשרים שנה. בוחנים את החיים כרגע בתחומים השונים ואיפה הייתי רוצה להיות, מסתכלים על הפערים ועל מה שעוד צריך ניקוי — כדי לאפשר לעצמי לנוע אל הגרסה הכי טובה של עצמי.</p>
+          <div class="pmeta"><span class="chip">מסלול מתמשך</span><span class="chip">תמונת חיים שלמה</span><span class="price">בהתאמה אישית</span></div>
         </div>
-        <div class="price"><span class="n">בהתאמה אישית</span><span class="u">היקף המסלול נקבע יחד</span></div>
-        <div class="meta"><span class="chip">מסלול מתמשך</span><span class="chip">תמונת חיים שלמה</span></div>
       </div>
 
     </div>
