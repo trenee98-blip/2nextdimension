@@ -20,132 +20,144 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:        #f7f2e8;   /* שנהב חם */
-      --bg-2:      #efe5d3;   /* חול */
+      --bg:        #f7f2e8;
+      --bg-2:      #efe5d3;
+      --bg-3:      #e9dcc4;
       --card:      #fffdf8;
-      --ink:       #2c2620;   /* אספרסו */
+      --ink:       #2c2620;
       --ink-soft:  #6f6658;
       --muted:     #94897a;
       --gold:      #b0863c;
       --gold-deep: #856224;
-      --berry:     #7a3149;   /* גוון עמוק מהשטיח */
+      --berry:     #7a3149;
+      --teal:      #3f7d78;
       --line:      rgba(44, 38, 32, 0.14);
-      --dark:      #1c1712;   /* שחור חם לסקשן/פוטר */
-      --maxw:      1120px;
+      --dark:      #1c1712;
+      --maxw:      1140px;
     }
 
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
-      background: var(--bg); color: var(--ink);
-      font-weight: 400; line-height: 1.8; font-size: 18px;
-      -webkit-font-smoothing: antialiased; overflow-x: hidden;
-    }
-    h1, h2, h3, .serif { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; line-height: 1.22; }
+    body { font-family: 'Assistant','Segoe UI',Arial,sans-serif; background: var(--bg); color: var(--ink); font-weight: 400; line-height: 1.8; font-size: 18px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, .serif { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; line-height: 1.2; }
+    img { display: block; max-width: 100%; }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-    section { padding: clamp(70px, 10vw, 128px) 0; position: relative; }
+    .wrap-wide { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+    section { padding: clamp(72px, 10vw, 130px) 0; position: relative; }
 
-    .kicker {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.24em;
-      color: var(--gold); margin-bottom: 18px;
-    }
-    .kicker::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-
-    h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); font-weight: 700; margin-bottom: 20px; }
-    .lead { color: var(--ink-soft); font-size: 1.12rem; max-width: 620px; margin-bottom: 48px; }
+    .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.26em; color: var(--gold); margin-bottom: 18px; }
+    .kicker::before { content: '✦'; color: var(--gold); font-size: 0.7rem; opacity: 0.9; }
+    h2 { font-size: clamp(2rem, 4.7vw, 3.2rem); font-weight: 700; margin-bottom: 20px; }
+    .lead { color: var(--ink-soft); font-size: 1.14rem; max-width: 640px; margin-bottom: 50px; }
     .center { text-align: center; }
-    .center .kicker::before { display: none; }
     .center .kicker { justify-content: center; }
     .center .lead { margin-left: auto; margin-right: auto; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 1rem; font-weight: 600; letter-spacing: 0.02em;
-      padding: 15px 38px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none;
-      background: var(--ink); color: var(--bg);
-      transition: background .25s, transform .2s;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 15px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none; background: var(--ink); color: var(--bg); transition: background .25s, transform .2s; }
     .btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
     .btn svg { width: 14px; height: 14px; fill: currentColor; }
-    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
-    .btn-ghost:hover { background: var(--ink); color: var(--bg); }
-
     .link-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     .link-more svg { width: 13px; height: 13px; fill: currentColor; }
 
+    /* rainbow macro divider strip */
+    .strip { height: 8px; width: 100%; background: url('assets/b-strip.jpg') center / cover; }
+
+    /* gold frame — order + signature */
+    .framed { padding: 10px; border: 1px solid var(--gold); background: var(--bg); }
+    .framed > img { display: block; width: 100%; }
+    .framed.dark { background: transparent; border-color: rgba(217,185,120,0.55); }
+
     /* ============ HEADER ============ */
     header.nav { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s, box-shadow .35s; }
-    header.nav.scrolled { background: rgba(247, 242, 232, 0.92); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
-    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+    header.nav.scrolled { background: rgba(247, 242, 232, 0.93); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 17px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: 1.28rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 30px; }
-    .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.96rem; font-weight: 500; transition: color .2s; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--gold-deep); }
-    .nav-cta { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 9px 20px; border-radius: 2px; transition: background .25s, color .25s; }
+    .nav-cta { font-size: 0.88rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 9px 20px; border-radius: 2px; transition: background .25s, color .25s; }
     .nav-cta:hover { background: var(--ink); color: var(--bg); }
-    @media (max-width: 860px) { .nav-links { display: none; } }
+    @media (max-width: 880px) { .nav-links { display: none; } }
 
     /* ============ HERO ============ */
-    .hero { padding: 148px 24px 0; text-align: center; }
+    .hero { padding: 150px 24px 0; text-align: center; position: relative; }
     .hero .kicker { justify-content: center; }
-    .hero .kicker::before { display: none; }
-    .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; margin-bottom: 22px; }
-    .hero p.sub { font-size: clamp(1.1rem, 2.3vw, 1.35rem); color: var(--ink-soft); max-width: 600px; margin: 0 auto 34px; font-weight: 400; }
-    .hero .btn { margin-bottom: clamp(56px, 8vw, 92px); }
-    .hero-img { width: 100%; max-width: 1240px; margin: 0 auto; aspect-ratio: 21 / 8; overflow: hidden; border-radius: 3px; }
-    .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
-    @media (max-width: 640px) { .hero-img { aspect-ratio: 3 / 2; } }
+    .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 22px; letter-spacing: -0.01em; }
+    .hero h1 em { font-style: normal; color: var(--berry); }
+    .hero p.sub { font-size: clamp(1.1rem, 2.3vw, 1.4rem); color: var(--ink-soft); max-width: 600px; margin: 0 auto 34px; }
+    .hero .btn { margin-bottom: clamp(48px, 7vw, 80px); }
+    .hero-figure { position: relative; }
+    .hero-figure > img { width: 100%; height: clamp(300px, 60vh, 620px); object-fit: cover; object-position: center 44%; }
+    .hero-figure figcaption { position: absolute; bottom: 24px; inset-inline-start: 30px; font-family: 'Frank Ruhl Libre', serif; font-style: italic; color: rgba(255,255,255,0.94); font-size: 1.05rem; text-shadow: 0 2px 16px rgba(0,0,0,0.7); letter-spacing: 0.02em; }
 
     /* ============ OFFERINGS ============ */
     .offerings { background: var(--bg); }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
-    .ocard { background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; text-decoration: none; color: inherit; }
-    .ocard:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -18px rgba(44,38,32,0.28); }
-    .ocard .thumb { aspect-ratio: 4 / 3; overflow: hidden; }
-    .ocard .thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .ocard .body { padding: 22px 22px 26px; flex: 1; display: flex; flex-direction: column; }
-    .ocard h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
-    .ocard p { color: var(--ink-soft); font-size: 0.98rem; flex: 1; }
-    .ocard .go { margin-top: 14px; color: var(--gold-deep); font-weight: 600; font-size: 0.92rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; }
+    .ocard { background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
+    .ocard:hover { transform: translateY(-6px); box-shadow: 0 22px 48px -20px rgba(44,38,32,0.32); }
+    .ocard .thumb { aspect-ratio: 5 / 4; overflow: hidden; position: relative; }
+    .ocard .thumb::after { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--accent, var(--gold)); transform: scaleX(0); transform-origin: right; transition: transform .35s; }
+    .ocard:hover .thumb::after { transform: scaleX(1); }
+    .ocard .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .ocard:hover .thumb img { transform: scale(1.06); }
+    .ocard .body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
+    .ocard h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
+    .ocard p { color: var(--ink-soft); font-size: 0.97rem; flex: 1; }
+    .ocard .go { margin-top: 16px; color: var(--gold-deep); font-weight: 600; font-size: 0.9rem; }
 
-    /* ============ ABOUT TEASER ============ */
+    /* ============ ABOUT ============ */
     .about { background: var(--bg-2); }
-    .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: center; }
-    .about-photo { border-radius: 4px; overflow: hidden; box-shadow: 0 20px 50px -22px rgba(44,38,32,0.4); }
-    .about-photo img { width: 100%; display: block; }
+    .about-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 60px; align-items: center; }
+    .about-photo { position: relative; padding: 10px; border: 1px solid var(--gold); background: var(--bg-2); }
+    .about-photo > img { width: 100%; display: block; position: relative; z-index: 1; }
+    .about-photo .mini { position: absolute; inset-inline-end: -26px; bottom: -26px; width: 44%; padding: 6px; background: var(--bg-2); border: 1px solid var(--gold); z-index: 3; box-shadow: 0 16px 38px -16px rgba(44,38,32,0.42); }
     .about p { color: var(--ink-soft); margin-bottom: 18px; }
-    @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } .about-photo { max-width: 340px; margin: 0 auto; } }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 46px; } .about-photo { max-width: 360px; margin: 0 auto 26px; } .about-photo .mini { width: 40%; } }
+
+    /* ============ QUOTE BAND ============ */
+    .qband { min-height: 58vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 90px 26px; position: relative; overflow: hidden; background: var(--dark); }
+    .qband .bg { position: absolute; inset: -12% 0; background: url('assets/b-quote.jpg') center / cover; opacity: 0.5; will-change: transform; }
+    .qband::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,23,18,0.55), rgba(28,23,18,0.7)); }
+    .qband blockquote { position: relative; z-index: 1; max-width: 780px; }
+    .qband blockquote p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.5rem, 3.8vw, 2.5rem); font-weight: 400; line-height: 1.5; color: #f4ecda; }
+    .qband blockquote p .hl { color: #e3b671; }
+    .qband cite { display: block; margin-top: 22px; font-family: 'Assistant', sans-serif; font-style: normal; font-size: 0.8rem; letter-spacing: 0.24em; color: #c99a4e; }
 
     /* ============ BELIEFS ============ */
     .beliefs { background: var(--dark); color: #efe6d4; position: relative; overflow: hidden; }
-    .beliefs::before { content: ''; position: absolute; inset: 0; background: url('assets/h-belief-bg.jpg') center / cover; opacity: 0.16; }
+    .beliefs .bg { position: absolute; inset: 0; background: url('assets/b-beliefs.jpg') center / cover; opacity: 0.28; }
     .beliefs .wrap { position: relative; z-index: 1; }
     .beliefs .kicker { color: #d9b978; }
+    .beliefs .kicker::before { color: #d9b978; }
     .beliefs h2 { color: #f4ecda; }
-    .belief-list { display: grid; gap: 4px; max-width: 860px; }
-    .belief-list li { list-style: none; display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(239, 230, 212, 0.16); font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 400; line-height: 1.5; }
-    .belief-list li:first-child { border-top: 1px solid rgba(239, 230, 212, 0.16); }
-    .belief-list .num { color: #c99a4e; font-size: 1rem; flex-shrink: 0; padding-top: 6px; }
+    .blist { display: grid; gap: 0; max-width: 900px; margin-top: 10px; }
+    .blist .bitem { list-style: none; display: grid; grid-template-columns: auto 1fr; gap: 22px; padding: 30px 0; border-bottom: 1px solid rgba(239, 230, 212, 0.16); }
+    .blist .bitem:first-child { border-top: 1px solid rgba(239, 230, 212, 0.16); }
+    .blist .n { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; color: rgba(217, 185, 120, 0.5); line-height: 1; }
+    .blist .t { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.15rem, 2.5vw, 1.55rem); font-weight: 400; line-height: 1.55; align-self: center; }
 
-    /* ============ TRANSFORMATION ============ */
+    /* ============ TRANSFORM ============ */
     .transform { background: var(--bg); }
-    .transform-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: center; }
-    .transform-img { border-radius: 4px; overflow: hidden; }
+    .transform-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .transform-img { padding: 10px; border: 1px solid var(--gold); background: var(--bg); }
     .transform-img img { width: 100%; display: block; }
     .transform p { color: var(--ink-soft); font-size: 1.08rem; }
-    @media (max-width: 820px) { .transform-grid { grid-template-columns: 1fr; gap: 32px; } }
+    @media (max-width: 860px) { .transform-grid { grid-template-columns: 1fr; gap: 34px; } }
+
+    /* ============ MOSAIC ============ */
+    .mosaic { background: var(--bg-3); text-align: center; }
+    .mgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 44px; }
+    .mgrid figure { overflow: hidden; border-radius: 3px; aspect-ratio: 1; }
+    .mgrid figure:nth-child(1) { aspect-ratio: 1 / 1.5; grid-row: span 2; }
+    .mgrid figure:nth-child(4) { aspect-ratio: 1 / 1.5; grid-row: span 2; }
+    .mgrid img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .mgrid figure:hover img { transform: scale(1.08); }
+    @media (max-width: 720px) { .mgrid { grid-template-columns: repeat(2, 1fr); } .mgrid figure:nth-child(1), .mgrid figure:nth-child(4) { grid-row: span 1; aspect-ratio: 1; } }
 
     /* ============ CONTACT ============ */
     .contact { background: var(--bg-2); text-align: center; }
-    .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 8px 0 44px; }
-    .contact-links a {
-      display: inline-flex; align-items: center; gap: 9px;
-      border: 1px solid var(--gold); background: rgba(176, 134, 60, 0.08);
-      padding: 13px 26px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.98rem;
-      transition: background .25s, transform .2s;
-    }
+    .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 8px 0 46px; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--gold); background: rgba(176, 134, 60, 0.08); padding: 13px 26px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.97rem; transition: background .25s, transform .2s; }
     .contact-links a:hover { background: rgba(176, 134, 60, 0.18); transform: translateY(-2px); }
     .contact-links svg { width: 16px; height: 16px; fill: var(--gold-deep); }
     .nl { max-width: 460px; margin: 0 auto; }
@@ -156,24 +168,24 @@
     .nl-msg { margin-top: 12px; font-size: 0.9rem; min-height: 1.2em; color: var(--gold-deep); }
 
     /* ============ FOOTER ============ */
-    footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 44px 24px; position: relative; overflow: hidden; }
+    footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
     footer::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
     footer .fwrap { position: relative; z-index: 1; }
-    footer .f-brand { font-family: 'Frank Ruhl Libre', serif; font-size: 1.15rem; color: #f4ecda; margin-bottom: 6px; }
-    footer .f-tag { font-size: 0.8rem; letter-spacing: 0.22em; color: #c99a4e; margin-bottom: 14px; }
+    footer .f-brand { font-family: 'Frank Ruhl Libre', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
+    footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
     footer p { font-size: 0.85rem; }
     footer a { color: #d9b978; text-decoration: none; }
 
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+    .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .qband .bg, .beliefs .bg, .hero-figure img { transform: none !important; } }
   </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.5 4l-1.4 1.4L17.2 10.5H4v2h13.2l-5.1 5.1L13.5 20l8-8z"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 0l2.2 8.1L22 9.3l-6 5.1 2 8.6L12 18.6 6 23l2-8.6-6-5.1 7.8-1.2z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 3.2l-8 5-8-5V17h16v-6.8z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0112 4zm4.5 10.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7 1.8 2.9 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8z"/></symbol>
@@ -195,11 +207,15 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <span class="kicker">המסע למימד הבא</span>
-  <h1>לחיות מתוך<br />חופש ובחירה</h1>
+  <h1>לחיות מתוך<br /><em>חופש ובחירה</em></h1>
   <p class="sub">אני מלווה אנשים במסע להרחבת החופש והבחירה בחייהם — דרך ליווי אישי, הרצאות וסדנאות.</p>
   <a href="#contact" class="btn">קביעת שיחת היכרות <svg><use href="#i-arrow"/></svg></a>
-  <div class="hero-img">
-    <img src="assets/h-hero.jpg" alt="פרפר על פרח יבש באור זהוב" />
+  <div class="wrap-wide" style="margin-top:6px;">
+    <div class="strip"></div>
+    <figure class="hero-figure framed">
+      <img src="assets/h-hero.jpg" alt="פרפר על תפרחת יבשה באור זהוב" id="heroImg" />
+      <figcaption>מטמורפוזה — מה שנראה כמו סוף, הוא לרוב פתח</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -210,7 +226,7 @@
     <h2>הדרכים לעבוד יחד</h2>
     <p class="lead">כל דרך היא פתח אחר לאותו מקום — יותר בחירה, יותר חופש, יותר את/ה.</p>
     <div class="cards">
-      <a href="coaching.html" class="ocard">
+      <a href="coaching.html" class="ocard" style="--accent: var(--berry)">
         <div class="thumb"><img src="assets/h-card-coaching.jpg" alt="" /></div>
         <div class="body">
           <h3>אימון אישי</h3>
@@ -218,7 +234,7 @@
           <span class="go">לתוכניות הליווי →</span>
         </div>
       </a>
-      <a href="lecture.html" class="ocard">
+      <a href="lecture.html" class="ocard" style="--accent: var(--teal)">
         <div class="thumb"><img src="assets/h-card-lectures.jpg" alt="" /></div>
         <div class="body">
           <h3>הרצאות</h3>
@@ -226,7 +242,7 @@
           <span class="go">על ההרצאה →</span>
         </div>
       </a>
-      <a href="#contact" class="ocard">
+      <a href="#contact" class="ocard" style="--accent: var(--gold)">
         <div class="thumb"><img src="assets/h-card-workshops.jpg" alt="" /></div>
         <div class="body">
           <h3>סדנאות ומעגלים</h3>
@@ -234,7 +250,7 @@
           <span class="go">בקרוב →</span>
         </div>
       </a>
-      <a href="#contact" class="ocard">
+      <a href="#contact" class="ocard" style="--accent: #7d8b6a">
         <div class="thumb"><img src="assets/h-card-meditation.jpg" alt="" /></div>
         <div class="body">
           <h3>מדיטציות ותכנים</h3>
@@ -246,11 +262,14 @@
   </div>
 </section>
 
-<!-- ABOUT TEASER -->
+<!-- ABOUT -->
 <section class="about reveal" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-photo"><img src="assets/h-portrait.jpg" alt="ריני טוויל" /></div>
+      <div class="about-photo">
+        <img src="assets/h-portrait.jpg" alt="ריני טוויל" />
+        <img class="mini" src="assets/h-portrait-2.jpg" alt="" />
+      </div>
       <div>
         <span class="kicker">נעים להכיר</span>
         <h2>ריני טוויל</h2>
@@ -262,21 +281,31 @@
   </div>
 </section>
 
+<!-- QUOTE BAND -->
+<section class="qband reveal">
+  <div class="bg" id="qbg"></div>
+  <blockquote>
+    <p>ירדתי עד ל<span class="hl">מצולות</span> — כדי להבין לעומק, ולחזור לספר.</p>
+    <cite>ריני טוויל</cite>
+  </blockquote>
+</section>
+
 <!-- BELIEFS -->
 <section class="beliefs reveal">
+  <div class="bg" id="belBg"></div>
   <div class="wrap">
     <span class="kicker">אני מאמינה</span>
     <h2>מה מנחה אותי בעבודה</h2>
-    <ul class="belief-list">
-      <li><span class="num">01</span><span>ככל שנרחיב את הידע והמודעות שלנו על עצמנו — כך נרחיב את החופש והבחירה.</span></li>
-      <li><span class="num">02</span><span>אנשים הם נשמות טהורות ואין־סופיות. הכל אפשרי — מעבר להגבלות של זמן ומקום.</span></li>
-      <li><span class="num">03</span><span>אנחנו גם יצורים הישרדותיים, וההיכרות עם החלקים ההישרדותיים היא שמאפשרת להשתחרר ולהתרחב אל הנשמה.</span></li>
-      <li><span class="num">04</span><span>לכל חלק בתוכנו יש תפקיד, והוא שמר עלינו בתקופה מסוימת. התפקיד שלנו הוא לשמוע את המסר, להכיר תודה על הדאגה — ולמצוא דרכים חדשות, שמאפשרות יותר חופש ובחירה.</span></li>
+    <ul class="blist">
+      <li class="bitem"><span class="n">01</span><span class="t">ככל שנרחיב את הידע והמודעות שלנו על עצמנו — כך נרחיב את החופש והבחירה.</span></li>
+      <li class="bitem"><span class="n">02</span><span class="t">אנשים הם נשמות טהורות ואין־סופיות. הכל אפשרי — מעבר להגבלות של זמן ומקום.</span></li>
+      <li class="bitem"><span class="n">03</span><span class="t">אנחנו גם יצורים הישרדותיים, וההיכרות עם החלקים ההישרדותיים היא שמאפשרת להשתחרר ולהתרחב אל הנשמה.</span></li>
+      <li class="bitem"><span class="n">04</span><span class="t">לכל חלק בתוכנו יש תפקיד, והוא שמר עלינו בתקופה מסוימת. התפקיד שלנו הוא לשמוע את המסר, להכיר תודה על הדאגה — ולמצוא דרכים חדשות, שמאפשרות יותר חופש ובחירה.</span></li>
     </ul>
   </div>
 </section>
 
-<!-- TRANSFORMATION -->
+<!-- TRANSFORM -->
 <section class="transform reveal">
   <div class="wrap">
     <div class="transform-grid">
@@ -286,6 +315,21 @@
         <p>יש מקום למי שאת/ה. יש צורך בך ובמתנות שלך. לאט לאט נוצרים בהירות וחיבור — לגוף, לרגש, לצרכים ולרצונות. מבינים מה עוצר, ומקלפים את האמונות, הזיכרונות, הפחדים והדפוסים שמפריעים להתקדם — ולהיפתח אל האפשרויות הנפלאות שיש כאן.</p>
       </div>
       <div class="transform-img"><img src="assets/h-butterfly-2.jpg" alt="פרפר על עשב יבש" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAIC -->
+<section class="mosaic reveal center">
+  <div class="wrap-wide">
+    <span class="kicker">בין הפרטים</span>
+    <h2>המסע מתחיל בקטן</h2>
+    <p class="lead">בטבע, בגוף, ברגע אחד של קשב — שם נפתחת הבחירה.</p>
+    <div class="mgrid framed" style="gap:10px; background:transparent;">
+      <figure><img src="assets/m-water.jpg" alt="" /></figure>
+      <figure><img src="assets/m-leaf.jpg" alt="" /></figure>
+      <figure><img src="assets/m-wing.jpg" alt="" /></figure>
+      <figure><img src="assets/m-swirl.jpg" alt="" /></figure>
     </div>
   </div>
 </section>
@@ -302,7 +346,7 @@
       <a href="https://www.facebook.com/renee.tawil.5/" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg> פייסבוק</a>
     </div>
     <div class="nl">
-      <p style="color:var(--ink-soft); font-size:0.98rem; margin-bottom:6px;">או הישארו מעודכנים בהרצאות, סדנאות ותכנים חדשים:</p>
+      <p style="color:var(--ink-soft); font-size:0.97rem; margin-bottom:6px;">או הישארו מעודכנים בהרצאות, סדנאות ותכנים חדשים:</p>
       <div class="nl-form">
         <input type="email" id="nlEmail" placeholder="האימייל שלך" />
         <button id="nlBtn">הצטרפו ←</button>
@@ -340,11 +384,29 @@
     });
   });
 
+  /* gentle parallax */
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mq.matches) {
+    var qbg = document.getElementById('qbg');
+    var belBg = document.getElementById('belBg');
+    var ticking = false;
+    function px() {
+      [qbg, belBg].forEach(function (el) {
+        if (!el) return;
+        var r = el.parentElement.getBoundingClientRect();
+        var off = (r.top - window.innerHeight / 2) * -0.07;
+        el.style.transform = 'translateY(' + off + 'px)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(px); ticking = true; } }, { passive: true });
+    px();
+  }
+
   var SB_URL = 'https://pruogkxvrvighbezokgu.supabase.co';
   var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
   var sb = supabase.createClient(SB_URL, SB_KEY);
 
-  // ---- analytics (no cookies) ----
   function _source() {
     try {
       var p = new URLSearchParams(location.search);
@@ -361,18 +423,15 @@
       return h.slice(0, 32);
     } catch (e) { return 'לא ידוע'; }
   }
-  function _device() {
-    return (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
-  }
   try {
     if (!sessionStorage.getItem('ev_home_visit')) {
       sessionStorage.setItem('ev_home_visit', '1');
-      sb.from('page_views').insert({ page: 'home', event: 'visit', source: _source(), device: _device() }).then(function () {});
+      var dev = (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
+      sb.from('page_views').insert({ page: 'home', event: 'visit', source: _source(), device: dev }).then(function () {});
     }
   } catch (e) {}
 
-  var nlBtn = document.getElementById('nlBtn');
-  nlBtn.addEventListener('click', async function () {
+  document.getElementById('nlBtn').addEventListener('click', async function () {
     var email = document.getElementById('nlEmail').value.trim();
     var msg = document.getElementById('nlMsg');
     if (!email) { msg.textContent = 'אנא הזינו אימייל.'; msg.style.color = '#a0524a'; return; }
