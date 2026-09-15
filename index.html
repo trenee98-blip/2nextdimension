@@ -87,12 +87,20 @@
       .nav-links { display: none; }
       .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
     }
+    header.nav:not(.scrolled) .brand,
+    header.nav:not(.scrolled) .nav-links a,
+    header.nav:not(.scrolled) .nav-cta { color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-cta { border-color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-toggle svg { fill: #f4ecda !important; }
 
     /* ============ HERO ============ */
-    .hero { padding: 150px 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
-    .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto 28px; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(44,38,32,0.5); position: relative; overflow: hidden; }
-    .cosmic-strip::after { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
-    .hero .kicker { justify-content: center; font-size: 1.05rem; }
+    .hero { padding: 0 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
+    .hero-top { background: var(--dark); margin: 0 calc(-50vw + 50%) 46px; padding: 150px 24px 40px; position: relative; overflow: hidden; }
+    .hero-top::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.4; mix-blend-mode: screen; }
+    .hero-top .kicker, .hero-top .cosmic-strip { position: relative; z-index: 1; }
+    .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(0,0,0,0.5); }
+    .hero .kicker { justify-content: center; font-size: 1.05rem; color: #d9b978; margin-bottom: 22px; }
+    .hero .kicker::before { color: #d9b978; }
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
     .hero-row { display: flex; align-items: center; gap: clamp(18px, 4vw, 44px); max-width: 920px; margin: 0 auto; text-align: right; }
@@ -142,14 +150,13 @@
     .domain:last-child { margin-bottom: 0; }
     .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; text-align: center; }
     .dlabel::after { content: ''; display: block; width: 54px; height: 2px; background: var(--gold); margin: 16px auto 0; }
-    .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; }
+    .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; justify-items: center; }
+    .ditem .dimg { aspect-ratio: 4 / 5; width: 100%; max-width: 240px; overflow: hidden; position: relative; border: 1px solid var(--gold); }
     .ditem .dimg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s ease; }
     .ditem:hover .dimg img { transform: scale(1.07); }
-    .ditem .dcap { text-align: center; padding-top: 20px; }
-    .ditem .dcap::before { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; }
-    .ditem .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; color: var(--ink); line-height: 1.4; letter-spacing: 0.005em; }
-    @media (max-width: 620px) { .dgrid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; gap: 24px; } }
+    .ditem .dcap { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(247, 242, 232, 0.94); border-top: 1px solid var(--gold); padding: 12px 10px; text-align: center; }
+    .ditem .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(0.85rem, 1.8vw, 0.98rem); font-weight: 700; color: var(--ink); line-height: 1.35; }
+    @media (max-width: 620px) { .dgrid { grid-template-columns: 1fr 1fr; gap: 16px; } .ditem .dimg { max-width: 100%; } }
 
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
     .about { background: var(--bg-3); text-align: center; }
@@ -235,8 +242,10 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <span class="kicker">המסע למימד הבא</span>
-  <div class="cosmic-strip"></div>
+  <div class="hero-top">
+    <span class="kicker">המסע למימד הבא</span>
+    <div class="cosmic-strip"></div>
+  </div>
   <h1>לחיות מתוך<br /><em>חופש ובחירה</em></h1>
   <div class="hero-row">
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
@@ -335,24 +344,24 @@
     <div class="domain">
       <h3 class="dlabel">גוף</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">רגש</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">מחשבות</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div></div>
       </div>
     </div>
 
