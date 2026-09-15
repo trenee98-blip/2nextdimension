@@ -80,12 +80,17 @@
     .hero .kicker { justify-content: center; font-size: 1.05rem; }
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
-    .hero-gold { padding: 8px 24px 0; }
-    .hero-portrait { width: 168px; height: 168px; padding: 8px; margin: 0 auto 30px; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
+    .hero-row { display: flex; align-items: center; gap: 44px; max-width: 920px; margin: 0 auto; text-align: right; }
+    .hero-portrait { width: 260px; height: 260px; padding: 10px; flex-shrink: 0; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
-    .hero p.sub { font-size: clamp(1.1rem, 2.2vw, 1.32rem); color: var(--ink); max-width: 640px; margin: 0 auto; font-weight: 500; }
+    .hero p.sub { font-size: clamp(1.1rem, 2.2vw, 1.32rem); color: var(--ink); max-width: 460px; margin: 0; font-weight: 500; text-align: right; }
     .hero p.sub .sep { color: var(--gold); font-size: 0.8em; margin: 0 10px; }
     .hero .btn { margin-top: 40px; margin-bottom: 4px; }
+    @media (max-width: 720px) {
+      .hero-row { flex-direction: column; text-align: center; gap: 26px; }
+      .hero-portrait { width: 200px; height: 200px; }
+      .hero p.sub { text-align: center; max-width: 480px; margin: 0 auto; }
+    }
 
     /* ============ TRIAD (black & white) ============ */
     .triad { background: var(--bg-2); }
@@ -101,7 +106,7 @@
     .leapband { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 26px; position: relative; overflow: hidden; background: var(--dark); }
     .leapband .bg { position: absolute; inset: 0; background: url('assets/cosmos-amber.jpg') center / cover; opacity: 0.34; }
     .leapband::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(28,23,18,0.25), rgba(28,23,18,0.75)); }
-    .leapband p { position: relative; z-index: 1; font-family: 'Frank Ruhl Libre', serif; font-weight: 400; line-height: 1.4; font-size: clamp(1.3rem, 3.4vw, 2.2rem); color: #efe6d4; max-width: 900px; }
+    .leapband p { position: relative; z-index: 1; font-family: 'Frank Ruhl Libre', serif; font-weight: 400; line-height: 1.4; font-size: clamp(1.7rem, 4.6vw, 2.9rem); color: #efe6d4; max-width: 960px; }
     .leapband p span.hl2 { color: #e3b671; font-weight: 700; }
 
     /* ============ OFFERINGS ============ */
@@ -119,19 +124,16 @@
     .ocard p { color: var(--ink-soft); font-size: 0.97rem; flex: 1; }
     .ocard .go { margin-top: 16px; color: var(--gold-deep); font-weight: 600; font-size: 0.9rem; }
 
-    /* ============ FREE STATEMENT ============ */
-    .freeband { background: var(--bg-2); text-align: center; padding: clamp(56px, 8vw, 96px) 24px; }
-    .freeband .fstatement { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--ink); line-height: 1.5; max-width: 760px; margin: 0 auto; }
-
     /* ============ EXPLORE (3 domains x 2 items) ============ */
     .explore { background: var(--bg-2); }
     .domain { margin-bottom: clamp(48px, 7vw, 76px); }
     .domain:last-child { margin-bottom: 0; }
-    .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; }
+    .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; text-align: center; }
     .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 16px; }
-    .ditem .dimg img { width: 100%; height: 100%; object-fit: cover; }
-    .ditem p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.05rem, 2.2vw, 1.28rem); font-weight: 700; color: var(--ink); line-height: 1.5; }
+    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; position: relative; }
+    .ditem .dimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ditem .dcap { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); background: rgba(247, 242, 232, 0.88); padding: 18px 20px; text-align: center; }
+    .ditem .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.15rem, 2.6vw, 1.55rem); font-weight: 700; color: var(--ink); line-height: 1.4; }
     @media (max-width: 620px) { .dgrid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; gap: 24px; } }
 
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
@@ -211,11 +213,11 @@
   <span class="kicker">המסע למימד הבא</span>
   <div class="cosmic-strip"></div>
   <h1>לחיות מתוך<br /><em>חופש ובחירה</em></h1>
-  <div class="hero-gold">
+  <div class="hero-row">
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
     <p class="sub">
-      אני מלווה אנשים במסע <span class="hl">לחופש</span><span class="sep">✦</span><span class="hl">להרחבת בחירה</span> בחייהם<br />
-      מה שקשור ל<span class="hl">התמכרויות יומיומיות</span><span class="sep">✦</span>דרך <span class="hl">ליווי אישי, הרצאות וסדנאות</span>
+      <span class="hl">מלווה אנשים במסע לחופש</span><span class="sep">✦</span><span class="hl">להרחבת בחירה</span> בחייהם<br />
+      להשתחרר מ<span class="hl">התמכרויות יומיומיות</span><span class="sep">✦</span>דרך <span class="hl">ליווי אישי, הרצאות וסדנאות</span>
     </p>
   </div>
   <a href="#contact" class="btn">קביעת שיחת היכרות <svg><use href="#i-arrow"/></svg></a>
@@ -288,41 +290,45 @@
           <span class="go">בקרוב →</span>
         </div>
       </a>
+      <a href="lecture.html" class="ocard" style="--accent: #a8673f">
+        <div class="thumb"><img src="assets/h-card-addictions.jpg" alt="" /></div>
+        <div class="body">
+          <h3>התמכרויות יומיומיות</h3>
+          <p>מסך, אוכל, שינה, קשר לא מחובר — להכיר את הדפוסים ולמצוא דרך חזרה לבחירה.</p>
+          <span class="go">על ההרצאה →</span>
+        </div>
+      </a>
     </div>
   </div>
-</section>
-
-<!-- FREE STRIP -->
-<section class="freeband reveal">
-  <p class="fstatement">המסע חזרה לעצמי — להשתחרר ממה שמגביל אותי</p>
 </section>
 
 <!-- EXPLORE -->
 <section class="explore reveal">
   <div class="wrap">
     <span class="kicker">תחומי התבוננות</span>
+    <h2>המסע חזרה לעצמי — להשתחרר ממה שמגביל אותי</h2>
 
     <div class="domain">
       <h3 class="dlabel">גוף</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" /></div><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" /></div><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">רגש</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" /></div><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" /></div><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">מחשבות</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" /></div><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" /></div><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div></div>
       </div>
     </div>
 
@@ -339,10 +345,10 @@
     </div>
     <div class="about-body">
       <div class="name">ריני טוויל</div>
-      <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד אשמה ובושה.</p>
+      <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד, אשמה ובושה.</p>
       <p>מתוך המסע שלי מהתמכרות אל גמילה, פגשתי מקרוב מה זה להיות <span class="hl">כלוא</span> בתוך חיים שמובילים אותך למקומות שלא רצית להיות בהם — ומה זה <span class="hl">למצוא את הדרך החוצה</span>.</p>
       <p>מתוך הכאב הזה גיליתי שהתמכרות <span class="hl">איננה חולשה</span> — היא <span class="hl">מנגנון הישרדות</span> של גוף שלא יודע איך להכיל כאב.</p>
-      <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת חופש ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
+      <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת משמעות ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
       <div style="text-align:center;"><a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
