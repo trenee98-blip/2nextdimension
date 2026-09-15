@@ -80,13 +80,12 @@
     .hero .kicker { justify-content: center; font-size: 1.05rem; }
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
-    .hero-gold { background: url('assets/n-gold-bg.jpg') center / cover; padding: 46px 24px 50px; margin: 0 calc(-50vw + 50%); }
-    .hero-portrait { width: 148px; height: 148px; border-radius: 50%; overflow: hidden; margin: 0 auto 30px; border: 3px solid #f4ecda; box-shadow: 0 14px 34px -12px rgba(28,20,10,0.55); }
+    .hero-gold { padding: 8px 24px 0; }
+    .hero-portrait { width: 168px; height: 168px; padding: 8px; margin: 0 auto 30px; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
-    .hero p.sub { font-size: clamp(1.1rem, 2.2vw, 1.32rem); color: #2a1e10; max-width: 640px; margin: 0 auto; font-weight: 600; background: rgba(250, 243, 227, 0.72); padding: 20px 26px; border-radius: 3px; backdrop-filter: blur(1px); }
-    .hero p.sub .sep { color: var(--gold-deep); font-size: 0.8em; margin: 0 10px; }
-    .hero p.sub .hl { color: #3e2a12; }
-    .hero .btn { margin-top: 32px; margin-bottom: 4px; }
+    .hero p.sub { font-size: clamp(1.1rem, 2.2vw, 1.32rem); color: var(--ink); max-width: 640px; margin: 0 auto; font-weight: 500; }
+    .hero p.sub .sep { color: var(--gold); font-size: 0.8em; margin: 0 10px; }
+    .hero .btn { margin-top: 40px; margin-bottom: 4px; }
 
     /* ============ TRIAD (black & white) ============ */
     .triad { background: var(--bg-2); }
@@ -95,15 +94,14 @@
     .tlabel { display: block; font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.3rem, 2.6vw, 1.6rem); font-weight: 700; margin-bottom: 16px; color: var(--ink); }
     .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); }
     .timg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tcap { display: block; margin-top: 16px; font-size: 1.02rem; color: var(--ink-soft); font-style: italic; font-family: 'Frank Ruhl Libre', serif; }
+    .tcap { display: block; margin-top: 18px; font-size: 1.2rem; font-weight: 700; color: var(--ink); font-family: 'Frank Ruhl Libre', serif; }
     @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 44px; max-width: 360px; margin: 0 auto; } }
 
     /* ============ LEAP statement (dark, cosmic) ============ */
     .leapband { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 26px; position: relative; overflow: hidden; background: var(--dark); }
     .leapband .bg { position: absolute; inset: 0; background: url('assets/cosmos-amber.jpg') center / cover; opacity: 0.34; }
     .leapband::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(28,23,18,0.25), rgba(28,23,18,0.75)); }
-    .leapband p { position: relative; z-index: 1; font-family: 'Frank Ruhl Libre', serif; font-weight: 400; line-height: 1.4; }
-    .leapband p span { display: block; font-size: clamp(1.5rem, 4vw, 2.6rem); color: #efe6d4; }
+    .leapband p { position: relative; z-index: 1; font-family: 'Frank Ruhl Libre', serif; font-weight: 400; line-height: 1.4; font-size: clamp(1.3rem, 3.4vw, 2.2rem); color: #efe6d4; max-width: 900px; }
     .leapband p span.hl2 { color: #e3b671; font-weight: 700; }
 
     /* ============ OFFERINGS ============ */
@@ -121,33 +119,30 @@
     .ocard p { color: var(--ink-soft); font-size: 0.97rem; flex: 1; }
     .ocard .go { margin-top: 16px; color: var(--gold-deep); font-weight: 600; font-size: 0.9rem; }
 
-    /* ============ FREE STRIP (horses) ============ */
-    .freeband { background: var(--bg-2); text-align: center; }
-    .freeband .fimgwrap { max-width: 900px; margin: 0 auto; padding: 10px; border: 1px solid var(--gold); background: var(--card); }
-    .freeband .fimgwrap img { width: 100%; height: clamp(220px, 34vw, 340px); object-fit: cover; object-position: center 78%; display: block; }
-    .freeband .fstatement { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.4rem, 3.4vw, 2.1rem); color: var(--ink); line-height: 1.5; max-width: 760px; margin: 38px auto 0; }
+    /* ============ FREE STATEMENT ============ */
+    .freeband { background: var(--bg-2); text-align: center; padding: clamp(56px, 8vw, 96px) 24px; }
+    .freeband .fstatement { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--ink); line-height: 1.5; max-width: 760px; margin: 0 auto; }
 
-    /* ============ EXPLORE (5-item alternating rows) ============ */
+    /* ============ EXPLORE (3 domains x 2 items) ============ */
     .explore { background: var(--bg-2); }
-    .triadtag { text-align: center; font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.6rem); color: var(--ink); margin-bottom: 56px; }
-    .triadtag .dot { color: var(--gold); margin: 0 14px; }
-    .explist { display: grid; gap: 30px; }
-    .exrow { display: flex; align-items: center; gap: 34px; }
-    .exrow.rev { flex-direction: row-reverse; }
-    .exrow .eximg { width: 42%; flex-shrink: 0; aspect-ratio: 3 / 4; overflow: hidden; }
-    .exrow .eximg img { width: 100%; height: 100%; object-fit: cover; }
-    .exrow p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.2rem, 2.6vw, 1.55rem); font-weight: 700; color: var(--ink); line-height: 1.5; }
-    @media (max-width: 640px) { .exrow, .exrow.rev { flex-direction: column; text-align: center; } .exrow .eximg { width: 60%; max-width: 260px; } }
+    .domain { margin-bottom: clamp(48px, 7vw, 76px); }
+    .domain:last-child { margin-bottom: 0; }
+    .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; }
+    .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 16px; }
+    .ditem .dimg img { width: 100%; height: 100%; object-fit: cover; }
+    .ditem p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.05rem, 2.2vw, 1.28rem); font-weight: 700; color: var(--ink); line-height: 1.5; }
+    @media (max-width: 620px) { .dgrid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; gap: 24px; } }
 
-    /* ============ ABOUT ============ */
-    .about { background: var(--bg-3); }
-    .about-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 60px; align-items: center; }
-    .about-grid.flip { grid-template-columns: 1.18fr 0.82fr; }
-    .about-grid.flip .about-photo { order: 2; }
-    .about-photo > img { width: 100%; border-radius: 3px; }
-    .about .name { font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold-deep); margin-bottom: 6px; }
+    /* ============ ABOUT (stacked: heading, photo, bio) ============ */
+    .about { background: var(--bg-3); text-align: center; }
+    .about .kicker { justify-content: center; }
+    .about-photo { max-width: 380px; margin: 0 auto 44px; padding: 10px; border: 1px solid var(--gold); background: var(--card); }
+    .about-photo > img { width: 100%; display: block; }
+    .about-body { max-width: 680px; margin: 0 auto; text-align: right; }
+    .about .name { font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold-deep); margin-bottom: 6px; text-align: center; }
     .about p { color: var(--ink); margin-bottom: 18px; }
-    @media (max-width: 860px) { .about-grid, .about-grid.flip { grid-template-columns: 1fr; gap: 46px; } .about-grid.flip .about-photo { order: 0; } .about-photo { max-width: 360px; margin: 0 auto; } }
+    .about .link-more { margin-top: 6px; }
 
     /* ============ BELIEFS ============ */
     .beliefs { background: var(--dark); color: #efe6d4; position: relative; overflow: hidden; }
@@ -252,7 +247,7 @@
 <!-- LEAP statement -->
 <section class="leapband reveal">
   <div class="bg"></div>
-  <p><span>יש אפשרות</span><span>לעשות קפיצות בחיים</span><span class="hl2">למימדים חדשים</span></p>
+  <p>יש אפשרות לעשות קפיצות בחיים <span class="hl2">למימדים חדשים</span></p>
 </section>
 
 <!-- OFFERINGS -->
@@ -299,44 +294,56 @@
 
 <!-- FREE STRIP -->
 <section class="freeband reveal">
-  <div class="wrap">
-    <div class="fimgwrap"><img src="assets/n-strip12.jpg" alt="סוסים דוהרים בשעת שקיעה" /></div>
-    <p class="fstatement">המסע חזרה לעצמי — להשתחרר ממה שמגביל אותי</p>
-  </div>
+  <p class="fstatement">המסע חזרה לעצמי — להשתחרר ממה שמגביל אותי</p>
 </section>
 
 <!-- EXPLORE -->
 <section class="explore reveal">
   <div class="wrap">
     <span class="kicker">תחומי התבוננות</span>
-    <p class="triadtag">גוף<span class="dot">·</span>רגש<span class="dot">·</span>מחשבה</p>
-    <div class="explist">
-      <div class="exrow"><div class="eximg"><img src="assets/n8-mechanisms.jpg" alt="" /></div><p>הרחבת הידע על מנגנונים הישרדותיים</p></div>
-      <div class="exrow rev"><div class="eximg"><img src="assets/n9-body.jpg" alt="" /></div><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
-      <div class="exrow"><div class="eximg"><img src="assets/n6-patterns.jpg" alt="" /></div><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
-      <div class="exrow rev"><div class="eximg"><img src="assets/n11-beliefs.jpg" alt="" /></div><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
-      <div class="exrow"><div class="eximg"><img src="assets/n13-story.jpg" alt="" /></div><p>הבנה של הסיפור שאנחנו מספרים</p></div>
+
+    <div class="domain">
+      <h3 class="dlabel">גוף</h3>
+      <div class="dgrid">
+        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" /></div><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" /></div><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
+      </div>
     </div>
+
+    <div class="domain">
+      <h3 class="dlabel">רגש</h3>
+      <div class="dgrid">
+        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" /></div><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" /></div><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
+      </div>
+    </div>
+
+    <div class="domain">
+      <h3 class="dlabel">מחשבות</h3>
+      <div class="dgrid">
+        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" /></div><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" /></div><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about reveal" id="about">
   <div class="wrap">
-    <div class="about-grid flip">
-      <div class="about-photo">
-        <img src="assets/n5-about.jpg" alt="ריני טוויל" />
-      </div>
-      <div>
-        <span class="kicker">נעים להכיר</span>
-        <h2>החופש להיות אני</h2>
-        <div class="name">ריני טוויל</div>
-        <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד אשמה ובושה.</p>
-        <p>מתוך המסע שלי מהתמכרות אל גמילה, פגשתי מקרוב מה זה להיות <span class="hl">כלוא</span> בתוך חיים שמובילים אותך למקומות שלא רצית להיות בהם — ומה זה <span class="hl">למצוא את הדרך החוצה</span>.</p>
-        <p>מתוך הכאב הזה גיליתי שהתמכרות <span class="hl">איננה חולשה</span> — היא <span class="hl">מנגנון הישרדות</span> של גוף שלא יודע איך להכיל כאב.</p>
-        <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת חופש ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
-        <a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a>
-      </div>
+    <span class="kicker">נעים להכיר</span>
+    <h2>החופש להיות אני</h2>
+    <div class="about-photo">
+      <img src="assets/n5-about.jpg" alt="ריני טוויל" />
+    </div>
+    <div class="about-body">
+      <div class="name">ריני טוויל</div>
+      <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד אשמה ובושה.</p>
+      <p>מתוך המסע שלי מהתמכרות אל גמילה, פגשתי מקרוב מה זה להיות <span class="hl">כלוא</span> בתוך חיים שמובילים אותך למקומות שלא רצית להיות בהם — ומה זה <span class="hl">למצוא את הדרך החוצה</span>.</p>
+      <p>מתוך הכאב הזה גיליתי שהתמכרות <span class="hl">איננה חולשה</span> — היא <span class="hl">מנגנון הישרדות</span> של גוף שלא יודע איך להכיל כאב.</p>
+      <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת חופש ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
+      <div style="text-align:center;"><a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
 </section>
