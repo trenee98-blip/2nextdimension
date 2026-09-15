@@ -90,7 +90,8 @@
 
     /* ============ HERO ============ */
     .hero { padding: 150px 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
-    .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto 28px; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(44,38,32,0.5); }
+    .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto 28px; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(44,38,32,0.5); position: relative; overflow: hidden; }
+    .cosmic-strip::after { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
     .hero .kicker { justify-content: center; font-size: 1.05rem; }
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
@@ -105,11 +106,12 @@
     .triad { background: var(--bg-2); }
     .triad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
     .triad-grid figure { text-align: center; }
-    .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); position: relative; overflow: hidden; }
+    .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); overflow: hidden; }
     .timg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s ease; }
     figure:hover .timg img { transform: scale(1.06); }
-    .tcap { position: absolute; top: 50%; left: 12px; right: 12px; transform: translateY(-50%); background: rgba(247, 242, 232, 0.9); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); padding: 14px 12px; }
-    .tcap p { font-size: clamp(1.05rem, 2.4vw, 1.32rem); font-weight: 700; color: var(--ink); font-family: 'Frank Ruhl Libre', serif; white-space: nowrap; }
+    .tcap { padding-top: 20px; }
+    .tcap::before { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; }
+    .tcap p { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 700; color: var(--ink); font-family: 'Frank Ruhl Libre', serif; }
     @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 44px; max-width: 360px; margin: 0 auto; } }
 
     /* ============ LEAP statement (dark, cosmic) ============ */
@@ -141,12 +143,12 @@
     .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; text-align: center; }
     .dlabel::after { content: ''; display: block; width: 54px; height: 2px; background: var(--gold); margin: 16px auto 0; }
     .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; position: relative; }
+    .ditem .dimg { aspect-ratio: 4 / 5; overflow: hidden; }
     .ditem .dimg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s ease; }
     .ditem:hover .dimg img { transform: scale(1.07); }
-    .ditem .dcap { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); background: rgba(247, 242, 232, 0.9); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); padding: 20px 20px; text-align: center; }
+    .ditem .dcap { text-align: center; padding-top: 20px; }
     .ditem .dcap::before { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; }
-    .ditem .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 700; color: var(--ink); line-height: 1.4; letter-spacing: 0.005em; }
+    .ditem .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; color: var(--ink); line-height: 1.4; letter-spacing: 0.005em; }
     @media (max-width: 620px) { .dgrid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; gap: 24px; } }
 
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
@@ -253,13 +255,16 @@
   <div class="wrap">
     <div class="triad-grid">
       <figure>
-        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" loading="lazy" decoding="async" /><div class="tcap"><p>חמלה — אהבה נדיבה</p></div></div>
+        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" loading="lazy" decoding="async" /></div>
+        <div class="tcap"><p>חמלה — אהבה נדיבה</p></div>
       </figure>
       <figure>
-        <div class="timg"><img src="assets/n2-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /><div class="tcap"><p>בחירה — מי אני רוצה להיות?</p></div></div>
+        <div class="timg"><img src="assets/n2-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /></div>
+        <div class="tcap"><p>בחירה — מי אני רוצה להיות?</p></div>
       </figure>
       <figure>
-        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" loading="lazy" decoding="async" /><div class="tcap"><p>נוכחות — להאט ולשהות</p></div></div>
+        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" loading="lazy" decoding="async" /></div>
+        <div class="tcap"><p>נוכחות — להאט ולשהות</p></div>
       </figure>
     </div>
   </div>
@@ -330,24 +335,24 @@
     <div class="domain">
       <h3 class="dlabel">גוף</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">רגש</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">מחשבות</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /></div><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div>
       </div>
     </div>
 
