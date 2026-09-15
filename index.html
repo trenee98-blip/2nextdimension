@@ -9,8 +9,13 @@
   <meta property="og:description" content="מלווה אנשים במסע לחופש ולהרחבת בחירה בחייהם — ליווי אישי, הרצאות וסדנאות." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.2nextdimension.com" />
-  <meta property="og:image" content="https://www.2nextdimension.com/assets/n1-compassion.jpg" />
+  <meta property="og:image" content="https://www.2nextdimension.com/assets/n-rini-portrait.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ריני טוויל — לחיות מתוך חופש ובחירה" />
+  <meta name="twitter:description" content="מלווה אנשים במסע לחופש ולהרחבת בחירה בחייהם — ליווי אישי, הרצאות וסדנאות." />
+  <meta name="twitter:image" content="https://www.2nextdimension.com/assets/n-rini-portrait.jpg" />
   <meta name="theme-color" content="#f7f2e8" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231c1712'/%3E%3Ctext x='50' y='69' font-size='56' text-anchor='middle' fill='%23b0863c' font-family='Georgia,serif'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,7 +77,16 @@
     .nav-links a:hover { color: var(--gold-deep); }
     .nav-cta { font-size: 0.88rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 9px 20px; border-radius: 2px; transition: background .25s, color .25s; }
     .nav-cta:hover { background: var(--ink); color: var(--bg); }
-    @media (max-width: 880px) { .nav-links { display: none; } }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; margin-inline-start: 6px; }
+    .nav-toggle svg { width: 24px; height: 24px; fill: var(--ink); }
+    .nav-mobile { display: none; flex-direction: column; background: rgba(247, 242, 232, 0.97); backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 6px 24px 14px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { padding: 14px 0; color: var(--ink); text-decoration: none; font-size: 1.02rem; font-weight: 600; border-bottom: 1px solid var(--line); }
+    .nav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    }
 
     /* ============ HERO ============ */
     .hero { padding: 150px 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
@@ -91,10 +105,11 @@
     .triad { background: var(--bg-2); }
     .triad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
     .triad-grid figure { text-align: center; }
-    .tlabel { display: block; font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.3rem, 2.6vw, 1.6rem); font-weight: 700; margin-bottom: 16px; color: var(--ink); }
-    .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); }
-    .timg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tcap { display: block; margin-top: 18px; font-size: 1.2rem; font-weight: 700; color: var(--ink); font-family: 'Frank Ruhl Libre', serif; }
+    .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); position: relative; overflow: hidden; }
+    .timg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s ease; }
+    figure:hover .timg img { transform: scale(1.06); }
+    .tcap { position: absolute; top: 50%; left: 12px; right: 12px; transform: translateY(-50%); background: rgba(247, 242, 232, 0.9); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); padding: 14px 12px; }
+    .tcap p { font-size: clamp(1.05rem, 2.4vw, 1.32rem); font-weight: 700; color: var(--ink); font-family: 'Frank Ruhl Libre', serif; white-space: nowrap; }
     @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 44px; max-width: 360px; margin: 0 auto; } }
 
     /* ============ LEAP statement (dark, cosmic) ============ */
@@ -106,8 +121,8 @@
 
     /* ============ OFFERINGS ============ */
     .offerings { background: var(--bg); }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; }
-    .ocard { background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
+    .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
+    .ocard { flex: 1 1 250px; max-width: 340px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
     .ocard:hover { transform: translateY(-6px); box-shadow: 0 22px 48px -20px rgba(44,38,32,0.32); }
     .ocard .thumb { aspect-ratio: 5 / 4; overflow: hidden; position: relative; }
     .ocard .thumb::after { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--accent, var(--gold)); transform: scaleX(0); transform-origin: right; transition: transform .35s; }
@@ -191,6 +206,7 @@
   <symbol id="i-mail" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 3.2l-8 5-8-5V17h16v-6.8z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0112 4zm4.5 10.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7 1.8 2.9 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></symbol>
 </svg>
 
 <header class="nav" id="nav">
@@ -203,7 +219,16 @@
       <a href="#contact">צור קשר</a>
     </nav>
     <a href="#contact" class="nav-cta">שיחת היכרות</a>
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navMobile">
+      <svg><use href="#i-menu"/></svg>
+    </button>
   </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="#about">נעים להכיר</a>
+    <a href="coaching.html">אימון אישי</a>
+    <a href="lecture.html">הרצאות</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -214,8 +239,10 @@
   <div class="hero-row">
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
     <p class="sub">
-      <span class="hl">מלווה אנשים במסע לחופש</span><span class="sep">✦</span><span class="hl">להרחבת בחירה</span> בחייהם<br />
-      להשתחרר מ<span class="hl">התמכרויות יומיומיות</span><span class="sep">✦</span>דרך <span class="hl">ליווי אישי, הרצאות וסדנאות</span>
+      <span class="sep">✦</span><span class="hl">מלווה אנשים במסע לחופש</span><span class="sep">✦</span><br />
+      להרחבת בחירה בחייהם<br />
+      <span class="sep">✦</span><span class="hl">להשתחרר מהתמכרויות יומיומיות</span><span class="sep">✦</span><br />
+      דרך ליווי אישי, הרצאות וסדנאות
     </p>
   </div>
   <a href="#contact" class="btn">קביעת שיחת היכרות <svg><use href="#i-arrow"/></svg></a>
@@ -226,19 +253,13 @@
   <div class="wrap">
     <div class="triad-grid">
       <figure>
-        <span class="tlabel">חמלה</span>
-        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" /></div>
-        <span class="tcap">אהבה נדיבה</span>
+        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" loading="lazy" decoding="async" /><div class="tcap"><p>חמלה — אהבה נדיבה</p></div></div>
       </figure>
       <figure>
-        <span class="tlabel">בחירה</span>
-        <div class="timg"><img src="assets/n2-choice.jpg" alt="מבט נמר" /></div>
-        <span class="tcap">מי אני רוצה להיות?</span>
+        <div class="timg"><img src="assets/n2-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /><div class="tcap"><p>בחירה — מי אני רוצה להיות?</p></div></div>
       </figure>
       <figure>
-        <span class="tlabel">נוכחות</span>
-        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" /></div>
-        <span class="tcap">להאט ולשהות</span>
+        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" loading="lazy" decoding="async" /><div class="tcap"><p>נוכחות — להאט ולשהות</p></div></div>
       </figure>
     </div>
   </div>
@@ -257,7 +278,7 @@
     <h2 style="margin-bottom:44px;">איך לעבוד יחד</h2>
     <div class="cards">
       <a href="coaching.html" class="ocard" style="--accent: var(--berry)">
-        <div class="thumb"><img src="assets/h-card-coaching.jpg" alt="" /></div>
+        <div class="thumb"><img src="assets/h-card-coaching.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>אימון אישי</h3>
           <p>תהליך 1:1 להרחבת הבחירה — לקילוף אמונות, זיכרונות ודפוסים, ולחיבור למי שאת/ה באמת.</p>
@@ -265,7 +286,7 @@
         </div>
       </a>
       <a href="lecture.html" class="ocard" style="--accent: var(--teal)">
-        <div class="thumb"><img src="assets/h-card-lectures.jpg" alt="" /></div>
+        <div class="thumb"><img src="assets/h-card-lectures.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>הרצאות</h3>
           <p>ערבים חווייתיים על פחד, בריחה, התמכרויות יומיומיות — והחופש לבחור אחרת.</p>
@@ -273,7 +294,7 @@
         </div>
       </a>
       <a href="#contact" class="ocard" style="--accent: var(--gold)">
-        <div class="thumb"><img src="assets/h-card-workshops.jpg" alt="" /></div>
+        <div class="thumb"><img src="assets/h-card-workshops.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>סדנאות ומעגלים</h3>
           <p>עבודה קבוצתית עמוקה, בקצב שמאפשר לתהליך להתרחש — יחד.</p>
@@ -281,7 +302,7 @@
         </div>
       </a>
       <a href="#contact" class="ocard" style="--accent: #7d8b6a">
-        <div class="thumb"><img src="assets/h-card-meditation.jpg" alt="" /></div>
+        <div class="thumb"><img src="assets/h-card-meditation.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>מדיטציות ותכנים</h3>
           <p>תרגול לחיבור לגוף, לרגש ולרצון — לקחת הביתה ולתרגל ביום־יום.</p>
@@ -289,7 +310,7 @@
         </div>
       </a>
       <a href="lecture.html" class="ocard" style="--accent: #a8673f">
-        <div class="thumb"><img src="assets/h-card-addictions.jpg" alt="" /></div>
+        <div class="thumb"><img src="assets/h-card-addictions.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>התמכרויות יומיומיות</h3>
           <p>מסך, אוכל, שינה, קשר לא מחובר — להכיר את הדפוסים ולמצוא דרך חזרה לבחירה.</p>
@@ -309,24 +330,24 @@
     <div class="domain">
       <h3 class="dlabel">גוף</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">רגש</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div></div>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">מחשבות</h3>
       <div class="dgrid">
-        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div></div>
-        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div></div>
+        <div class="ditem"><div class="dimg"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div></div>
       </div>
     </div>
 
@@ -339,7 +360,7 @@
     <span class="kicker">נעים להכיר</span>
     <h2>החופש להיות אני</h2>
     <div class="about-photo">
-      <img src="assets/n5-about.jpg" alt="ריני טוויל" />
+      <img src="assets/n5-about.jpg" alt="ריני טוויל" loading="lazy" decoding="async" />
     </div>
     <div class="about-body">
       <div class="name">ריני טוויל</div>
@@ -404,6 +425,19 @@
   var nav = document.getElementById('nav');
   var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 30); };
   onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  var navToggle = document.getElementById('navToggle');
+  var navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', function () {
+    var open = navMobile.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navMobile.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      navMobile.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
