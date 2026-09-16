@@ -104,7 +104,7 @@
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
     .hero-row { display: flex; align-items: center; gap: clamp(18px, 4vw, 44px); max-width: 920px; margin: 0 auto; text-align: right; }
-    .hero-portrait { width: clamp(130px, 34vw, 260px); height: clamp(130px, 34vw, 260px); padding: clamp(6px, 1.2vw, 10px); flex-shrink: 0; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
+    .hero-portrait { width: clamp(150px, 38vw, 320px); height: clamp(150px, 38vw, 320px); padding: clamp(6px, 1.2vw, 10px); flex-shrink: 0; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
     .hero p.sub { font-size: clamp(0.95rem, 2.6vw, 1.32rem); color: var(--ink); flex: 1; min-width: 0; margin: 0; font-weight: 500; text-align: right; }
     .hero p.sub .sep { color: var(--gold); font-size: 0.8em; margin: 0 8px; }
@@ -150,18 +150,15 @@
     .domain:last-child { margin-bottom: 0; }
     .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; text-align: center; }
     .dlabel::after { content: ''; display: block; width: 54px; height: 2px; background: var(--gold); margin: 16px auto 0; }
-    .dsplit { display: flex; max-width: 640px; margin: 0 auto; border: 1px solid var(--gold); overflow: hidden; }
-    .dhalf { flex: 1 1 50%; aspect-ratio: 3 / 4; position: relative; overflow: hidden; }
-    .dhalf + .dhalf { border-inline-start: 1px solid var(--gold); }
-    .dhalf img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .7s ease; }
-    .dhalf:hover img { transform: scale(1.07); }
-    .dhalf .dcap { position: absolute; left: 0; right: 0; bottom: 0; height: 100px; display: flex; align-items: center; justify-content: center; background: rgba(247, 242, 232, 0.94); border-top: 1px solid var(--gold); padding: 8px 12px; text-align: center; }
-    .dhalf .dcap p { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(0.92rem, 2vw, 1.1rem); font-weight: 700; color: var(--ink); line-height: 1.3; }
-    @media (max-width: 560px) {
-      .dsplit { flex-direction: column; max-width: 320px; }
-      .dhalf { aspect-ratio: 4 / 3; }
-      .dhalf + .dhalf { border-inline-start: none; border-block-start: 1px solid var(--gold); }
-    }
+    .dsingle { max-width: 760px; margin: 0 auto; text-align: center; }
+    .dsingle p { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: var(--ink); line-height: 1.55; }
+    .dsingle .dtop { margin-bottom: 16px; }
+    .dsingle .dtop::after { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-top: 16px; }
+    .dsingle .dbottom { margin-top: 16px; }
+    .dsingle .dbottom::before { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 16px; }
+    .dsingle .dphoto { aspect-ratio: 16 / 7; overflow: hidden; border: 1px solid var(--gold); }
+    .dsingle .dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+    .dsingle:hover .dphoto img { transform: scale(1.05); }
 
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
     .about { background: var(--bg-3); text-align: center; }
@@ -348,25 +345,28 @@
 
     <div class="domain">
       <h3 class="dlabel">גוף</h3>
-      <div class="dsplit">
-        <div class="dhalf"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div></div>
-        <div class="dhalf"><img src="assets/n8-mechanisms.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div></div>
+      <div class="dsingle">
+        <p class="dtop">הרחבת הידע על המנגנון ההישרדותי ותגובתי</p>
+        <div class="dphoto"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <p class="dbottom">תרגול מודעות ונוכחות דרך חיבור לגוף</p>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">רגש</h3>
-      <div class="dsplit">
-        <div class="dhalf"><img src="assets/n-water.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div></div>
-        <div class="dhalf"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div></div>
+      <div class="dsingle">
+        <p class="dtop">הגדרת רגשות והבנה איך הם משרתים אותנו</p>
+        <div class="dphoto"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <p class="dbottom">התבוננות על עצמנו דרך דפוסים והרגלים</p>
       </div>
     </div>
 
     <div class="domain">
       <h3 class="dlabel">מחשבות</h3>
-      <div class="dsplit">
-        <div class="dhalf"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div></div>
-        <div class="dhalf"><img src="assets/n13-story.jpg" alt="" loading="lazy" decoding="async" /><div class="dcap"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div></div>
+      <div class="dsingle">
+        <p class="dtop">הבנה של הסיפור שאנחנו מספרים לעצמנו</p>
+        <div class="dphoto"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <p class="dbottom">חשיפת האמונות והפרדיגמות שאימצנו</p>
       </div>
     </div>
 
