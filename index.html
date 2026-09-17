@@ -97,16 +97,15 @@
     .hero { padding: 0 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
     .hero-top { background: var(--dark); margin: 0 calc(-50vw + 50%) 46px; padding: 150px 24px 40px; position: relative; overflow: hidden; }
     .hero-top::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.4; mix-blend-mode: screen; }
-    .hero-top .kicker, .hero-top .cosmic-strip, .hero-top .free-banner, .hero-top h1, .hero-top .hero-portrait { position: relative; z-index: 1; }
+    .hero-top .kicker, .hero-top .cosmic-strip, .hero-top .free-banner, .hero-top .hero-portrait { position: relative; z-index: 1; }
     .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(0,0,0,0.5); }
     .hero .kicker { justify-content: center; font-size: 1.05rem; color: #d9b978; margin-bottom: 22px; }
     .hero .kicker::before, .hero .kicker::after { color: #d9b978; }
     .free-banner { display: block; width: 100%; max-width: 560px; margin: 36px auto; }
-    .hero h1 { display: inline-block; border: 1px solid var(--gold); padding: clamp(16px, 2.6vw, 24px) clamp(28px, 5vw, 48px); margin: 0 auto 40px; font-size: clamp(1.8rem, 4.4vw, 2.9rem); font-weight: 700; letter-spacing: -0.01em; color: #f4ecda; }
-    .hero h1 em { font-style: normal; color: var(--gold); }
     .hero-portrait { width: clamp(300px, 72vw, 570px); height: clamp(300px, 72vw, 570px); margin: 0 auto; border: none; background: transparent; box-shadow: none; padding: 0; }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
-    .hero p.sub { font-size: clamp(0.95rem, 2.6vw, 1.32rem); color: var(--ink); max-width: 640px; margin: 40px auto 0; font-weight: 500; text-align: center; }
+    .hero h1 { font-size: clamp(1.15rem, 3.6vw, 2.2rem); font-weight: 700; color: var(--berry); white-space: nowrap; margin: 40px auto 14px; letter-spacing: -0.01em; }
+    .hero p.sub { font-size: clamp(0.95rem, 2.6vw, 1.32rem); color: var(--ink); max-width: 640px; margin: 0 auto; font-weight: 500; text-align: center; }
     .hero p.sub .sep { color: var(--gold); font-size: 0.8em; margin: 0 8px; }
     .hero .btn { margin-top: 40px; margin-bottom: 4px; }
 
@@ -153,9 +152,8 @@
     .dsingle .dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
     .dsingle:hover .dphoto img { transform: scale(1.05); }
     .dlabel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(247, 242, 232, 0.92); border: 1px solid var(--gold); padding: 10px 32px; font-family: 'Noto Serif Hebrew', serif; font-weight: 900; font-size: clamp(1.5rem, 3.4vw, 2.3rem); color: var(--ink); white-space: nowrap; }
-    .dcap2 { background: var(--berry); padding: clamp(20px, 3.5vw, 30px) clamp(24px, 5vw, 44px); }
+    .dcap2 { background: var(--berry); padding: clamp(18px, 3vw, 26px) clamp(24px, 5vw, 44px); }
     .dcap2 p { font-weight: 700; font-size: clamp(1.05rem, 2.3vw, 1.35rem); color: #f4ecda; line-height: 1.6; }
-    .dcap2 .dstar { color: var(--gold); margin: 0 14px; font-size: 0.85em; }
     .hl-flourish { color: var(--berry); }
     .hl-flourish::before, .hl-flourish::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--berry); vertical-align: middle; margin: 0 10px; }
 
@@ -263,9 +261,9 @@
     <span class="kicker">המסע למימד הבא</span>
     <div class="cosmic-strip"></div>
     <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
-    <h1>לחיות מתוך<br /><em>חופש ובחירה</em></h1>
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
   </div>
+  <h1>לחיות מתוך חופש ובחירה</h1>
   <p class="sub">
     <span class="sep">✦</span><span class="hl">מלווה אנשים במסע לחופש</span><span class="sep">✦</span><br />
     להרחבת בחירה בחייהם<br />
@@ -354,7 +352,7 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials reveal" id="testimonials">
   <div class="wrap">
-    <div class="t-photo"><img src="assets/n16-testimonial.jpg" alt="ריני טוויל" loading="lazy" decoding="async" /></div>
+    <div class="t-photo"><img src="assets/n15-testimonial.jpg" alt="ריני טוויל" loading="lazy" decoding="async" /></div>
     <span class="kicker">המלצות</span>
     <h2>קצת ממה שכתבו לי</h2>
     <div class="qr-stage">
@@ -406,35 +404,38 @@
 <section class="explore reveal">
   <div class="wrap">
     <span class="kicker">תחומי התבוננות</span>
-    <h2>המסע חזרה לעצמי — <span class="hl-flourish">להשתחרר</span> ממה שמגביל אותי</h2>
+    <h2>המסע חזרה לעצמי <span class="hl-flourish">להשתחרר</span> ממה שמגביל אותי</h2>
 
     <div class="domain">
       <div class="dsingle">
+        <div class="dcap2"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
         <div class="dphoto">
           <img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" />
           <h3 class="dlabel">גוף</h3>
         </div>
-        <div class="dcap2"><p>תרגול מודעות ונוכחות דרך חיבור לגוף <span class="dstar">✦</span> הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
+        <div class="dcap2"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
       </div>
     </div>
 
     <div class="domain">
       <div class="dsingle">
+        <div class="dcap2"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div>
         <div class="dphoto">
           <img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" />
           <h3 class="dlabel">רגש</h3>
         </div>
-        <div class="dcap2"><p>הגדרת רגשות והבנה איך הם משרתים אותנו <span class="dstar">✦</span> התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
+        <div class="dcap2"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
       </div>
     </div>
 
     <div class="domain">
       <div class="dsingle">
+        <div class="dcap2"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div>
         <div class="dphoto">
           <img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" />
           <h3 class="dlabel">מחשבות</h3>
         </div>
-        <div class="dcap2"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו <span class="dstar">✦</span> חשיפת האמונות והפרדיגמות שאימצנו</p></div>
+        <div class="dcap2"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
       </div>
     </div>
 
