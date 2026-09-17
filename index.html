@@ -148,17 +148,19 @@
     .explore { background: var(--bg-2); }
     .domain { margin-bottom: clamp(48px, 7vw, 76px); }
     .domain:last-child { margin-bottom: 0; }
-    .dlabel { font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(2rem, 4.6vw, 3rem); color: var(--ink); margin-bottom: 26px; text-align: center; }
-    .dlabel::after { content: ''; display: block; width: 54px; height: 2px; background: var(--gold); margin: 16px auto 0; }
     .dsingle { max-width: 760px; margin: 0 auto; text-align: center; }
-    .dsingle p { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: var(--ink); line-height: 1.55; }
-    .dsingle .dtop { margin-bottom: 16px; }
-    .dsingle .dtop::after { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-top: 16px; }
-    .dsingle .dbottom { margin-top: 16px; }
-    .dsingle .dbottom::before { content: '✦'; display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 16px; }
-    .dsingle .dphoto { aspect-ratio: 16 / 7; overflow: hidden; border: 1px solid var(--gold); }
+    .dsingle .dphoto { aspect-ratio: 16 / 7; overflow: hidden; border: 1px solid var(--gold); position: relative; }
     .dsingle .dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
     .dsingle:hover .dphoto img { transform: scale(1.05); }
+    .dlabel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(247, 242, 232, 0.92); border: 1px solid var(--gold); padding: 10px 32px; font-family: 'Frank Ruhl Libre', serif; font-weight: 900; font-size: clamp(1.5rem, 3.4vw, 2.3rem); color: var(--ink); white-space: nowrap; }
+    .dcaptions { display: flex; max-width: 640px; margin: 24px auto 0; }
+    .dcaptions .dline { flex: 1; padding: 0 20px; }
+    .dcaptions .dline + .dline { border-inline-start: 1px solid var(--gold); }
+    .dcaptions p { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(0.98rem, 1.9vw, 1.15rem); color: var(--ink); line-height: 1.5; }
+    @media (max-width: 620px) {
+      .dcaptions { flex-direction: column; gap: 16px; max-width: 320px; }
+      .dcaptions .dline + .dline { border-inline-start: none; border-block-start: 1px solid var(--gold); padding-top: 16px; }
+    }
 
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
     .about { background: var(--bg-3); text-align: center; }
@@ -357,29 +359,41 @@
     <h2>המסע חזרה לעצמי — להשתחרר ממה שמגביל אותי</h2>
 
     <div class="domain">
-      <h3 class="dlabel">גוף</h3>
       <div class="dsingle">
-        <p class="dtop">הרחבת הידע על המנגנון ההישרדותי ותגובתי</p>
-        <div class="dphoto"><img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <p class="dbottom">תרגול מודעות ונוכחות דרך חיבור לגוף</p>
+        <div class="dphoto">
+          <img src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">גוף</h3>
+        </div>
+        <div class="dcaptions">
+          <div class="dline"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
+          <div class="dline"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
+        </div>
       </div>
     </div>
 
     <div class="domain">
-      <h3 class="dlabel">רגש</h3>
       <div class="dsingle">
-        <p class="dtop">הגדרת רגשות והבנה איך הם משרתים אותנו</p>
-        <div class="dphoto"><img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <p class="dbottom">התבוננות על עצמנו דרך דפוסים והרגלים</p>
+        <div class="dphoto">
+          <img src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">רגש</h3>
+        </div>
+        <div class="dcaptions">
+          <div class="dline"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div>
+          <div class="dline"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
+        </div>
       </div>
     </div>
 
     <div class="domain">
-      <h3 class="dlabel">מחשבות</h3>
       <div class="dsingle">
-        <p class="dtop">הבנה של הסיפור שאנחנו מספרים לעצמנו</p>
-        <div class="dphoto"><img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <p class="dbottom">חשיפת האמונות והפרדיגמות שאימצנו</p>
+        <div class="dphoto">
+          <img src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">מחשבות</h3>
+        </div>
+        <div class="dcaptions">
+          <div class="dline"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div>
+          <div class="dline"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
+        </div>
       </div>
     </div>
 
