@@ -103,10 +103,10 @@
     .hero .kicker::before { color: #d9b978; }
     .hero h1 { font-size: clamp(2.7rem, 7.4vw, 5rem); font-weight: 700; margin-bottom: 30px; letter-spacing: -0.01em; }
     .hero h1 em { font-style: normal; color: var(--berry); }
-    .hero-row { display: flex; align-items: center; gap: clamp(18px, 4vw, 44px); max-width: 920px; margin: 0 auto; text-align: right; }
-    .hero-portrait { width: clamp(150px, 38vw, 320px); height: clamp(150px, 38vw, 320px); padding: clamp(6px, 1.2vw, 10px); flex-shrink: 0; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
+    .hero-row { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 640px; margin: 0 auto; text-align: center; }
+    .hero-portrait { width: clamp(200px, 48vw, 380px); height: clamp(200px, 48vw, 380px); padding: clamp(6px, 1.2vw, 10px); flex-shrink: 0; border: 1px solid var(--gold); background: var(--card); box-shadow: 0 14px 34px -16px rgba(44,38,32,0.35); }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
-    .hero p.sub { font-size: clamp(0.95rem, 2.6vw, 1.32rem); color: var(--ink); flex: 1; min-width: 0; margin: 0; font-weight: 500; text-align: right; }
+    .hero p.sub { font-size: clamp(0.95rem, 2.6vw, 1.32rem); color: var(--ink); margin: 0; font-weight: 500; text-align: center; }
     .hero p.sub .sep { color: var(--gold); font-size: 0.8em; margin: 0 8px; }
     .hero .btn { margin-top: 40px; margin-bottom: 4px; }
 
@@ -162,6 +162,19 @@
       .dcaptions .dline + .dline { border-inline-start: none; border-block-start: 1px solid var(--gold); padding-top: 16px; }
     }
 
+    /* ============ QUOTES (rotating pairs) ============ */
+    .qrotate { background: var(--bg-3); text-align: center; }
+    .qrotate .kicker { justify-content: center; }
+    .qr-stage { display: grid; max-width: 800px; margin: 0 auto; }
+    .qr-pair { grid-area: 1 / 1; display: flex; gap: 22px; opacity: 0; visibility: hidden; transition: opacity .8s ease; }
+    .qr-pair.active { opacity: 1; visibility: visible; }
+    .qr-box { flex: 1; background: var(--card); border: 1px solid var(--gold); padding: clamp(22px, 3.5vw, 32px); display: flex; align-items: center; justify-content: center; }
+    .qr-box p { font-family: 'Frank Ruhl Libre', serif; font-weight: 600; font-size: clamp(0.95rem, 1.8vw, 1.08rem); color: var(--ink); line-height: 1.65; }
+    .qr-dots { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
+    .qr-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); cursor: pointer; border: none; padding: 0; transition: background .3s; }
+    .qr-dot.active { background: var(--gold); }
+    @media (max-width: 620px) { .qr-pair { flex-direction: column; } }
+
     /* ============ ABOUT (stacked: heading, photo, bio) ============ */
     .about { background: var(--bg-3); text-align: center; }
     .about .kicker { justify-content: center; }
@@ -187,16 +200,15 @@
 
     /* ============ TESTIMONIALS ============ */
     .testimonials { background: var(--dark); text-align: center; overflow: hidden; }
-    .testimonials .tbg { position: absolute; inset: 0; background: url('assets/n-water.jpg') center / cover; }
-    .testimonials .tbg::after { content: ''; position: absolute; inset: 0; background: rgba(20, 26, 26, 0.4); }
+    .testimonials .tbg { position: absolute; inset: 0; background: url('assets/n15-portrait-bg.jpg') center 25% / cover; }
+    .testimonials .tbg::after { content: ''; position: absolute; inset: 0; background: rgba(20, 16, 14, 0.5); }
     .testimonials .wrap { position: relative; z-index: 1; }
     .testimonials .kicker { justify-content: center; color: #d9b978; }
     .testimonials .kicker::before { color: #d9b978; }
     .testimonials h2 { color: #f4ecda; }
-    .tgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 780px; margin: 0 auto; }
-    .tbox { aspect-ratio: 1 / 1; background: rgba(247, 242, 232, 0.95); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; padding: clamp(20px, 3vw, 32px); }
-    .tbox p { font-family: 'Frank Ruhl Libre', serif; font-weight: 600; font-size: clamp(0.95rem, 1.9vw, 1.12rem); color: var(--ink); line-height: 1.6; }
-    @media (max-width: 640px) { .tgrid { grid-template-columns: 1fr; max-width: 320px; } .tbox { aspect-ratio: auto; min-height: 190px; } }
+    .trects { display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin: 0 auto; }
+    .trect { background: rgba(247, 242, 232, 0.95); border: 1px solid var(--gold); padding: clamp(18px, 3vw, 26px) clamp(24px, 4vw, 40px); }
+    .trect p { font-family: 'Frank Ruhl Libre', serif; font-weight: 600; font-size: clamp(0.95rem, 1.8vw, 1.08rem); color: var(--ink); line-height: 1.65; }
 
     /* ============ CONTACT ============ */
     .contact { background: var(--bg-2); text-align: center; }
@@ -352,6 +364,52 @@
   </div>
 </section>
 
+<!-- QUOTES (rotating pairs) -->
+<section class="qrotate reveal" id="qrotate">
+  <div class="wrap">
+    <span class="kicker">מהלב</span>
+    <h2>מה שנשאר אחרי התהליך</h2>
+    <div class="qr-stage">
+      <div class="qr-pair active" data-pair="0">
+        <div class="qr-box"><p>כשהתחלתי את האימון עם ריני, לא שיערתי <span class="hl">עד כמה האימון יהיה משמעותי עבורי</span>. צעד אחר צעד, בתוך <span class="hl">מרחב בטוח, מכיל ולא שיפוטי</span>, למדתי לעצור. למדתי להקשיב. <span class="hl">למדתי להיות נוכחת באמת עם עצמי</span>.</p></div>
+        <div class="qr-box"><p>מאמנת שמביאה <span class="hl">שילוב נדיר של יידע, מקצועיות, רגישות עמוקה</span> ונוכחות מלאה. כבר מהמפגש הראשון הרגשתי שאני נמצאת מול אדם מיוחד שמקשיב <span class="hl">לא רק למילים שלי, אלא גם למה שנמצא ביניהן</span> — למה שהלב עדיין לא הצליח לומר בקול.</p></div>
+      </div>
+      <div class="qr-pair" data-pair="1">
+        <div class="qr-box"><p>ריני ידעה איך להחזיר לי את המילים ברגישות, עדינות ודיוק — האמינה ביכולת שלי למצוא את התשובות שבתוכי. <span class="hl">האמונה שלה בי הפכה בהדרגה גם לאמונה שלי בעצמי.</span></p></div>
+        <div class="qr-box"><p>בזכות הליווי, <span class="hl">למדתי להקשיב לגוף ולרגשות שלי מבלי להיבהל מהם</span>. למדתי שאפשר לפגוש גם פחד, עצב ואבל ולהישאר שלמה. גיליתי שאני אדם שלם, גדול מסך כל חלקיו, ושגם רגשות מאתגרים הם חלק מהדרך.</p></div>
+      </div>
+      <div class="qr-pair" data-pair="2">
+        <div class="qr-box"><p>תהליך האימון עם ריני אפשר לי <span class="hl">לראות את המציאות באופן חדש</span> — התחלתי לראות אפשרויות. למדתי להחזיק בו-זמנית גם חזון וגם פחד, גם כאב וגם תקווה. למדתי שהקשבה אמיתית לעצמי מעניקה לי <span class="hl">יציבות, חופש ובחירה</span>.</p></div>
+        <div class="qr-box"><p>למדתי ש<span class="hl">הגוף, הנפש והזיכרונות קשורים זה בזה</span>, <span class="hl">ושכשמקשיבים</span> להם בכבוד ובסבלנות, <span class="hl">מתחיל תהליך עמוק של ריפוי וצמיחה</span>.</p></div>
+      </div>
+    </div>
+    <div class="qr-dots">
+      <span class="qr-dot active" data-dot="0"></span>
+      <span class="qr-dot" data-dot="1"></span>
+      <span class="qr-dot" data-dot="2"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="wrap">
+    <span class="kicker">נעים להכיר</span>
+    <h2>החופש להיות אני</h2>
+    <div class="about-photo">
+      <img src="assets/n5-about.jpg" alt="ריני טוויל" loading="lazy" decoding="async" />
+    </div>
+    <div class="about-body">
+      <div class="name">ריני טוויל</div>
+      <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד, אשמה ובושה.</p>
+      <p>מתוך המסע שלי מהתמכרות אל גמילה, פגשתי מקרוב מה זה להיות <span class="hl">כלוא</span> בתוך חיים שמובילים אותך למקומות שלא רצית להיות בהם — ומה זה <span class="hl">למצוא את הדרך החוצה</span>.</p>
+      <p>מתוך הכאב הזה גיליתי שהתמכרות <span class="hl">איננה חולשה</span> — היא <span class="hl">מנגנון הישרדות</span> של גוף שלא יודע איך להכיל כאב.</p>
+      <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת משמעות ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
+      <div style="text-align:center;"><a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
 <!-- EXPLORE -->
 <section class="explore reveal">
   <div class="wrap">
@@ -400,25 +458,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about reveal" id="about">
-  <div class="wrap">
-    <span class="kicker">נעים להכיר</span>
-    <h2>החופש להיות אני</h2>
-    <div class="about-photo">
-      <img src="assets/n5-about.jpg" alt="ריני טוויל" loading="lazy" decoding="async" />
-    </div>
-    <div class="about-body">
-      <div class="name">ריני טוויל</div>
-      <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> לומדת, חוקרת ומעמיקה בעולם, באנשים, ובדבר הזה שנקרא "החיים". <span class="hl">לאתגר את עצמי</span>, ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר. על המסע, על איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד, אשמה ובושה.</p>
-      <p>מתוך המסע שלי מהתמכרות אל גמילה, פגשתי מקרוב מה זה להיות <span class="hl">כלוא</span> בתוך חיים שמובילים אותך למקומות שלא רצית להיות בהם — ומה זה <span class="hl">למצוא את הדרך החוצה</span>.</p>
-      <p>מתוך הכאב הזה גיליתי שהתמכרות <span class="hl">איננה חולשה</span> — היא <span class="hl">מנגנון הישרדות</span> של גוף שלא יודע איך להכיל כאב.</p>
-      <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת משמעות ושלווה. אני עוסקת ב-12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
-      <div style="text-align:center;"><a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
-    </div>
-  </div>
-</section>
-
 <!-- BELIEFS -->
 <section class="beliefs reveal">
   <div class="bg"></div>
@@ -439,12 +478,12 @@
   <div class="tbg"></div>
   <div class="wrap">
     <span class="kicker">המלצות</span>
-    <h2>מילים מהלב</h2>
-    <div class="tgrid">
-      <div class="tbox"><p>"יש אנשים שנכנסים לחיינו ומשנים את הדרך שבה אנחנו מסתכלים על העולם — ויש אנשים שעוזרים לנו לשנות את הדרך שבה אנחנו מסתכלים על עצמנו."</p></div>
-      <div class="tbox"><p>"היא לא מיהרה לפרש ולא הציעה פתרונות מהירים. ריני האמינה ביכולת שלי למצוא את התשובות שבתוכי."</p></div>
-      <div class="tbox"><p>"גיליתי שאינני הרגש שעובר בי, אלא אדם שלם, גדול מסך כל חלקיו."</p></div>
-      <div class="tbox"><p>"אני מסיימת את התהליך עם יותר מודעות, יותר הקשבה, יותר חמלה ויותר אמון בעצמי."</p></div>
+    <h2>רגעים מתוך המסע</h2>
+    <div class="trects">
+      <div class="trect"><p><span class="hl">יש בה איכויות יוצאות דופן</span> — היא <span class="hl">מכבדת</span> את הקצב של האדם שמולה, יוצרת מרחב <span class="hl">שמאפשר להסיר הגנות</span>, לפגוש גם את המקומות הפגיעים ביותר <span class="hl">ולהרגיש בטוחים להמשיך לצעוד</span>.</p></div>
+      <div class="trect"><p>אני מסיימת את התהליך עם <span class="hl">יותר מודעות</span>, <span class="hl">יותר הקשבה</span>, <span class="hl">יותר חמלה</span> ו<span class="hl">יותר אמון בעצמי</span>. אני יוצאת ממנו עם <span class="hl">כלים שילוו אותי שנים רבות</span>, אבל יותר מכל — <span class="hl">עם דרך חדשה להיות</span> בקשר עם עצמי ועם אחרים.</p></div>
+      <div class="trect"><p>יש מתנות שמקבלים ברגע אחד, ו<span class="hl">יש מתנות שממשיכות להתגלות הרבה אחרי שהתהליך מסתיים</span>. ריני מתייחסת לאימון כאל שליחות — אני מודה לה <span class="hl">על האמונה בי ועל היכולת לראות אותי</span>.</p></div>
+      <div class="trect"><p>בעיניי, זו המשמעות האמיתית של ה<span class="hl">אימון עם ריני</span> — לגלות, בעדינות ובאומץ, <span class="hl">את מי שאת ואת הכוחות הקיימים בך</span>.</p></div>
     </div>
   </div>
 </section>
@@ -499,6 +538,26 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  (function () {
+    var pairs = document.querySelectorAll('.qr-pair');
+    var dots = document.querySelectorAll('.qr-dot');
+    if (!pairs.length) return;
+    var idx = 0, timer;
+    function show(i) {
+      pairs.forEach(function (p, j) { p.classList.toggle('active', j === i); });
+      dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
+      idx = i;
+    }
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(function () { show((idx + 1) % pairs.length); }, 6000);
+    }
+    dots.forEach(function (d, j) {
+      d.addEventListener('click', function () { show(j); resetTimer(); });
+    });
+    resetTimer();
+  })();
 
 
   var io = new IntersectionObserver(function (es) {
