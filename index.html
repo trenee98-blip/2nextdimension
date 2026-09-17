@@ -183,6 +183,20 @@
     .blist .n { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; color: rgba(217, 185, 120, 0.5); line-height: 1; }
     .blist .t { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.15rem, 2.5vw, 1.55rem); font-weight: 400; line-height: 1.55; align-self: center; }
 
+    /* ============ TESTIMONIALS ============ */
+    .testimonials { background: var(--bg-3); text-align: center; }
+    .testimonials .kicker { justify-content: center; }
+    .tcard { max-width: 720px; margin: 0 auto; background: var(--card); border: 1px solid var(--gold); padding: clamp(32px, 5vw, 56px) clamp(22px, 5vw, 56px); }
+    .tquote { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(1.2rem, 2.6vw, 1.55rem); font-weight: 500; color: var(--ink); line-height: 1.6; margin-bottom: 24px; }
+    .tfull { max-height: 0; overflow: hidden; transition: max-height .6s ease; text-align: right; }
+    .tfull.open { max-height: 3000px; }
+    .tfull p { color: var(--ink-soft); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .tfull p:first-child { margin-top: 4px; }
+    .tmore { display: inline-flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; color: var(--gold-deep); font-weight: 600; font-family: inherit; font-size: 0.95rem; margin-bottom: 20px; padding: 0; }
+    .tmore svg { width: 12px; height: 12px; fill: currentColor; transition: transform .3s; }
+    .tmore.open svg { transform: rotate(180deg); }
+    .tauthor { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; color: var(--gold-deep); font-size: 1.05rem; }
+
     /* ============ CONTACT ============ */
     .contact { background: var(--bg-2); text-align: center; }
     .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 8px 0 46px; }
@@ -218,6 +232,7 @@
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0112 4zm4.5 10.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7 1.8 2.9 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M12 15.5l-7-7 1.4-1.4L12 12.7l5.6-5.6L19 8.5z"/></symbol>
 </svg>
 
 <header class="nav" id="nav">
@@ -407,6 +422,35 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal" id="testimonials">
+  <div class="wrap">
+    <span class="kicker">המלצות</span>
+    <h2>מילים מהלב</h2>
+    <div class="tcard">
+      <p class="tquote">"יש אנשים שנכנסים לחיינו ומשנים את הדרך שבה אנחנו מסתכלים על העולם. ויש אנשים שעוזרים לנו לשנות את הדרך שבה אנחנו מסתכלים על עצמנו. עבורי, תהליך האימון עם ריני בשיטת סאטיה היה מהסוג השני."</p>
+      <button class="tmore" id="tMoreBtn" aria-expanded="false" aria-controls="tFull">
+        <span id="tMoreLabel">לקריאת ההמלצה המלאה</span>
+        <svg><use href="#i-chevron"/></svg>
+      </button>
+      <div class="tfull" id="tFull">
+        <p>כשהתחלתי את האימון עם ריני, לא שיערתי עד כמה האימון יהיה משמעותי עבורי. צעד אחר צעד, בתוך מרחב בטוח, מכיל ולא שיפוטי, למדתי לעצור. למדתי להקשיב. למדתי להיות נוכחת באמת עם עצמי.</p>
+        <p>זכיתי לפגוש מאמנת שמביאה איתה שילוב נדיר של יידע, מקצועיות, רגישות עמוקה ונוכחות מלאה. כבר מהמפגש הראשון הרגשתי שאני נמצאת מול אדם מיוחד שמקשיב לא רק למילים שלי, אלא גם למה שנמצא ביניהן – למה שהגוף מספר, למה שהרגש מבקש ולמה שהלב עדיין לא הצליח לומר בקול.</p>
+        <p>אחד הכישרונות הגדולים של ריני שהוא מתנה למתאמן הוא היכולת לשקף. ריני ידעה איך להחזיר לי את המילים ברגישות, עדינות ודיוק. מתוך השיקוף הזה נולדו תובנות שלא הייתי מגיעה אליהן בלעדיה. היא לא מיהרה לפרש, לא ניסתה לתקן אותי ולא הציעה פתרונות מהירים. במקום זאת, ריני האמינה ביכולת שלי למצוא את התשובות שבתוכי. האמונה שלה בי הפכה בהדרגה גם לאמונה שלי בעצמי.</p>
+        <p>בזכות הליווי שלה התמסרתי לאימון, למדתי להקשיב לגוף ולרגשות שלי מבלי להיבהל מהם. למדתי שאפשר לפגוש גם פחד, עצב ואבל, לתת להם מקום, לנשום אותם, לבכות אותם ולהישאר שלמה. גיליתי שאינני הרגש שעובר בי, אלא אדם שלם, גדול מסך כל חלקיו, ושגם רגשות מאתגרים הם חלק מהדרך.</p>
+        <p>תהליך האימון עם ריני אפשר לי לראות את המציאות באופן חדש. במקום לראות בעיקר מגבלות, התחלתי לראות אפשרויות. למדתי להחזיק בו-זמנית גם חזון וגם פחד, גם כאב וגם תקווה. למדתי שהקשבה אמיתית לעצמי אינה מחלישה אותי – היא מעניקה לי יציבות, חופש ובחירה.</p>
+        <p>דרך האימון בשיטת סאטיה עם ריני גיליתי את חשיבות העצירה, הנוכחות ברגע הזה, ההקשבה למחשבות, לגוף ולנשימה, ואת כוחה המרפא של החמלה העצמית. למדתי שהגוף, הנפש והזיכרונות קשורים זה בזה, ושכאשר מקשיבים להם בכבוד ובסבלנות, מתחיל תהליך עמוק של ריפוי וצמיחה.</p>
+        <p>מעבר ליידע המקצועי הרב של ריני, יש בה איכויות יוצאות דופן. היא יודעת להיות נוכחת באמת. היא מכבדת את הקצב של האדם שמולה, אינה דוחפת ואינה שופטת. היא יוצרת מרחב שמאפשר להסיר הגנות, לפגוש גם את המקומות הפגיעים ביותר ולהרגיש בטוחים להמשיך לצעוד.</p>
+        <p>בזכות ריני אני מסיימת את התהליך עם יותר מודעות, יותר הקשבה, יותר חמלה ויותר אמון בעצמי. אני יוצאת ממנו עם כלים שילוו אותי שנים רבות, אבל יותר מכל – עם דרך חדשה להיות בקשר עם עצמי ועם אחרים.</p>
+        <p>יש מתנות שמקבלים ברגע אחד, ויש מתנות שממשיכות להתגלות הרבה אחרי שהתהליך מסתיים. זו המתנה שקיבלתי.</p>
+        <p>אני מודה לריני על הליווי המקצועי, הרגיש והמסור מעומק הלב. הרגשתי שריני מתייחסת לאימון כאל שליחות. אני מודה לריני על המרחב, על ההקשבה, על הנוכחות, על הדיוק, על האמונה בי ועל היכולת לראות אותי גם ברגעים שבהם אני עצמי התקשיתי לראות את הכוחות שבי.</p>
+        <p>אני ממליצה על ריני מכל הלב לכל מי שמבקש לעבור תהליך אמיתי של צמיחה ולפגוש את עצמו ממקום עמוק יותר, קשוב יותר וחומל יותר. בעיניי, זו המשמעות האמיתית של האימון עם ריני – לגלות, בעדינות ובאומץ, את מי שאת ואת הכוחות הקיימים בך.</p>
+      </div>
+      <div class="tauthor">— אילנה</div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact reveal center" id="contact">
   <div class="wrap">
@@ -456,6 +500,16 @@
       navMobile.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  var tMoreBtn = document.getElementById('tMoreBtn');
+  var tFull = document.getElementById('tFull');
+  var tMoreLabel = document.getElementById('tMoreLabel');
+  tMoreBtn.addEventListener('click', function () {
+    var open = tFull.classList.toggle('open');
+    tMoreBtn.classList.toggle('open', open);
+    tMoreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    tMoreLabel.textContent = open ? 'הסתרת ההמלצה' : 'לקריאת ההמלצה המלאה';
   });
 
   var io = new IntersectionObserver(function (es) {
