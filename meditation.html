@@ -137,6 +137,14 @@
     .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 880px; margin: 30px auto 0; }
     .chip { background: rgba(247,242,232,.95); border: 1px solid var(--gold); padding: 13px 26px; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.02rem, 2vw, 1.22rem); color: var(--ink); }
 
+
+    .mlisten { background: var(--bg); text-align: center; }
+    .mlisten .kicker { justify-content: center; }
+    .mlisten .lead { margin-left: auto; margin-right: auto; margin-bottom: 30px; }
+    .spot { max-width: 720px; margin: 0 auto; border: 1px solid var(--gold); padding: 10px; background: var(--card); }
+    .spot iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 12px; }
+    .mlisten .btn { margin-top: 28px; }
+
     .mjoin { background: var(--bg-3); text-align: center; }
     .mjoin .kicker { justify-content: center; }
     .mjoin .lead { margin-left: auto; margin-right: auto; margin-bottom: 34px; }
@@ -269,6 +277,18 @@
       <span class="chip">האור הלבן ושלווה</span>
       <span class="chip">ועוד…</span>
     </div>
+  </div>
+</section>
+
+<section class="mlisten reveal" id="listen">
+  <div class="wrap">
+    <span class="kicker">להאזנה</span>
+    <h2>יותר מ־40 מדיטציות — בספוטיפיי</h2>
+    <p class="lead">אפשר גם לתרגל לבד, בכל שעה — מדיטציות מוקלטות, להאזנה בחינם.</p>
+    <div class="spot">
+      <iframe src="https://open.spotify.com/embed/show/2lCmZU06Ypaj5nLLebJvdy" title="המדיטציות של ריני בספוטיפיי" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+    <a href="https://open.spotify.com/show/2lCmZU06Ypaj5nLLebJvdy" class="btn" target="_blank" rel="noopener">לכל המדיטציות בספוטיפיי <svg><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
