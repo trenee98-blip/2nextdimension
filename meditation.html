@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>קבוצת מדיטציה בזום — ריני טוויל</title>
+  <meta name="description" content="קבוצת מדיטציה מונחת בזום, חמש פעמים בשבוע, בחינם. תרגול נוכחות, חיבור לגוף ולנשימה, וסבב שיתוף — עם ריני טוויל." />
+  <meta property="og:title" content="קבוצת מדיטציה בזום — ריני טוויל" />
+  <meta property="og:description" content="מדיטציה מונחת בכל בוקר, בחינם — לחזור למה שכבר נמצא בתוכנו." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.2nextdimension.com/assets/med-practice.jpg" />
+  <meta name="theme-color" content="#f7f2e8" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231c1712'/%3E%3Ctext x='50' y='69' font-size='56' text-anchor='middle' fill='%23b0863c' font-family='Georgia,serif'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Noto+Serif+Hebrew:wght@300;400;500;600;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #f7f2e8;
+      --bg-2:      #efe5d3;
+      --bg-3:      #e9dcc4;
+      --card:      #fffdf8;
+      --ink:       #221d18;
+      --ink-soft:  #6f6658;
+      --muted:     #94897a;
+      --gold:      #b0863c;
+      --gold-deep: #856224;
+      --berry:     #6b4a2e;
+      --teal:      #3f7d78;
+      --line:      rgba(44, 38, 32, 0.14);
+      --dark:      #1c1712;
+      --maxw:      1140px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Assistant','Segoe UI',Arial,sans-serif; background: var(--bg); color: var(--ink); font-weight: 400; line-height: 1.8; font-size: 18px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, .serif { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; line-height: 1.2; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    section { padding: clamp(72px, 10vw, 130px) 0; position: relative; }
+
+    .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(1.15rem, 2.6vw, 1.45rem); font-weight: 800; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 22px; }
+    .kicker::before, .kicker::after { content: '✦'; color: var(--gold); font-size: 1.05rem; }
+    h2 { font-size: clamp(2.3rem, 5.4vw, 3.6rem); font-weight: 700; margin-bottom: 22px; text-wrap: balance; }
+    .lead { color: var(--ink-soft); font-size: 1.14rem; max-width: 640px; margin-bottom: 50px; }
+    .center { text-align: center; }
+    .center .kicker { justify-content: center; }
+    .center .lead { margin-left: auto; margin-right: auto; }
+    .hl { color: var(--berry); font-weight: 700; }
+
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 15px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none; background: var(--ink); color: var(--bg); transition: background .25s, transform .2s; }
+    .btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .link-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .link-more svg { width: 13px; height: 13px; fill: currentColor; }
+
+    .framed { padding: 10px; border: 1px solid var(--gold); background: var(--bg); }
+    .framed > img { display: block; width: 100%; }
+
+    /* ============ HEADER ============ */
+    header.nav { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s, box-shadow .35s; }
+    header.nav.scrolled { background: rgba(247, 242, 232, 0.93); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 17px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.28rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-deep); }
+    .nav-cta { font-size: 0.88rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 9px 20px; border-radius: 2px; transition: background .25s, color .25s; }
+    .nav-cta:hover { background: var(--ink); color: var(--bg); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; margin-inline-start: 6px; }
+    .nav-toggle svg { width: 24px; height: 24px; fill: var(--ink); }
+    .nav-mobile { display: none; flex-direction: column; background: rgba(247, 242, 232, 0.97); backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 6px 24px 14px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { padding: 14px 0; color: var(--ink); text-decoration: none; font-size: 1.02rem; font-weight: 600; border-bottom: 1px solid var(--line); }
+    .nav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    }
+    header.nav:not(.scrolled) .brand,
+    header.nav:not(.scrolled) .nav-links a,
+    header.nav:not(.scrolled) .nav-cta { color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-cta { border-color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-toggle svg { fill: #f4ecda !important; }
+
+    
+    /* ============ MEDITATION PAGE ============ */
+    .mhero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 150px 24px 90px; background: var(--dark) url('assets/med-hero.jpg') center 55% / cover; overflow: hidden; }
+    .mhero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,14,.6), rgba(20,16,14,.46) 45%, rgba(20,16,14,.85)); }
+    .mhero::after { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .25; mix-blend-mode: screen; }
+    .mhero-in { position: relative; z-index: 1; max-width: 860px; }
+    .mhero .kicker { color: #d9b978; justify-content: center; }
+    .mhero .kicker::before, .mhero .kicker::after { color: #d9b978; }
+    .mhero h1 { font-size: clamp(2.4rem, 6.6vw, 4.6rem); color: #f4ecda; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 22px rgba(0,0,0,.6); }
+    .mhero .sub { color: #efe6d4; font-size: clamp(1.1rem, 2.5vw, 1.45rem); margin: 0 auto 8px; max-width: 640px; }
+    .freebadge { display: inline-block; margin-top: 26px; border: 1px solid var(--gold); color: #f4ecda; padding: 4px 34px 8px; font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(2rem, 4.6vw, 2.8rem); line-height: 1.1; background: rgba(20,16,14,.35); }
+    .mhero .btn { margin-top: 34px; background: var(--bg); color: var(--ink); }
+    .mhero .btn:hover { background: var(--gold); color: var(--ink); }
+
+    .mgrid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; max-width: 1000px; margin: 0 auto; }
+    .mphoto { padding: 10px; border: 1px solid var(--gold); background: var(--card); }
+    .mphoto img { width: 100%; display: block; }
+    .mtext h2 { margin-bottom: 18px; }
+    .mtext p { font-size: 1.12rem; margin-bottom: 16px; color: var(--ink); }
+    .mtext .mq { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.45; color: var(--berry); margin: 4px 0 20px; }
+    .mabout { background: var(--bg); }
+    .mwho { background: var(--bg-2); }
+    .mwho .mgrid { grid-template-columns: 1fr 1.15fr; }
+    @media (max-width: 760px) { .mgrid, .mwho .mgrid { grid-template-columns: 1fr; } .mphoto { max-width: 340px; margin: 0 auto; } }
+
+    .msched { background: var(--bg-3); text-align: center; }
+    .msched .kicker { justify-content: center; }
+    .sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1000px; margin: 0 auto; }
+    .scard { background: var(--card); border: 1px solid var(--gold); padding: 30px 22px 32px; }
+    .sdays { color: var(--gold-deep); font-weight: 700; letter-spacing: .08em; font-size: 1.02rem; }
+    .stime { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(3rem, 5.6vw, 3.8rem); line-height: 1; color: var(--berry); margin: 6px 0 10px; }
+    .scard h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .scard p { color: var(--ink-soft); font-size: 1rem; }
+    .scard.wed { background: var(--berry); border-color: var(--berry); }
+    .scard.wed .sdays { color: #d9b978; } .scard.wed .stime, .scard.wed h3 { color: #f4ecda; } .scard.wed p { color: #e6dcc8; }
+    .sfree { margin-top: 34px; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.2rem, 2.6vw, 1.55rem); color: var(--ink); }
+    .sfree span { color: var(--gold-deep); }
+    @media (max-width: 860px) { .sgrid { grid-template-columns: 1fr; max-width: 420px; } }
+
+    .mtypes { position: relative; background: var(--dark); text-align: center; overflow: hidden; }
+    .mtypes .bg { position: absolute; inset: 0; background: url('assets/med-beach.jpg') center / cover; }
+    .mtypes .bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,14,.5); }
+    .mtypes .wrap { position: relative; z-index: 1; }
+    .mtypes .kicker { justify-content: center; color: #d9b978; }
+    .mtypes .kicker::before, .mtypes .kicker::after { color: #d9b978; }
+    .mtypes h2 { color: #f4ecda; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 880px; margin: 30px auto 0; }
+    .chip { background: rgba(247,242,232,.95); border: 1px solid var(--gold); padding: 13px 26px; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.02rem, 2vw, 1.22rem); color: var(--ink); }
+
+    .mjoin { background: var(--bg-3); text-align: center; }
+    .mjoin .kicker { justify-content: center; }
+    .mjoin .lead { margin-left: auto; margin-right: auto; margin-bottom: 34px; }
+    .jcard { max-width: 560px; margin: 0 auto; background: var(--card); border: 1px solid var(--gold); padding: clamp(24px, 5vw, 42px); text-align: right; position: relative; }
+    .jcard label { display: block; font-weight: 600; margin: 14px 0 6px; font-size: .98rem; }
+    .jcard input, .jcard select { width: 100%; padding: 13px 14px; border: 1px solid var(--line); background: var(--bg); font: inherit; font-size: 1rem; color: var(--ink); }
+    .jcard input:focus, .jcard select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+    .jcard .btn { width: 100%; justify-content: center; margin-top: 24px; }
+    .jcard .hp { position: absolute; top: 0; left: 0; width: 1px; height: 1px; padding: 0; border: 0; opacity: 0; pointer-events: none; z-index: -1; }
+    .jmsg { margin-top: 14px; min-height: 1.3em; font-weight: 600; color: var(--gold-deep); text-align: center; }
+    .jnote { color: var(--ink-soft); font-size: .92rem; margin-top: 10px; text-align: center; }
+    .wa-alt { margin-top: 26px; }
+
+    /* ============ FOOTER ============ */
+    footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
+    footer::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
+    footer .fwrap { position: relative; z-index: 1; }
+    footer .footer-free { max-width: 300px; margin: 0 auto 20px; opacity: 0.92; }
+    footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
+    footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
+    footer p { font-size: 0.85rem; }
+    footer a { color: #d9b978; text-decoration: none; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.5 4l-1.4 1.4L17.2 10.5H4v2h13.2l-5.1 5.1L13.5 20l8-8z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 3.2l-8 5-8-5V17h16v-6.8z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0112 4zm4.5 10.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7 1.8 2.9 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">ריני טוויל</a>
+    <nav class="nav-links">
+      <a href="index.html#about">נעים להכיר</a>
+      <a href="coaching.html">אימון אישי</a>
+      <a href="lecture.html">הרצאות</a>
+      <a href="meditation.html">מדיטציה</a>
+      <a href="index.html#contact">צור קשר</a>
+    </nav>
+    <a href="#join" class="nav-cta">להצטרפות</a>
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navMobile">
+      <svg><use href="#i-menu"/></svg>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="index.html#about">נעים להכיר</a>
+    <a href="coaching.html">אימון אישי</a>
+    <a href="lecture.html">הרצאות</a>
+    <a href="meditation.html">מדיטציה</a>
+    <a href="index.html#contact">צור קשר</a>
+  </nav>
+</header>
+
+<section class="mhero" id="top">
+  <div class="mhero-in">
+    <span class="kicker">קבוצת מדיטציה</span>
+    <h1>לחזור למה שכבר נמצא בתוכנו</h1>
+    <p class="sub">מדיטציה מונחת בזום, חמש פעמים בשבוע, בכל בוקר — לתרגל נוכחות ולהתחיל את היום בבחירה.</p>
+    <div class="freebadge">הכול בחינם</div><br />
+    <a href="#join" class="btn">בקשת הצטרפות <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<section class="mabout reveal">
+  <div class="wrap">
+    <div class="mgrid">
+      <div class="mtext">
+        <span class="kicker">מה זו מדיטציה</span>
+        <h2>לא להגיע — לחזור</h2>
+        <p class="mq">מדיטציה עבורי היא האפשרות לתרגל נוכחות.</p>
+        <p>לנקות את <span class="hl">הרעשים, הדחפים, התחושות והרגשות</span>, ולאפשר לנו להתחבר למהות שלנו — לנשמה: חלק מהמקור, מחוברת, אינסופית, <span class="hl">שלווה וחופש</span>.</p>
+        <p>בעצם, המטרה היא לא להגיע לשום מקום — אלא <span class="hl">לחזור למשהו שכבר נמצא בתוכנו</span>.</p>
+        <p>התרגול עוזר ליצור מרווחים ולהאט קצב. כך, ביום־יום, יש לנו יותר כלים <span class="hl">לחיות ביותר בחירה</span> — במקום להישלט על ידי החלקים ההישרדותיים.</p>
+      </div>
+      <div class="mphoto"><img src="assets/med-practice.jpg" alt="ריני מתרגלת מדיטציה על החוף" loading="lazy" decoding="async" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="msched reveal" id="schedule">
+  <div class="wrap">
+    <span class="kicker">המפגשים</span>
+    <h2>ימים א׳–ה׳ בבוקר, בזום</h2>
+    <div class="sgrid" style="margin-top:36px;">
+      <div class="scard">
+        <div class="sdays">ימים א׳–ה׳</div>
+        <div class="stime" dir="ltr">07:50–08:15</div>
+        <h3>ישיבה שקטה</h3>
+        <p>ישיבה בשקט וקריאת טקסט.</p>
+      </div>
+      <div class="scard">
+        <div class="sdays">ימים א׳–ה׳</div>
+        <div class="stime" dir="ltr">08:15–08:45</div>
+        <h3>מדיטציה מונחת</h3>
+        <p>קבוצת מדיטציה מונחת, וסבב שיתוף של התכוונות ליום ואסירות תודה.</p>
+      </div>
+      <div class="scard wed">
+        <div class="sdays">ימי רביעי</div>
+        <div class="stime" dir="ltr">08:00–08:45</div>
+        <h3>תפילה דו־כיוונית</h3>
+        <p>תרגול של כתיבה אינטואיטיבית — ולאפשר לאלוהים לדבר אליי.</p>
+      </div>
+    </div>
+    <p class="sfree">הכול <span>בחינם</span> · בזום · פתוח לכולם</p>
+  </div>
+</section>
+
+<section class="mtypes reveal">
+  <div class="bg"></div>
+  <div class="wrap">
+    <span class="kicker">סוגי המדיטציות</span>
+    <h2>כל בוקר — תרגול אחר</h2>
+    <div class="chips">
+      <span class="chip">טונגלן</span>
+      <span class="chip">קרקוע</span>
+      <span class="chip">חיבור לתחושות ולגוף</span>
+      <span class="chip">חיבור לנשימה</span>
+      <span class="chip">״מה שלומי הבוקר?״</span>
+      <span class="chip">חיבור לאור של הנשמה</span>
+      <span class="chip">האור הלבן ושלווה</span>
+      <span class="chip">ועוד…</span>
+    </div>
+  </div>
+</section>
+
+<section class="mwho reveal">
+  <div class="wrap">
+    <div class="mgrid">
+      <div class="mphoto"><img src="assets/med-swing.jpg" alt="ריני על נדנדה בשקיעה" loading="lazy" decoding="async" /></div>
+      <div class="mtext">
+        <span class="kicker">מי מוזמן</span>
+        <h2>לתרגל ולתחזק — יחד</h2>
+        <p>אני מתרגלת <span class="hl">חיבור לתחושות הגוף, לנשימה, להוויות ולבחירה</span> — כמו בשיטת סאטיה.</p>
+        <p>הקבוצה פתוחה <span class="hl">למתאמנים ולמתאמנות</span> — לא רק שלי — וגם <span class="hl">למאמנים ולמאמנות, קולגות</span>, שרוצים לבוא לתרגל ולתחזק.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mjoin reveal" id="join">
+  <div class="wrap">
+    <span class="kicker">להצטרפות</span>
+    <h2>בואו לתרגל איתי</h2>
+    <p class="lead">ההשתתפות בחינם. כדי לשמור על מרחב בטוח ושקט לכולם, הקישור לזום נשלח אחרי אישור קצר שלי.</p>
+    <form class="jcard" id="joinForm" novalidate>
+      <label for="jName">שם מלא</label>
+      <input type="text" id="jName" autocomplete="name" required />
+      <label for="jPhone">וואטסאפ</label>
+      <input type="tel" id="jPhone" autocomplete="tel" inputmode="tel" required />
+      <label for="jEmail">אימייל</label>
+      <input type="email" id="jEmail" autocomplete="email" required />
+      <label for="jRole">אני</label>
+      <select id="jRole">
+        <option value="מתאמן/ת של ריני">מתאמן/ת של ריני</option>
+        <option value="מתאמן/ת אחר/ת">מתאמן/ת אצל מאמן/ת אחר/ת</option>
+        <option value="מאמן/ת קולגה">מאמן/ת, קולגה</option>
+        <option value="חדש/ה">חדש/ה — רוצה להכיר</option>
+      </select>
+      <input type="text" id="jWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button type="submit" class="btn" id="jBtn">שלחו בקשת הצטרפות <svg><use href="#i-arrow"/></svg></button>
+      <p class="jmsg" id="jMsg" role="status"></p>
+      <p class="jnote">אחזור אליך בוואטסאפ עם הפרטים.</p>
+    </form>
+    <p class="wa-alt"><a class="link-more" href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%A6%D7%98%D7%A8%D7%A3%20%D7%9C%D7%A7%D7%91%D7%95%D7%A6%D7%AA%20%D7%94%D7%9E%D7%93%D7%99%D7%98%D7%A6%D7%99%D7%94" target="_blank" rel="noopener">או שלחו לי הודעה בוואטסאפ <svg><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="fwrap">
+    <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <div class="f-brand">ריני טוויל</div>
+    <div class="f-tag">המסע למימד הבא</div>
+    <p>© <span id="yr"></span> · <a href="https://www.2nextdimension.com">2nextdimension.com</a> · <a href="mailto:trenee98@gmail.com">trenee98@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  var navToggle = document.getElementById('navToggle'), navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', function () {
+    var open = navMobile.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navMobile.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { navMobile.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); });
+  });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  var SB_URL = 'https://pruogkxvrvighbezokgu.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
+  var sb = supabase.createClient(SB_URL, SB_KEY);
+
+  function _source() {
+    try {
+      var p = new URLSearchParams(location.search);
+      var u = p.get('utm_source') || p.get('ref') || p.get('src');
+      if (u) return u.toLowerCase().slice(0, 32);
+      if (/fbclid/.test(location.search)) return 'facebook';
+      var r = document.referrer || ''; if (!r) return 'ישיר';
+      var h = new URL(r).hostname.replace(/^www\./, '').toLowerCase();
+      if (/facebook|fb\.com|fb\.me/.test(h)) return 'facebook';
+      if (/instagram/.test(h)) return 'instagram';
+      if (/whatsapp|wa\.me/.test(h)) return 'whatsapp';
+      if (/google\./.test(h)) return 'google';
+      if (/2nextdimension/.test(h)) return 'ישיר';
+      return h.slice(0, 32);
+    } catch (e) { return 'לא ידוע'; }
+  }
+  try {
+    if (!sessionStorage.getItem('ev_med_visit')) {
+      sessionStorage.setItem('ev_med_visit', '1');
+      var dev = (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
+      sb.from('page_views').insert({ page: 'meditation', event: 'visit', source: _source(), device: dev }).then(function () {});
+    }
+  } catch (e) {}
+
+  var form = document.getElementById('joinForm'), msg = document.getElementById('jMsg'), btn = document.getElementById('jBtn');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (document.getElementById('jWebsite').value) return;
+    var name = document.getElementById('jName').value.trim();
+    var phone = document.getElementById('jPhone').value.trim();
+    var email = document.getElementById('jEmail').value.trim();
+    var role = document.getElementById('jRole').value;
+    msg.style.color = '#a0524a';
+    if (!name) { msg.textContent = 'אנא כתבו שם.'; return; }
+    if (phone.replace(/\D/g, '').length < 9) { msg.textContent = 'אנא כתבו מספר וואטסאפ תקין.'; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'אנא כתבו אימייל תקין.'; return; }
+    btn.disabled = true;
+    var res = await sb.from('registrations').insert({ name: name, email: email, phone: phone, lecture: 'קבוצת מדיטציה · ' + role });
+    if (res.error) { btn.disabled = false; msg.textContent = 'משהו השתבש, אפשר לנסות שוב או לכתוב לי בוואטסאפ.'; return; }
+    msg.style.color = '#856224';
+    msg.textContent = 'תודה! קיבלתי. אחזור אלייך בוואטסאפ עם הפרטים.';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
