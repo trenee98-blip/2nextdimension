@@ -291,15 +291,15 @@
 <section class="mwho reveal">
   <div class="wrap">
     <div class="mgrid">
-      <div class="mphoto"><img src="assets/med-swing.jpg" alt="ריני על נדנדה בשקיעה" loading="lazy" decoding="async" /></div>
+      <div class="mphoto"><img src="assets/med-who.jpg" alt="ריני מביטה אל הים" loading="lazy" decoding="async" /></div>
       <div class="mtext">
         <span class="kicker">למי זה מיועד</span>
-        <h2>לכל מי שרוצה לחזור לעצמו</h2>
+        <h2>כולם מוזמנים</h2>
         <p>למי שרוצה ליצור <span class="hl">יותר חופש ובחירה</span> בחיים.</p>
         <p>למי שרוצה <span class="hl">יותר שקט ונוכחות</span>.</p>
         <p>מדיטציה <span class="hl">תומכת באימון ובטיפול</span> ומעמיקה אותם.</p>
         <p>המדיטציות כאן הן תרגול של <span class="hl">כלים מתוך אימון סאטיה</span>: חיבור לתחושות הגוף, לנשימה, להוויות ולבחירה.</p>
-        <p>מתאמנים ומתאמנות — גם לא שלי — וגם מאמנים וקולגות מוזמנים לבוא לתרגל ולתחזק.</p>
+        <p>מתאמנים ומתאמנות — גם לא שלי — וגם מאמנים וקולגות: כולם מוזמנים לבוא לתרגל ולתחזק.</p>
       </div>
     </div>
   </div>
@@ -412,11 +412,12 @@
     var res = await sb.from('registrations').insert({ name: name + ' (' + role + ')', email: email, phone: phone, lecture: 'קבוצת מדיטציה' });
     if (res.error) { btn.disabled = false; msg.textContent = 'משהו השתבש, אפשר לנסות שוב או לכתוב לי בוואטסאפ.'; return; }
     msg.style.color = '#856224';
-    msg.textContent = 'תודה, נרשמת! כדי שאראה את ההרשמה מיד — שלחו לי הודעה קצרה בוואטסאפ:';
+    msg.textContent = 'תודה, נרשמת! פותחת עכשיו את וואטסאפ — רק ללחוץ "שליחה" כדי שההודעה תגיע אליי:';
     var wa = document.getElementById('jWa');
     wa.href = 'https://wa.me/972526788944?text=' + encodeURIComponent('שלום ריני, נרשמתי לקבוצת המדיטציה. השם שלי: ' + name);
     wa.hidden = false;
     form.reset();
+    setTimeout(function () { window.location.href = wa.href; }, 1600);
   });
 </script>
 
