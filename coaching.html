@@ -115,6 +115,12 @@
     .cnum { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 3.8rem; line-height: .9; color: var(--gold); margin-bottom: 8px; }
     .cstep h3 { font-size: 1.5rem; color: var(--berry); margin-bottom: 10px; }
     .cstep p { color: var(--ink-soft); font-size: 1.02rem; }
+    .cseq { padding: 12px 12px 30px; }
+    .cseq h3, .cseq p { padding: 0 14px; }
+    .simg { position: relative; margin-bottom: 20px; overflow: hidden; }
+    .simg img { width: 100%; display: block; transition: transform .8s ease; }
+    .cseq:hover .simg img { transform: scale(1.05); }
+    .snum { position: absolute; top: 0; right: 0; z-index: 1; background: var(--dark); color: var(--gold); font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 2.6rem; line-height: 1; padding: 2px 16px 6px; }
     @media (max-width: 860px) { .cgrid3 { grid-template-columns: 1fr; max-width: 460px; } }
 
     .cfits { background: var(--bg-2); text-align: center; }
@@ -234,18 +240,18 @@
     <h2>לאט לאט נוצרים בהירות וחיבור</h2>
     <p class="lead">בליווי אנחנו מתבוננים יחד על החיים כפי שהם היום, ועל הפער בינם לבין מה שהיית רוצה.</p>
     <div class="cgrid3">
-      <div class="cstep">
-        <div class="cnum">01</div>
+      <div class="cstep cseq">
+        <div class="simg"><span class="snum">01</span><img src="assets/coach-swing-1.jpg" alt="" loading="lazy" decoding="async" /></div>
         <h3>להתבונן</h3>
         <p>הפער בין החיים כרגע לבין מה שהיית רוצה יכול להרגיש כמו סבל, אכזבה, תקיעות או חוסר אונים.</p>
       </div>
-      <div class="cstep">
-        <div class="cnum">02</div>
+      <div class="cstep cseq">
+        <div class="simg"><span class="snum">02</span><img src="assets/coach-swing-2.jpg" alt="" loading="lazy" decoding="async" /></div>
         <h3>להגדיר</h3>
         <p>לפעמים צריך עזרה רק כדי להגדיר מה בעצם רוצים, ולגלות למה זה עוד לא נגיש.</p>
       </div>
-      <div class="cstep">
-        <div class="cnum">03</div>
+      <div class="cstep cseq">
+        <div class="simg"><span class="snum">03</span><img src="assets/coach-swing-3.jpg" alt="" loading="lazy" decoding="async" /></div>
         <h3>להקשיב ולבחור</h3>
         <p>לשמוע את החלקים ההישרדותיים ואת מה שהם שמרו עליו, להכיר תודה על הדאגה, ולמצוא דרכים חדשות — שמאפשרות יותר חופש ויותר בחירה.</p>
       </div>
