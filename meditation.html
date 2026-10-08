@@ -325,13 +325,6 @@
       <input type="tel" id="jPhone" autocomplete="tel" inputmode="tel" required />
       <label for="jEmail">אימייל</label>
       <input type="email" id="jEmail" autocomplete="email" required />
-      <label for="jRole">אני</label>
-      <select id="jRole">
-        <option value="מתאמן/ת של ריני">מתאמן/ת של ריני</option>
-        <option value="מתאמן/ת אחר/ת">מתאמן/ת אצל מאמן/ת אחר/ת</option>
-        <option value="מאמן/ת קולגה">מאמן/ת, קולגה</option>
-        <option value="חדש/ה">חדש/ה — רוצה להכיר</option>
-      </select>
       <input type="text" id="jWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <button type="submit" class="btn" id="jBtn">שלחו בקשת הצטרפות <svg><use href="#i-arrow"/></svg></button>
       <p class="jmsg" id="jMsg" role="status"></p>
@@ -411,13 +404,12 @@
     var name = document.getElementById('jName').value.trim();
     var phone = document.getElementById('jPhone').value.trim();
     var email = document.getElementById('jEmail').value.trim();
-    var role = document.getElementById('jRole').value;
     msg.style.color = '#a0524a';
     if (!name) { msg.textContent = 'אנא כתבו שם.'; return; }
     if (phone.replace(/\D/g, '').length < 9) { msg.textContent = 'אנא כתבו מספר וואטסאפ תקין.'; return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'אנא כתבו אימייל תקין.'; return; }
     btn.disabled = true;
-    var res = await sb.from('registrations').insert({ name: name + ' (' + role + ')', email: email, phone: phone, lecture: 'קבוצת מדיטציה' });
+    var res = await sb.from('registrations').insert({ name: name, email: email, phone: phone, lecture: 'קבוצת מדיטציה' });
     if (res.error) { btn.disabled = false; msg.textContent = 'משהו השתבש, אפשר לנסות שוב או לכתוב לי בוואטסאפ.'; return; }
     msg.style.color = '#856224';
     msg.textContent = 'תודה, נרשמת! פותחת עכשיו את וואטסאפ — רק ללחוץ "שליחה" כדי שההודעה תגיע אליי:';
