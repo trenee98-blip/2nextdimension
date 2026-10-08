@@ -127,15 +127,6 @@
     .sfree span { color: var(--gold-deep); }
     @media (max-width: 860px) { .sgrid { grid-template-columns: 1fr; max-width: 420px; } }
 
-    .mtypes { position: relative; background: var(--dark); text-align: center; overflow: hidden; }
-    .mtypes .bg { position: absolute; inset: 0; background: url('assets/med-beach.jpg') center / cover; }
-    .mtypes .bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,14,.5); }
-    .mtypes .wrap { position: relative; z-index: 1; }
-    .mtypes .kicker { justify-content: center; color: #d9b978; }
-    .mtypes .kicker::before, .mtypes .kicker::after { color: #d9b978; }
-    .mtypes h2 { color: #f4ecda; }
-    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 880px; margin: 30px auto 0; }
-    .chip { background: rgba(247,242,232,.95); border: 1px solid var(--gold); padding: 13px 26px; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.02rem, 2vw, 1.22rem); color: var(--ink); }
 
 
     .mlisten { background: var(--bg); text-align: center; }
@@ -164,6 +155,7 @@
     .jmsg { margin-top: 14px; min-height: 1.3em; font-weight: 600; color: var(--gold-deep); text-align: center; }
     .jnote { color: var(--ink-soft); font-size: .92rem; margin-top: 10px; text-align: center; }
     .wa-alt { margin-top: 26px; }
+    .jcard [hidden] { display: none !important; }
 
     /* ============ FOOTER ============ */
     footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
@@ -219,7 +211,7 @@
   <div class="mhero-in">
     <span class="kicker">קבוצת מדיטציה</span>
     <h1>לחזור למה שכבר נמצא בתוכנו</h1>
-    <p class="sub">מדיטציה מונחת בזום, חמש פעמים בשבוע, בכל בוקר — לתרגל נוכחות ולהתחיל את היום בבחירה.</p>
+    <p class="sub">מדיטציה מונחת בזום, בכל בוקר בשבוע — כדי לתרגל נוכחות ולהתחיל את היום מתוך בחירה.</p>
     <div class="freebadge">הכול בחינם</div><br />
     <a href="#join" class="btn">בקשת הצטרפות <svg><use href="#i-arrow"/></svg></a>
   </div>
@@ -232,9 +224,9 @@
         <span class="kicker">מה זו מדיטציה</span>
         <h2>לא להגיע — לחזור</h2>
         <p class="mq">מדיטציה עבורי היא האפשרות לתרגל נוכחות.</p>
-        <p>לנקות את <span class="hl">הרעשים, הדחפים, התחושות והרגשות</span>, ולאפשר לנו להתחבר למהות שלנו — לנשמה: חלק מהמקור, מחוברת, אינסופית, <span class="hl">שלווה וחופש</span>.</p>
-        <p>בעצם, המטרה היא לא להגיע לשום מקום — אלא <span class="hl">לחזור למשהו שכבר נמצא בתוכנו</span>.</p>
-        <p>התרגול עוזר ליצור מרווחים ולהאט קצב. כך, ביום־יום, יש לנו יותר כלים <span class="hl">לחיות ביותר בחירה</span> — במקום להישלט על ידי החלקים ההישרדותיים.</p>
+        <p>לנקות את <span class="hl">הרעשים, הדחפים, התחושות והרגשות</span> — ולאפשר לעצמנו להתחבר למהות שלנו, לנשמה: חלק מהמקור, מחוברת, אינסופית, <span class="hl">שלווה וחופשית</span>.</p>
+        <p>למעשה, המטרה היא לא להגיע לשום מקום, אלא <span class="hl">לחזור למשהו שכבר נמצא בתוכנו</span>.</p>
+        <p>התרגול יוצר מרווחים ומאט את הקצב. וכך, ביום־יום, יש לנו יותר כלים <span class="hl">לחיות מתוך בחירה</span> — במקום להיות מנוהלים על ידי החלקים ההישרדותיים.</p>
       </div>
       <div class="mphoto"><img src="assets/med-practice.jpg" alt="ריני מתרגלת מדיטציה על החוף" loading="lazy" decoding="async" /></div>
     </div>
@@ -256,42 +248,24 @@
         <div class="sdays">ימים א׳, ב׳, ג׳, ה׳</div>
         <div class="stime" dir="ltr">08:15–08:45</div>
         <h3>מדיטציה מונחת</h3>
-        <p>קבוצת מדיטציה מונחת, וסבב שיתוף של התכוונות ליום ואסירות תודה.</p>
+        <p>מדיטציה מונחת בקבוצה, ואחריה סבב שיתוף: התכוונות ליום ואסירות תודה.</p>
       </div>
       <div class="scard wed">
         <div class="sdays">ימי רביעי</div>
         <div class="stime" dir="ltr">08:00–08:45</div>
         <h3>תפילה דו־כיוונית</h3>
-        <p>תרגול של כתיבה אינטואיטיבית — ולאפשר לאלוהים לדבר אליי. ביום רביעי זה מחליף את המדיטציה המונחת, ובלי ישיבה שקטה לפני.</p>
+        <p>תרגול של כתיבה אינטואיטיבית: לאפשר לאלוהים לדבר אליי. ביום רביעי התפילה באה במקום המדיטציה המונחת, וללא ישיבה שקטה לפניה.</p>
       </div>
     </div>
     <p class="sfree">הכול <span>בחינם</span> · בזום · פתוח לכולם</p>
   </div>
 </section>
 
-<section class="mtypes reveal">
-  <div class="bg"></div>
-  <div class="wrap">
-    <span class="kicker">סוגי המדיטציות</span>
-    <h2>כל בוקר — תרגול אחר</h2>
-    <div class="chips">
-      <span class="chip">טונגלן</span>
-      <span class="chip">קרקוע</span>
-      <span class="chip">חיבור לתחושות ולגוף</span>
-      <span class="chip">חיבור לנשימה</span>
-      <span class="chip">״מה שלומי הבוקר?״</span>
-      <span class="chip">חיבור לאור של הנשמה</span>
-      <span class="chip">האור הלבן ושלווה</span>
-      <span class="chip">ועוד…</span>
-    </div>
-  </div>
-</section>
-
 <section class="mlisten reveal" id="listen">
   <div class="wrap">
-    <span class="kicker">להאזנה</span>
-    <h2>יותר מ־40 מדיטציות — בספוטיפיי</h2>
-    <p class="lead">אפשר גם לתרגל לבד, בכל שעה — הנה המדיטציות העיקריות, להאזנה בחינם.</p>
+    <span class="kicker">סוגי המדיטציות</span>
+    <h2>יותר מ־40 מדיטציות להאזנה</h2>
+    <p class="lead">טונגלן, קרקוע, חיבור לגוף ולנשימה, אור הנשמה ועוד — אפשר לתרגל גם לבד, בכל שעה, בחינם בספוטיפיי.</p>
     <div class="mlist">
       <a class="mep" href="https://open.spotify.com/episode/0GxPHkPtHToUqTkUw0DY6i" target="_blank" rel="noopener"><span class="mep-t">מדיטציית האור הלבן</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/4EPdsNIaR5MSsXQQrsCKz0" target="_blank" rel="noopener"><span class="mep-t">טונגלן עצמי</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
@@ -301,7 +275,6 @@
       <a class="mep" href="https://open.spotify.com/episode/63HDHUU0VhpRJEdCg8Sdmr" target="_blank" rel="noopener"><span class="mep-t">התרחבות דרך נשימה</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/0qgUZ9pZwjwuPHRj1TVZN2" target="_blank" rel="noopener"><span class="mep-t">חמלה ושיח עם חלקים פנימיים</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/6rx7NgpgS0vw6LkwyqpBYT" target="_blank" rel="noopener"><span class="mep-t">מדיטציית אור</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
-      <a class="mep" href="https://open.spotify.com/episode/3n1cv6pNIlHdgrMUCwsCvH" target="_blank" rel="noopener"><span class="mep-t">חמלה לעצמנו</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/4eyvDnO0Ks8PGlJe0GoUtB" target="_blank" rel="noopener"><span class="mep-t">תפילה דו־כיוונית</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/3N4CPjhtOzYBs89nkHaHZ1" target="_blank" rel="noopener"><span class="mep-t">טונגלן לאחר</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
       <a class="mep" href="https://open.spotify.com/episode/76MgcysG1uLiGJCX42dgcH" target="_blank" rel="noopener"><span class="mep-t">מה שלומך הבוקר?</span><span class="mep-go">להאזנה <svg><use href="#i-arrow"/></svg></span></a>
@@ -320,10 +293,13 @@
     <div class="mgrid">
       <div class="mphoto"><img src="assets/med-swing.jpg" alt="ריני על נדנדה בשקיעה" loading="lazy" decoding="async" /></div>
       <div class="mtext">
-        <span class="kicker">מי מוזמן</span>
-        <h2>לתרגל ולתחזק — יחד</h2>
-        <p>אני מתרגלת <span class="hl">חיבור לתחושות הגוף, לנשימה, להוויות ולבחירה</span> — כמו בשיטת סאטיה.</p>
-        <p>הקבוצה פתוחה <span class="hl">למתאמנים ולמתאמנות</span> — לא רק שלי — וגם <span class="hl">למאמנים ולמאמנות, קולגות</span>, שרוצים לבוא לתרגל ולתחזק.</p>
+        <span class="kicker">למי זה מיועד</span>
+        <h2>לכל מי שרוצה לחזור לעצמו</h2>
+        <p>למי שרוצה ליצור <span class="hl">יותר חופש ובחירה</span> בחיים.</p>
+        <p>למי שרוצה <span class="hl">יותר שקט ונוכחות</span>.</p>
+        <p>מדיטציה <span class="hl">תומכת באימון ובטיפול</span> ומעמיקה אותם.</p>
+        <p>המדיטציות כאן הן תרגול של <span class="hl">כלים מתוך אימון סאטיה</span>: חיבור לתחושות הגוף, לנשימה, להוויות ולבחירה.</p>
+        <p>מתאמנים ומתאמנות — גם לא שלי — וגם מאמנים וקולגות מוזמנים לבוא לתרגל ולתחזק.</p>
       </div>
     </div>
   </div>
@@ -333,7 +309,7 @@
   <div class="wrap">
     <span class="kicker">להצטרפות</span>
     <h2>בואו לתרגל איתי</h2>
-    <p class="lead">ההשתתפות בחינם. כדי לשמור על מרחב בטוח ושקט לכולם, הקישור לזום נשלח אחרי אישור קצר שלי.</p>
+    <p class="lead">ההשתתפות בחינם. כדי לשמור על מרחב בטוח ושקט לכולם, אני שולחת את הקישור לזום אחרי אישור קצר.</p>
     <form class="jcard" id="joinForm" novalidate>
       <label for="jName">שם מלא</label>
       <input type="text" id="jName" autocomplete="name" required />
@@ -351,7 +327,8 @@
       <input type="text" id="jWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <button type="submit" class="btn" id="jBtn">שלחו בקשת הצטרפות <svg><use href="#i-arrow"/></svg></button>
       <p class="jmsg" id="jMsg" role="status"></p>
-      <p class="jnote">אחזור אליך בוואטסאפ עם הפרטים.</p>
+      <a id="jWa" class="btn" href="#" target="_blank" rel="noopener" hidden>שלחו לי הודעה בוואטסאפ <svg><use href="#i-arrow"/></svg></a>
+      <p class="jnote">אחרי אישור קצר אשלח לך בוואטסאפ את הקישור לזום.</p>
     </form>
     <p class="wa-alt"><a class="link-more" href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%A6%D7%98%D7%A8%D7%A3%20%D7%9C%D7%A7%D7%91%D7%95%D7%A6%D7%AA%20%D7%94%D7%9E%D7%93%D7%99%D7%98%D7%A6%D7%99%D7%94" target="_blank" rel="noopener">או שלחו לי הודעה בוואטסאפ <svg><use href="#i-arrow"/></svg></a></p>
   </div>
@@ -432,10 +409,13 @@
     if (phone.replace(/\D/g, '').length < 9) { msg.textContent = 'אנא כתבו מספר וואטסאפ תקין.'; return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'אנא כתבו אימייל תקין.'; return; }
     btn.disabled = true;
-    var res = await sb.from('registrations').insert({ name: name, email: email, phone: phone, lecture: 'קבוצת מדיטציה · ' + role });
+    var res = await sb.from('registrations').insert({ name: name + ' (' + role + ')', email: email, phone: phone, lecture: 'קבוצת מדיטציה' });
     if (res.error) { btn.disabled = false; msg.textContent = 'משהו השתבש, אפשר לנסות שוב או לכתוב לי בוואטסאפ.'; return; }
     msg.style.color = '#856224';
-    msg.textContent = 'תודה! קיבלתי. אחזור אלייך בוואטסאפ עם הפרטים.';
+    msg.textContent = 'תודה, נרשמת! כדי שאראה את ההרשמה מיד — שלחו לי הודעה קצרה בוואטסאפ:';
+    var wa = document.getElementById('jWa');
+    wa.href = 'https://wa.me/972526788944?text=' + encodeURIComponent('שלום ריני, נרשמתי לקבוצת המדיטציה. השם שלי: ' + name);
+    wa.hidden = false;
     form.reset();
   });
 </script>
