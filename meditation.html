@@ -129,7 +129,14 @@
 
 
 
-    .mlisten { background: var(--bg); text-align: center; }
+    .mlisten { position: relative; background: var(--dark); text-align: center; overflow: hidden; }
+    .mlisten .bg { position: absolute; inset: 0; background: url('assets/med-beach.jpg') center / cover; }
+    .mlisten .bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,14,.55); }
+    .mlisten .wrap { position: relative; z-index: 1; }
+    .mlisten .kicker { color: #d9b978; }
+    .mlisten .kicker::before, .mlisten .kicker::after { color: #d9b978; }
+    .mlisten h2 { color: #f4ecda; }
+    .mlisten .lead { color: #efe6d4; }
     .mlisten .kicker { justify-content: center; }
     .mlisten .lead { margin-left: auto; margin-right: auto; margin-bottom: 30px; }
     .mlist { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; max-width: 960px; margin: 0 auto 44px; text-align: right; }
@@ -138,10 +145,11 @@
     .mep-t { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.18rem; line-height: 1.4; }
     .mep-go { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; font-size: .92rem; }
     .mep-go svg { width: 13px; height: 13px; fill: currentColor; }
-    .mlist-sub { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.3rem; color: var(--berry); margin-bottom: 18px; }
+    .mlist-sub { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.3rem; color: #f4ecda; margin-bottom: 18px; }
     .spot { max-width: 720px; margin: 0 auto; border: 1px solid var(--gold); padding: 10px; background: var(--card); }
     .spot iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 12px; }
-    .mlisten .btn { margin-top: 28px; }
+    .mlisten .btn { margin-top: 28px; background: var(--bg); color: var(--ink); }
+    .mlisten .btn:hover { background: var(--gold); color: var(--ink); }
 
     .mjoin { background: var(--bg-3); text-align: center; }
     .mjoin .kicker { justify-content: center; }
@@ -262,6 +270,7 @@
 </section>
 
 <section class="mlisten reveal" id="listen">
+  <div class="bg"></div>
   <div class="wrap">
     <span class="kicker">סוגי המדיטציות</span>
     <h2>יותר מ־40 מדיטציות להאזנה</h2>
@@ -299,7 +308,6 @@
         <p>למי שרוצה <span class="hl">יותר שקט ונוכחות</span>.</p>
         <p>מדיטציה <span class="hl">תומכת באימון ובטיפול</span> ומעמיקה אותם.</p>
         <p>המדיטציות כאן הן תרגול של <span class="hl">כלים מתוך אימון סאטיה</span>: חיבור לתחושות הגוף, לנשימה, להוויות ולבחירה.</p>
-        <p>מתאמנים ומתאמנות — גם לא שלי — וגם מאמנים וקולגות: כולם מוזמנים לבוא לתרגל ולתחזק.</p>
       </div>
     </div>
   </div>
