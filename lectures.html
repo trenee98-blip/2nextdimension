@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הרצאות — ריני טוויל</title>
+  <meta name="description" content="הרצאות עם ריני טוויל על פחד, בריחה והתמכרויות יומיומיות — ועל החופש לבחור אחרת." />
+  <meta property="og:title" content="הרצאות — ריני טוויל" />
+  <meta property="og:description" content="הרצאות על פחד, בריחה והתמכרויות יומיומיות — ועל החופש לבחור אחרת." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://2nextdimension.com/assets/n-rini-portrait.jpg" />
+  <meta name="theme-color" content="#1c1712" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231c1712'/%3E%3Ctext x='50' y='69' font-size='56' text-anchor='middle' fill='%23b0863c' font-family='Georgia,serif'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Noto+Serif+Hebrew:wght@300;400;500;600;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #f7f2e8;
+      --bg-2:      #efe5d3;
+      --bg-3:      #e9dcc4;
+      --card:      #fffdf8;
+      --ink:       #221d18;
+      --ink-soft:  #6f6658;
+      --muted:     #94897a;
+      --gold:      #b0863c;
+      --gold-deep: #856224;
+      --berry:     #6b4a2e;
+      --teal:      #3f7d78;
+      --line:      rgba(44, 38, 32, 0.14);
+      --dark:      #1c1712;
+      --maxw:      1140px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Assistant','Segoe UI',Arial,sans-serif; background: var(--bg); color: var(--ink); font-weight: 400; line-height: 1.8; font-size: 18px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, .serif { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; line-height: 1.2; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    section { padding: clamp(72px, 10vw, 130px) 0; position: relative; }
+
+    .kicker { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(1.15rem, 2.6vw, 1.45rem); font-weight: 800; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 22px; }
+    .kicker::before, .kicker::after { content: '✦'; color: var(--gold); font-size: 1.05rem; }
+    h2 { font-size: clamp(2.3rem, 5.4vw, 3.6rem); font-weight: 700; margin-bottom: 22px; text-wrap: balance; }
+    .lead { color: var(--ink-soft); font-size: 1.14rem; max-width: 640px; margin-bottom: 50px; }
+    .center { text-align: center; }
+    .center .kicker { justify-content: center; }
+    .center .lead { margin-left: auto; margin-right: auto; }
+    .hl { color: var(--berry); font-weight: 700; }
+
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 15px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none; background: var(--ink); color: var(--bg); transition: background .25s, transform .2s; }
+    .btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .link-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .link-more svg { width: 13px; height: 13px; fill: currentColor; }
+
+    .framed { padding: 10px; border: 1px solid var(--gold); background: var(--bg); }
+    .framed > img { display: block; width: 100%; }
+
+    /* ============ HEADER ============ */
+    header.nav { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s, box-shadow .35s; }
+    header.nav.scrolled { background: rgba(247, 242, 232, 0.93); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 17px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.28rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-deep); }
+    .nav-cta { font-size: 0.88rem; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 9px 20px; border-radius: 2px; transition: background .25s, color .25s; }
+    .nav-cta:hover { background: var(--ink); color: var(--bg); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; margin-inline-start: 6px; }
+    .nav-toggle svg { width: 24px; height: 24px; fill: var(--ink); }
+    .nav-mobile { display: none; flex-direction: column; background: rgba(247, 242, 232, 0.97); backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 6px 24px 14px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { padding: 14px 0; color: var(--ink); text-decoration: none; font-size: 1.02rem; font-weight: 600; border-bottom: 1px solid var(--line); }
+    .nav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    }
+    header.nav:not(.scrolled) .brand,
+    header.nav:not(.scrolled) .nav-links a,
+    header.nav:not(.scrolled) .nav-cta { color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-cta { border-color: #f4ecda !important; }
+    header.nav:not(.scrolled) .nav-toggle svg { fill: #f4ecda !important; }
+
+    
+    /* ============ LECTURES PAGE ============ */
+    .lhero { position: relative; background: var(--dark); text-align: center; padding: 160px 24px 90px; overflow: hidden; }
+    .lhero::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .4; mix-blend-mode: screen; }
+    .lhero-in { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .lhero .kicker { color: #d9b978; justify-content: center; }
+    .lhero .kicker::before, .lhero .kicker::after { color: #d9b978; }
+    .lhero h1 { font-size: clamp(2.4rem, 6.4vw, 4.4rem); color: #f4ecda; line-height: 1.15; margin-bottom: 18px; }
+    .lhero h1 em { font-style: normal; color: #d9b978; }
+    .lhero .sub { color: #efe6d4; font-size: clamp(1.1rem, 2.4vw, 1.4rem); max-width: 620px; margin: 0 auto; }
+
+    .llist { background: var(--bg); }
+    .lgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1000px; margin: 0 auto; }
+    .lcard { position: relative; overflow: hidden; background: var(--dark); color: #efe6d4; padding: clamp(30px, 4vw, 44px) clamp(24px, 3.4vw, 38px); display: flex; flex-direction: column; border: 1px solid var(--gold); }
+    .lcard::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .32; mix-blend-mode: screen; }
+    .lcard > * { position: relative; z-index: 1; }
+    .lnum { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 4.4rem; line-height: .9; color: var(--gold); margin-bottom: 8px; }
+    .llabel { color: #d9b978; font-weight: 700; letter-spacing: .12em; font-size: .95rem; margin-bottom: 10px; }
+    .lcard h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); color: #f4ecda; margin-bottom: 14px; line-height: 1.25; }
+    .lcard p { color: #e6dcc8; font-size: 1.05rem; flex: 1; margin-bottom: 26px; }
+    .lcard .lbtn { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--gold); color: #f4ecda; background: rgba(176,134,60,.18); padding: 13px 28px; text-decoration: none; font-weight: 700; transition: background .25s, transform .2s; }
+    .lcard .lbtn:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+    .lcard .lbtn svg { width: 14px; height: 14px; fill: currentColor; }
+    .lstatus { display: inline-block; margin-top: 26px; border: 1px solid var(--gold); color: #f4ecda; padding: 4px 30px 8px; font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; background: rgba(20,16,14,.35); }
+    .lpill { align-self: flex-start; font-size: .85rem; font-weight: 700; color: #1c1712; background: #d9b978; padding: 3px 14px; margin-bottom: 14px; }
+    .lnotify { text-align: center; max-width: 560px; margin: clamp(48px, 7vw, 72px) auto 0; }
+    .lnotify h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 8px; }
+    .lnotify p { color: var(--ink-soft); margin-bottom: 22px; }
+    @media (max-width: 800px) { .lgrid { grid-template-columns: 1fr; max-width: 520px; } }
+
+    /* ============ FOOTER ============ */
+    footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
+    footer::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
+    footer .fwrap { position: relative; z-index: 1; }
+    footer .footer-free { max-width: 300px; margin: 0 auto 20px; opacity: 0.92; }
+    footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
+    footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
+    footer p { font-size: 0.85rem; }
+    footer a { color: #d9b978; text-decoration: none; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.5 4l-1.4 1.4L17.2 10.5H4v2h13.2l-5.1 5.1L13.5 20l8-8z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 3.2l-8 5-8-5V17h16v-6.8z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0112 4zm4.5 10.7c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7 1.8 2.9 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">ריני טוויל</a>
+    <nav class="nav-links">
+      <a href="index.html#about">נעים להכיר</a>
+      <a href="coaching.html">אימון אישי</a>
+      <a href="lectures.html">הרצאות</a>
+      <a href="meditation.html">מדיטציה</a>
+      <a href="index.html#contact">צור קשר</a>
+    </nav>
+    <a href="index.html#contact" class="nav-cta">שיחת היכרות</a>
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navMobile">
+      <svg><use href="#i-menu"/></svg>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="index.html#about">נעים להכיר</a>
+    <a href="coaching.html">אימון אישי</a>
+    <a href="lectures.html">הרצאות</a>
+    <a href="meditation.html">מדיטציה</a>
+    <a href="index.html#contact">צור קשר</a>
+  </nav>
+</header>
+
+<section class="lhero" id="top">
+  <div class="lhero-in">
+    <span class="kicker">הרצאות</span>
+    <h1>ממה אנחנו <em>בורחים?</em></h1>
+    <p class="sub">הרצאות על פחד, בריחה והתמכרויות יומיומיות — ועל החופש לבחור אחרת.</p>
+    <div class="lstatus">כרגע אין הרצאה פעילה</div>
+  </div>
+</section>
+
+<section class="llist reveal">
+  <div class="wrap">
+    <div class="lgrid">
+      <article class="lcard">
+        <div class="lnum">01</div>
+        <div class="llabel">הרצאה #1 · התקיימה ב־24.6.26</div>
+        <h2>יאאא פחדנים — ממה אתם בורחים?</h2>
+        <p>הרצאה על פחד, בריחה והתמכרויות יומיומיות. מנגנוני הבריחה שלנו, למה זה לא אשמתכם — ואיך מודעות וכלים מרחיבים את החופש שלנו.</p>
+        <span class="lpill">לא פעילה כרגע</span>
+        <a class="lbtn" href="https://trenee98-blip.github.io/lecture-addictions/" target="_blank" rel="noopener">לעמוד ההרצאה <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="lcard">
+        <div class="lnum">02</div>
+        <div class="llabel">הרצאה #2 · התקיימה ב־8.9.26</div>
+        <h2>לבחור במקום לברוח</h2>
+        <p>התמכרויות יומיומיות שלוקחות מאיתנו את חופש הבחירה — ושבעה כלים מעשיים להרחבת בחירה, עם תרגילים.</p>
+        <span class="lpill">לא פעילה כרגע</span>
+        <a class="lbtn" href="lecture.html">לעמוד ההרצאה <svg><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+    <div class="lnotify">
+      <h3>רוצים לדעת כשתהיה הרצאה חדשה?</h3>
+      <p>שלחו לי הודעה בוואטסאפ ואעדכן אתכם.</p>
+      <a class="btn" href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A2%D7%93%D7%9B%D7%95%D7%9F%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%94%20%D7%97%D7%93%D7%A9%D7%94" target="_blank" rel="noopener">עדכנו אותי בוואטסאפ <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fwrap">
+    <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <div class="f-brand">ריני טוויל</div>
+    <div class="f-tag">המסע למימד הבא</div>
+    <p>© <span id="yr"></span> · <a href="https://2nextdimension.com">2nextdimension.com</a> · <a href="mailto:trenee98@gmail.com">trenee98@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  var navToggle = document.getElementById('navToggle'), navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', function () {
+    var open = navMobile.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navMobile.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { navMobile.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); });
+  });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  var SB_URL = 'https://pruogkxvrvighbezokgu.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
+  var sb = supabase.createClient(SB_URL, SB_KEY);
+  function _source() {
+    try {
+      var p = new URLSearchParams(location.search);
+      var u = p.get('utm_source') || p.get('ref') || p.get('src');
+      if (u) return u.toLowerCase().slice(0, 32);
+      if (/fbclid/.test(location.search)) return 'facebook';
+      var r = document.referrer || ''; if (!r) return 'ישיר';
+      var h = new URL(r).hostname.replace(/^www\./, '').toLowerCase();
+      if (/facebook|fb\.com|fb\.me/.test(h)) return 'facebook';
+      if (/instagram/.test(h)) return 'instagram';
+      if (/whatsapp|wa\.me/.test(h)) return 'whatsapp';
+      if (/google\./.test(h)) return 'google';
+      if (/2nextdimension/.test(h)) return 'ישיר';
+      return h.slice(0, 32);
+    } catch (e) { return 'לא ידוע'; }
+  }
+  try {
+    if (!sessionStorage.getItem('ev_lectures_visit')) {
+      sessionStorage.setItem('ev_lectures_visit', '1');
+      var dev = (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
+      sb.from('page_views').insert({ page: 'lectures', event: 'visit', source: _source(), device: dev }).then(function () {});
+    }
+  } catch (e) {}
+</script>
+
+</body>
+</html>
