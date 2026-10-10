@@ -97,12 +97,13 @@
     .hero { padding: 0 24px clamp(60px,9vw,100px); text-align: center; position: relative; }
     .hero-top { background: var(--dark); margin: 0 calc(-50vw + 50%) 46px; padding: 150px 24px 40px; position: relative; overflow: hidden; }
     .hero-top::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.4; mix-blend-mode: screen; }
-    .hero-top .kicker, .hero-top .cosmic-strip, .hero-top .free-banner, .hero-top .hero-portrait { position: relative; z-index: 1; }
+    .hero-top .kicker, .hero-top .cosmic-strip, .hero-top .free-banner, .hero-top .be-banner, .hero-top .hero-portrait { position: relative; z-index: 1; }
     .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(0,0,0,0.5); }
     .hero .kicker { justify-content: center; font-size: clamp(1.25rem, 3vw, 1.7rem); color: #d9b978; margin-bottom: 22px; }
     .hero .kicker::before, .hero .kicker::after { color: #d9b978; }
-    .free-banner { display: block; width: 100%; max-width: 880px; margin: 40px auto; }
-    @media (max-width: 620px) { .free-banner { width: calc(100% + 28px); max-width: none; margin: 32px -14px; } }
+    .free-banner { display: block; width: 100%; max-width: 880px; margin: 40px auto 14px; }
+    .be-banner { display: block; width: 66.8%; max-width: 588px; margin: 0 auto 40px; }
+    @media (max-width: 620px) { .free-banner { width: calc(100% + 28px); max-width: none; margin: 32px -14px 10px; } .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; margin: 0 auto 32px; } }
     .hero-portrait { width: clamp(300px, 72vw, 570px); height: clamp(300px, 72vw, 570px); margin: 0 auto; border: none; background: transparent; box-shadow: none; padding: 0; }
     .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
     .hero h1 { font-size: clamp(1.4rem, 4.6vw, 2.9rem); font-weight: 700; color: var(--berry); white-space: nowrap; margin: 40px auto 14px; letter-spacing: -0.01em; }
@@ -112,7 +113,7 @@
 
     /* ============ TRIAD (black & white) ============ */
     .triad { background: var(--bg-2); }
-    .triad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+    .triad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 760px; margin: 0 auto; }
     .triad-grid figure { text-align: center; }
     .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); overflow: hidden; }
     .timg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s ease; }
@@ -120,7 +121,7 @@
     .tword { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(3rem, 6.4vw, 4.6rem); line-height: 1; letter-spacing: 0.02em; color: var(--berry); margin-bottom: 14px; }
     .tcap { padding-top: 20px; }
     .tcap p { font-size: clamp(1.3rem, 2.8vw, 1.65rem); font-weight: 700; color: var(--ink); font-family: 'Noto Serif Hebrew', serif; }
-    @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 44px; max-width: 360px; margin: 0 auto; } }
+    @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 40px; max-width: 250px; margin: 0 auto; } }
 
     /* ============ LEAP statement (dark, cosmic) ============ */
     .leapband { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 26px; position: relative; overflow: hidden; background: var(--dark); }
@@ -213,7 +214,8 @@
     footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
     footer::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
     footer .fwrap { position: relative; z-index: 1; }
-    footer .footer-free { max-width: 300px; margin: 0 auto 20px; opacity: 0.92; }
+    footer .footer-free { max-width: 300px; margin: 0 auto 10px; opacity: 0.92; }
+    footer .footer-be { width: 66.8%; max-width: 200px; margin: 0 auto 20px; opacity: 0.92; }
     footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
     footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
     footer p { font-size: 0.85rem; }
@@ -264,6 +266,7 @@
     <span class="kicker">המסע למימד הבא</span>
     <div class="cosmic-strip"></div>
     <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
   </div>
   <h1>לחיות מתוך חופש ובחירה</h1>
@@ -494,6 +497,7 @@
 <footer>
   <div class="fwrap">
     <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <img class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="f-brand">ריני טוויל</div>
     <div class="f-tag">המסע למימד הבא</div>
     <p>© <span id="yr"></span> · <a href="https://2nextdimension.com">2nextdimension.com</a> · <a href="mailto:trenee98@gmail.com">trenee98@gmail.com</a></p>

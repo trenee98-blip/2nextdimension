@@ -118,11 +118,28 @@
     .lnotify p { color: var(--ink-soft); margin-bottom: 22px; }
     @media (max-width: 800px) { .lgrid { grid-template-columns: 1fr; max-width: 520px; } }
 
+        .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .nav-home { display: inline-flex; align-items: center; gap: 7px; font-family: 'Assistant', 'Segoe UI', Arial, sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: .02em; color: var(--gold-deep); border: 1px solid var(--gold); background: rgba(176, 134, 60, .12); padding: 5px 14px 6px; border-radius: 2px; text-decoration: none; white-space: nowrap; transition: background .25s, color .25s; }
+    .nav-home svg { width: 13px; height: 13px; fill: currentColor; flex: none; }
+    .nav-home:hover { background: var(--gold); color: var(--ink); }
+    header.nav:not(.scrolled) .nav-home { color: #f4ecda !important; border-color: #d9b978 !important; }
+    header.nav:not(.scrolled) .nav-home:hover { color: var(--ink) !important; background: #d9b978; }
+    @media (max-width: 520px) {
+      .nav-inner { padding-left: 16px; padding-right: 16px; }
+      .brand-wrap { gap: 8px; }
+      .brand { font-size: 1.05rem; }
+      .nav-home { font-size: .76rem; padding: 4px 9px 5px; gap: 5px; }
+      .nav-home svg { width: 11px; height: 11px; }
+      .nav-cta { font-size: .78rem; padding: 7px 10px; }
+      .nav-toggle { margin-inline-start: 0; }
+    }
+
     /* ============ FOOTER ============ */
     footer { background: var(--dark); color: rgba(239, 230, 212, 0.6); text-align: center; padding: 46px 24px; position: relative; overflow: hidden; }
     footer::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: 0.35; mix-blend-mode: screen; }
     footer .fwrap { position: relative; z-index: 1; }
-    footer .footer-free { max-width: 300px; margin: 0 auto 20px; opacity: 0.92; }
+    footer .footer-free { max-width: 300px; margin: 0 auto 10px; opacity: 0.92; }
+    footer .footer-be { width: 66.8%; max-width: 200px; margin: 0 auto 20px; opacity: 0.92; }
     footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
     footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
     footer p { font-size: 0.85rem; }
@@ -146,7 +163,10 @@
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">ריני טוויל</a>
+    <div class="brand-wrap">
+      <a href="index.html" class="brand">ריני טוויל</a>
+      <a href="index.html" class="nav-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></svg>לאתר הראשי</a>
+    </div>
     <nav class="nav-links">
       <a href="index.html#about">נעים להכיר</a>
       <a href="coaching.html">אימון אישי</a>
@@ -208,6 +228,7 @@
 <footer>
   <div class="fwrap">
     <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <img class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="f-brand">ריני טוויל</div>
     <div class="f-tag">המסע למימד הבא</div>
     <p>© <span id="yr"></span> · <a href="https://2nextdimension.com">2nextdimension.com</a> · <a href="mailto:trenee98@gmail.com">trenee98@gmail.com</a></p>
