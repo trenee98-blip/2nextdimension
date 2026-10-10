@@ -108,6 +108,12 @@
     .mtext h2 { margin-bottom: 18px; }
     .mtext p { font-size: 1.12rem; margin-bottom: 16px; color: var(--ink); }
     .mtext .mq { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.45; color: var(--berry); margin: 4px 0 20px; }
+    .ybanner { position: relative; background: var(--dark); text-align: center; overflow: hidden; padding: clamp(40px, 6vw, 64px) 24px clamp(44px, 6.5vw, 70px); }
+    .ybanner::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .4; mix-blend-mode: screen; }
+    .ybanner img { position: relative; z-index: 1; display: block; }
+    .ybanner .free-banner { width: 100%; max-width: 880px; margin: 0 auto 14px; }
+    .ybanner .be-banner { width: 66.8%; max-width: 588px; margin: 0 auto; }
+    @media (max-width: 620px) { .ybanner .free-banner { width: calc(100% + 28px); max-width: none; margin: 0 -14px 10px; } .ybanner .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; } }
     .mabout { background: var(--bg); }
     .mwho { background: var(--bg-2); }
     .mwho .mgrid { grid-template-columns: 1fr 1.15fr; }
@@ -244,6 +250,11 @@
     <a href="#join" class="btn">בקשת הצטרפות <svg><use href="#i-arrow"/></svg></a>
   </div>
 </section>
+
+<div class="ybanner">
+  <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
+  <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
+</div>
 
 <section class="mabout reveal">
   <div class="wrap">
