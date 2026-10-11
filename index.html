@@ -171,7 +171,11 @@
     .qr-pair.active { opacity: 1; visibility: visible; }
     .qr-box { flex: 1; background: var(--card); border: 1px solid var(--gold); padding: clamp(20px, 3vw, 30px); display: flex; align-items: center; justify-content: center; }
     .qr-box p { font-weight: 600; font-size: clamp(1rem, 1.9vw, 1.15rem); color: var(--ink); line-height: 1.65; }
-    .qr-dots { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
+    .qr-dots { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 28px; }
+    .qr-arrow { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--gold); background: transparent; color: var(--gold-deep); font-size: 1.6rem; line-height: 1; padding: 0 0 4px; cursor: pointer; font-family: inherit; transition: background .25s, color .25s; }
+    .qr-arrow:hover { background: var(--gold); color: var(--ink); }
+    .qr-dot { position: relative; }
+    .qr-dot::after { content: ''; position: absolute; inset: -9px; }
     .qr-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); cursor: pointer; border: none; padding: 0; transition: background .3s; }
     .qr-dot.active { background: var(--gold); }
     @media (max-width: 760px) { .qr-pair { flex-direction: column; } }
@@ -396,11 +400,13 @@
       </div>
     </div>
     <div class="qr-dots">
+      <button type="button" class="qr-arrow" id="qrPrev" aria-label="העדות הקודמת">&rsaquo;</button>
       <span class="qr-dot active" data-dot="0"></span>
       <span class="qr-dot" data-dot="1"></span>
       <span class="qr-dot" data-dot="2"></span>
       <span class="qr-dot" data-dot="3"></span>
       <span class="qr-dot" data-dot="4"></span>
+      <button type="button" class="qr-arrow" id="qrNext" aria-label="העדות הבאה">&lsaquo;</button>
     </div>
   </div>
 </section>
@@ -543,30 +549,34 @@
     var stage = document.querySelector('.qr-stage');
     if (!pairs.length) return;
     var idx = 0, timer = null, paused = false, visible = true;
+    var DELAY = 12000;
     function show(i) {
-      pairs.forEach(function (p, j) { p.classList.toggle('active', j === i); });
-      dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
-      idx = i;
-    }
-    // slow, reading-friendly pace: a base pause plus time per word (about 17-22 seconds per pair)
-    function delayFor(i) {
-      var words = (pairs[i].textContent || '').trim().split(/\s+/).length;
-      return 8000 + words * 180;
+      idx = (i + pairs.length) % pairs.length;
+      pairs.forEach(function (p, j) { p.classList.toggle('active', j === idx); });
+      dots.forEach(function (d, j) { d.classList.toggle('active', j === idx); });
     }
     function schedule() {
       clearTimeout(timer);
       if (paused || !visible) return;
-      timer = setTimeout(function () { show((idx + 1) % pairs.length); schedule(); }, delayFor(idx));
+      timer = setTimeout(function () { show(idx + 1); schedule(); }, DELAY);
     }
-    dots.forEach(function (d, j) {
-      d.addEventListener('click', function () { show(j); schedule(); });
-    });
-    // pause while the reader hovers / touches the quotes, or when they are off screen
+    function go(i) { show(i); schedule(); }
+    dots.forEach(function (d, j) { d.addEventListener('click', function () { go(j); }); });
+    var prev = document.getElementById('qrPrev'), next = document.getElementById('qrNext');
+    if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+    if (next) next.addEventListener('click', function () { go(idx + 1); });
     if (stage) {
+      // pause while the reader hovers over the quotes, or when they are off screen
       stage.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); });
       stage.addEventListener('mouseleave', function () { paused = false; schedule(); });
-      stage.addEventListener('touchstart', function () { paused = true; clearTimeout(timer); }, { passive: true });
-      stage.addEventListener('touchend', function () { paused = false; schedule(); }, { passive: true });
+      // swipe on touch screens (RTL: swipe right = previous, swipe left = next)
+      var x0 = null;
+      stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) go(dx > 0 ? idx - 1 : idx + 1);
+      }, { passive: true });
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(function (es) {
           visible = es[0].isIntersecting;
