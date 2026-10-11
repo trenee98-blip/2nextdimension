@@ -86,31 +86,31 @@
 
     
     /* ============ COACHING PAGE ============ */
-    .ctop { position: relative; background: var(--dark); text-align: center; overflow: hidden; padding: 150px 24px 40px; }
-    .ctop::before { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .4; mix-blend-mode: screen; }
-    .ctop > * { position: relative; z-index: 1; }
-    .ctop .kicker { justify-content: center; font-size: clamp(1.25rem, 3vw, 1.7rem); color: #d9b978; margin-bottom: 22px; }
-    .ctop .kicker::before, .ctop .kicker::after { color: #d9b978; }
+    .chero { position: relative; background: #1c1712 url('assets/coach-sunset.jpg') center / cover no-repeat; overflow: hidden; padding: 150px 0 clamp(70px, 9vw, 110px); }
+    .chero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,16,14,.52), rgba(20,16,14,.38) 40%, rgba(20,16,14,.66)); }
+    .chero::after { content: ''; position: absolute; inset: 0; background: url('assets/stars.png'); opacity: .28; mix-blend-mode: screen; }
+    @media (max-width: 760px) { .chero::before { background: linear-gradient(to bottom, rgba(20,16,14,.62), rgba(20,16,14,.6) 45%, rgba(20,16,14,.78)); } }
+    .ctop-in { text-align: center; margin-bottom: clamp(36px, 5vw, 60px); }
+    .ctop-in .kicker { justify-content: center; font-size: clamp(1.25rem, 3vw, 1.7rem); color: #d9b978; margin-bottom: 22px; }
+    .ctop-in .kicker::before, .ctop-in .kicker::after { color: #d9b978; }
     .cosmic-strip { height: 74px; width: 100%; max-width: 620px; margin: 0 auto; background: url('assets/strip-cosmos.jpg') center 38% / cover; border-radius: 2px; box-shadow: 0 10px 30px -14px rgba(0,0,0,.5); }
-    .free-banner { display: block; width: 100%; max-width: 880px; margin: 40px auto 14px; }
+    .free-banner { display: block; width: 100%; max-width: 880px; margin: 36px auto 14px; }
     .be-banner { display: block; width: 66.8%; max-width: 588px; margin: 0 auto; }
-    @media (max-width: 620px) { .free-banner { width: calc(100% + 28px); max-width: none; margin: 32px -14px 10px; } .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; } }
+    @media (max-width: 620px) { .free-banner { width: calc(100% + 28px); max-width: none; margin: 30px -14px 10px; } .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; } }
     header.nav:not(.scrolled) .brand,
     header.nav:not(.scrolled) .nav-links a,
     header.nav:not(.scrolled) .nav-cta { color: #f4ecda !important; }
     header.nav:not(.scrolled) .nav-cta { border-color: #f4ecda !important; }
     header.nav:not(.scrolled) .nav-toggle svg { fill: #f4ecda !important; }
-    .chero { position: relative; background: #efe3b8 url('assets/coach-bg.jpg') center bottom / cover no-repeat; overflow: hidden; padding: clamp(56px, 7vw, 84px) 0 clamp(64px, 9vw, 100px); }
-    .chero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, rgba(247,242,232,.78) 0%, rgba(247,242,232,.55) 55%, rgba(247,242,232,.2) 100%); }
     .cgold { height: clamp(16px, 2.4vw, 26px); background: url('assets/coach-gold-frame.jpg') center / cover; border-top: 1px solid #d9b978; border-bottom: 1px solid #8a6522; }
     .chero .wrap { position: relative; z-index: 1; }
     .chero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 6vw, 80px); align-items: center; max-width: 1040px; margin: 0 auto; }
-    .chero h1 { font-size: clamp(2.3rem, 5.4vw, 3.9rem); color: var(--ink); line-height: 1.15; margin-bottom: 20px; }
-    .chero h1 em { font-style: normal; color: var(--gold-deep); }
-    .chero p.sub { color: var(--ink); font-size: clamp(1.08rem, 2.2vw, 1.3rem); margin-bottom: 30px; max-width: 520px; }
-    .chero .btn { background: var(--ink); color: var(--bg); }
-    .chero .btn:hover { background: var(--gold-deep); color: #fff; }
-    .chero .free { display: block; margin-top: 16px; color: var(--berry); font-size: .95rem; font-weight: 600; }
+    .chero h1 { font-size: clamp(2.3rem, 5.4vw, 3.9rem); color: #f4ecda; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+    .chero h1 em { font-style: normal; color: #e6c987; }
+    .chero p.sub { color: #f4ecda; text-shadow: 0 1px 12px rgba(0,0,0,.4); font-size: clamp(1.08rem, 2.2vw, 1.3rem); margin-bottom: 30px; max-width: 520px; }
+    .chero .btn { background: var(--bg); color: var(--ink); }
+    .chero .btn:hover { background: var(--gold); color: var(--ink); }
+    .chero .free { display: block; margin-top: 16px; color: #e6c987; font-size: .95rem; font-weight: 600; }
     .cphoto { padding: 12px; background: url('assets/coach-gold-frame.jpg') center / cover; box-shadow: 0 10px 30px rgba(60,40,10,.28); max-width: 380px; margin: 0 auto; }
     .cphoto img { width: 100%; display: block; }
     @media (max-width: 820px) { .chero-grid { grid-template-columns: 1fr; text-align: center; } .chero p.sub { margin-left: auto; margin-right: auto; } .cphoto { max-width: 300px; } }
@@ -130,6 +130,32 @@
     .cseq:hover .simg img { transform: scale(1.05); }
     .snum { position: absolute; top: 0; right: 0; z-index: 1; background: var(--dark); color: var(--gold); font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 2.6rem; line-height: 1; padding: 2px 16px 6px; }
     @media (max-width: 860px) { .cgrid3 { grid-template-columns: 1fr; max-width: 460px; } }
+
+    .cintro { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(28px, 6vw, 76px); align-items: center; max-width: 1000px; margin: 0 auto clamp(56px, 8vw, 96px); text-align: right; }
+    .cintro .kicker { justify-content: flex-start; }
+    .cintro h2 { margin-bottom: 18px; }
+    .cintro .lead { margin: 0; }
+    .cintro-photo { padding: 12px; background: url('assets/coach-gold-frame.jpg') center / cover; box-shadow: 0 10px 30px rgba(60,40,10,.22); max-width: 340px; margin: 0 auto; width: 100%; }
+    .cintro-photo img { width: 100%; display: block; }
+    .cside { display: grid; grid-template-columns: 300px 1fr; gap: clamp(28px, 6vw, 72px); align-items: stretch; max-width: 1000px; margin: 0 auto; text-align: right; }
+    .cside-img { padding: 10px; border: 1px solid var(--gold); background: var(--card); }
+    .cside-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cpoints { display: flex; flex-direction: column; justify-content: center; }
+    .cpoint { display: grid; grid-template-columns: 74px 1fr; gap: 18px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .cpoint:first-child { padding-top: 0; }
+    .cpoint:last-child { border-bottom: none; padding-bottom: 0; }
+    .cpoint .n { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 3.6rem; line-height: .9; color: var(--gold); }
+    .cpoint h3 { font-size: 1.55rem; color: var(--berry); margin-bottom: 6px; }
+    .cpoint p { color: var(--ink-soft); font-size: 1.08rem; margin: 0; }
+    @media (max-width: 820px) {
+      .cintro { grid-template-columns: 1fr; text-align: center; }
+      .cintro .kicker { justify-content: center; }
+      .cintro-photo { max-width: 280px; }
+      .cside { grid-template-columns: 1fr; }
+      .cside-img { max-width: 280px; margin: 0 auto; }
+      .cside-img img { height: auto; }
+      .cpoint { grid-template-columns: 60px 1fr; }
+    }
 
     .cfits { background: var(--bg-2); text-align: center; }
     .cfits h2 { max-width: 760px; margin-left: auto; margin-right: auto; }
@@ -248,15 +274,14 @@
   </nav>
 </header>
 
-<section class="ctop" id="top">
-  <span class="kicker">אימון אישי · ליווי 1:1</span>
-  <div class="cosmic-strip"></div>
-  <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
-  <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
-</section>
-
-<section class="chero">
+<section class="chero" id="top">
   <div class="wrap">
+    <div class="ctop-in">
+      <span class="kicker">אימון אישי · ליווי 1:1</span>
+      <div class="cosmic-strip"></div>
+      <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
+      <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
+    </div>
     <div class="chero-grid">
       <div>
         <h1>המרחב שבו <em>הבחירה מתרחבת</em></h1>
@@ -272,24 +297,20 @@
 
 <section class="cproc reveal">
   <div class="wrap">
-    <span class="kicker">מה קורה בתהליך</span>
-    <h2>לאט לאט נוצרים בהירות וחיבור</h2>
-    <p class="lead">בליווי אנחנו מתבוננים יחד על החיים כפי שהם היום, ועל הפער בינם לבין מה שהיית רוצה.</p>
-    <div class="cgrid3">
-      <div class="cstep cseq">
-        <div class="simg"><span class="snum">01</span><img src="assets/coach-swing-1.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <h3>להתבונן</h3>
-        <p>הפער בין החיים כרגע לבין מה שהיית רוצה יכול להרגיש כמו סבל, אכזבה, תקיעות או חוסר אונים.</p>
+    <div class="cintro">
+      <div>
+        <span class="kicker">מה קורה בתהליך</span>
+        <h2>להשתחרר ממה שמגביל אותי</h2>
+        <p class="lead">בליווי אנחנו מתבוננים על החיים כפי שהם היום ועל הפערים.</p>
       </div>
-      <div class="cstep cseq">
-        <div class="simg"><span class="snum">02</span><img src="assets/coach-swing-2.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <h3>להגדיר</h3>
-        <p>לפעמים צריך עזרה רק כדי להגדיר מה בעצם רוצים, ולגלות למה זה עוד לא נגיש.</p>
-      </div>
-      <div class="cstep cseq">
-        <div class="simg"><span class="snum">03</span><img src="assets/coach-swing-3.jpg" alt="" loading="lazy" decoding="async" /></div>
-        <h3>להקשיב ולבחור</h3>
-        <p>לשמוע את החלקים ההישרדותיים ואת מה שהם שמרו עליו, להכיר תודה על הדאגה, ולמצוא דרכים חדשות — שמאפשרות יותר חופש ויותר בחירה.</p>
+      <div class="cintro-photo"><img src="assets/coach-forest.jpg" alt="ריני טוויל" loading="lazy" decoding="async" /></div>
+    </div>
+    <div class="cside">
+      <div class="cside-img"><img src="assets/coach-swing-side.jpg" alt="" loading="lazy" decoding="async" /></div>
+      <div class="cpoints">
+        <div class="cpoint"><div class="n">01</div><div><h3>להתבונן</h3><p>לראות את הפער בין המציאות היום לבין מה שהיינו רוצים. זה יכול להרגיש כמו סבל, אכזבה, תקיעות או חוסר אונים.</p></div></div>
+        <div class="cpoint"><div class="n">02</div><div><h3>להכיר</h3><p>את עצמנו לעומק, להשתחרר דרך שיח ונוכחות עם תחושות גוף ונשימה, ממה שמונע התקדמות וצמיחה.</p></div></div>
+        <div class="cpoint"><div class="n">03</div><div><h3>לבחור</h3><p>להכיר דרכים חדשות שלא היו נגישות קודם ושנפתחות בתהליך בעקבות נוכחות וחקירה.</p></div></div>
       </div>
     </div>
   </div>
