@@ -540,21 +540,41 @@
   (function () {
     var pairs = document.querySelectorAll('.qr-pair');
     var dots = document.querySelectorAll('.qr-dot');
+    var stage = document.querySelector('.qr-stage');
     if (!pairs.length) return;
-    var idx = 0, timer;
+    var idx = 0, timer = null, paused = false, visible = true;
     function show(i) {
       pairs.forEach(function (p, j) { p.classList.toggle('active', j === i); });
       dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
       idx = i;
     }
-    function resetTimer() {
-      clearInterval(timer);
-      timer = setInterval(function () { show((idx + 1) % pairs.length); }, 6000);
+    // slow, reading-friendly pace: a base pause plus time per word (about 17-22 seconds per pair)
+    function delayFor(i) {
+      var words = (pairs[i].textContent || '').trim().split(/\s+/).length;
+      return 8000 + words * 180;
+    }
+    function schedule() {
+      clearTimeout(timer);
+      if (paused || !visible) return;
+      timer = setTimeout(function () { show((idx + 1) % pairs.length); schedule(); }, delayFor(idx));
     }
     dots.forEach(function (d, j) {
-      d.addEventListener('click', function () { show(j); resetTimer(); });
+      d.addEventListener('click', function () { show(j); schedule(); });
     });
-    resetTimer();
+    // pause while the reader hovers / touches the quotes, or when they are off screen
+    if (stage) {
+      stage.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); });
+      stage.addEventListener('mouseleave', function () { paused = false; schedule(); });
+      stage.addEventListener('touchstart', function () { paused = true; clearTimeout(timer); }, { passive: true });
+      stage.addEventListener('touchend', function () { paused = false; schedule(); }, { passive: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          visible = es[0].isIntersecting;
+          schedule();
+        }, { threshold: 0.2 }).observe(stage);
+      }
+    }
+    if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) schedule();
   })();
 
 
