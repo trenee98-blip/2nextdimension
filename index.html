@@ -205,6 +205,10 @@
     .contact-links a { display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--gold); background: rgba(176, 134, 60, 0.08); padding: 13px 26px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.97rem; transition: background .25s, transform .2s; }
     .contact-links a:hover { background: rgba(176, 134, 60, 0.18); transform: translateY(-2px); }
     .contact-links svg { width: 16px; height: 16px; fill: var(--gold-deep); }
+    .wa-join { margin: 4px 0 40px; }
+    .wa-join p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 14px; }
+    .wa-join .btn svg { width: 17px; height: 17px; fill: currentColor; }
+
     .nl { max-width: 460px; margin: 0 auto; }
     .nl-form { display: flex; border-bottom: 1px solid var(--ink); }
     .nl-form input { flex: 1; padding: 13px 2px; background: transparent; border: none; font-family: inherit; font-size: 1rem; color: var(--ink); outline: none; }
@@ -220,6 +224,9 @@
     footer .footer-be { width: 66.8%; max-width: 200px; margin: 0 auto 20px; opacity: 0.92; }
     footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
     footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
+    footer .f-join { display: inline-flex; align-items: center; gap: 10px; border: 1px solid #d9b978; background: rgba(176, 134, 60, .18); color: #f4ecda; padding: 11px 24px; margin: 0 auto 24px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: background .25s, color .25s; }
+    footer .f-join svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
+    footer .f-join:hover { background: #d9b978; color: #1c1712; }
     footer p { font-size: 0.85rem; }
     footer a { color: #d9b978; text-decoration: none; }
 
@@ -483,6 +490,10 @@
       <a href="mailto:trenee98@gmail.com"><svg><use href="#i-mail"/></svg> אימייל</a>
       <a href="https://www.facebook.com/renee.tawil.5/" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg> פייסבוק</a>
     </div>
+    <div class="wa-join">
+      <p>רוצים תוכן, מדיטציות ועדכונים על הרצאות וסדנאות?</p>
+      <a class="btn" href="https://chat.whatsapp.com/CdntaTJLq1QGbNYFEH0XAo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> הצטרפות לקבוצת הוואטסאפ — תוכן ועדכונים</a>
+    </div>
     <div class="nl">
       <p style="color:var(--ink-soft); font-size:0.97rem; margin-bottom:6px;">או הישארו מעודכנים בהרצאות, סדנאות ותכנים חדשים:</p>
       <div class="nl-form">
@@ -500,6 +511,7 @@
     <img class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="f-brand">ריני טוויל</div>
     <div class="f-tag">המסע למימד הבא</div>
+    <a class="f-join" href="https://chat.whatsapp.com/CdntaTJLq1QGbNYFEH0XAo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg> הצטרפות לקבוצת הוואטסאפ — תוכן ועדכונים</a>
     <p>© <span id="yr"></span> · <a href="https://2nextdimension.com">2nextdimension.com</a> · <a href="mailto:trenee98@gmail.com">trenee98@gmail.com</a></p>
   </div>
 </footer>
