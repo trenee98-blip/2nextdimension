@@ -156,6 +156,7 @@
     .scard h3 { font-size: 1.45rem; color: var(--berry); margin-bottom: 8px; }
     .scard p { color: var(--ink-soft); font-size: 1.04rem; line-height: 1.7; margin: 0; }
     .scard a { color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .scard.wide { grid-column: 1 / -1; text-align: center; }
     .sgrid.three { grid-template-columns: repeat(3, 1fr); max-width: 1000px; }
     .sgrid.three .scard h3 { font-size: 1.35rem; }
     @media (max-width: 880px) { .sgrid.three { grid-template-columns: repeat(2, 1fr); } }
@@ -165,6 +166,15 @@
     .aquote::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,14,.58), rgba(20,16,14,.46) 50%, rgba(20,16,14,.64)); }
     .aquote p { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; color: #f4ecda; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; line-height: 1.4; font-size: clamp(1.7rem, 4.4vw, 2.8rem); text-shadow: 0 2px 20px rgba(0,0,0,.5); }
 
+    .sgoal { background: var(--bg); text-align: center; }
+    .sgoal .big { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: var(--berry); font-size: clamp(1.5rem, 3.4vw, 2.2rem); line-height: 1.4; max-width: 760px; margin: 0 auto 16px; }
+    .sgoal p { max-width: 720px; margin: 0 auto; font-size: 1.16rem; color: var(--ink-soft); }
+    .schoice { background: var(--bg-2); text-align: center; padding: clamp(56px, 8vw, 96px) 0; }
+    .schoice p { max-width: 720px; margin: 0 auto 16px; font-size: 1.16rem; color: var(--ink-soft); }
+    .schoice p:last-child { margin-bottom: 0; }
+    .show { background: var(--bg-2); text-align: center; }
+    .show p { max-width: 720px; margin: 0 auto 16px; font-size: 1.16rem; color: var(--ink-soft); }
+    .show p:last-child { margin-bottom: 0; }
     .sidea { background: var(--bg); text-align: center; }
     .sidea p { max-width: 720px; margin: 0 auto 18px; font-size: 1.16rem; color: var(--ink-soft); }
     .sidea p:last-child { margin-bottom: 0; }
@@ -254,13 +264,16 @@
 <section class="aexp reveal">
   <div class="wrap">
     <span class="kicker">הניסיון שלי</span>
-    <h2>ארבעה עולמות שאני עובדת מתוכם</h2>
-    <p class="lead">עשור של עיסוק בתחום ההתפתחות האישית — ידע וכלים שמלווים כל מפגש.</p>
+    <h2>מה אספתי בדרך</h2>
+    <p class="lead">הקשיים שחוויתי לאורך השנים דחפו אותי לנסות לעשות סדר בכאוס של החיים. אספתי הרבה ידע בתחום ההתפתחות:</p>
     <div class="sgrid">
-      <div class="scard"><div class="n">01</div><h3>אימון בשיטת סאטיה</h3><p>אימון אישי שמתבסס על הקשבה לנשימה ולתחושות הגוף, על שהייה עם מה שיש ועל בחירה מודעת. <a href="#satya">על השיטה</a></p></div>
-      <div class="scard"><div class="n">02</div><h3>הנחיית מדיטציה</h3><p>קבוצת מדיטציה מונחת בזום, בחינם, בכל בוקר בשבוע — ועוד יותר מ־40 מדיטציות להאזנה. <a href="meditation.html">לקבוצת המדיטציה</a></p></div>
-      <div class="scard"><div class="n">03</div><h3>12 הצעדים</h3><p>אני עוסקת ב־12 הצעדים, ומלווה אנשים במקביל לעבודה בקבוצות 12 צעדים, מתוך הדרך שעברתי בעצמי.</p></div>
-      <div class="scard"><div class="n">04</div><h3>תקשורת מקרבת</h3><p>ידע וכלים מעולם התקשורת המקרבת, שמלווים את העבודה שלי עם אנשים — בהקשבה, בשיח ובחיבור.</p></div>
+      <div class="scard"><div class="n">01</div><h3>תקשורת לא אלימה (NVC)</h3><p>צרכים ורגשות, ושיח מבוסס חמלה.</p></div>
+      <div class="scard"><div class="n">02</div><h3>גמילה מהתמכרויות</h3><p>שחרור שליטה והתמודדות עם חוסר אונים. אני עוסקת ב־12 הצעדים, ומלווה במקביל לעבודה בקבוצות 12 צעדים.</p></div>
+      <div class="scard"><div class="n">03</div><h3>עבודה עם הגוף ומיניות</h3><p>נוכחות וביטחון.</p></div>
+      <div class="scard"><div class="n">04</div><h3>דיאלוג עם חלקים פנימיים</h3><p>הקשבה ואפשור של מורכבות בתוכי.</p></div>
+      <div class="scard"><div class="n">05</div><h3>מדיטציה</h3><p>שקט ושהייה. אני מנחה קבוצת מדיטציה מונחת בזום, בחינם. <a href="meditation.html">לקבוצת המדיטציה</a></p></div>
+      <div class="scard"><div class="n">06</div><h3>קבלת החלטות משותפות</h3><p>יצירת הסכמות ועבודה בשיתוף פעולה.</p></div>
+      <div class="scard wide"><div class="n">07</div><h3>סאטיה — וכמובן</h3><p>עבודה עם רצון ובחירה. תחושות גוף והקשבה. <a href="#satya">על השיטה</a></p></div>
     </div>
   </div>
 </section>
@@ -270,9 +283,25 @@
 </section>
 
 <span class="anchor" id="satya"></span>
-<section class="sidea reveal">
+<section class="sgoal reveal">
   <div class="wrap">
     <span class="kicker">שיטת סאטיה</span>
+    <h2>מה המטרה?</h2>
+    <p class="big">להקל על סבל ולחיות חיים של שלווה, חיבור וחופש.</p>
+    <p>ואיך? על ידי הגדלת בחירה ורצון, ועל ידי נוכחות וחיבור לגוף.</p>
+  </div>
+</section>
+
+<section class="schoice reveal">
+  <div class="wrap">
+    <p>בחירה היא אחת המתנות שקיבלנו כבני אדם. אבל יש מקומות שבהם אנחנו לא מודעים לבחירה שיש לנו, או לא יודעים איך היא חומקת מאיתנו פעם אחר פעם.</p>
+    <p>לפעמים זה כתוצאה מאמונות מגבילות, דפוסים והרגלים, פחדים ורגשות שמשתלטים — ולפעמים פשוט לא עצרנו ושאלנו את השאלה: <span class="hl">מה אני רוצה?</span></p>
+  </div>
+</section>
+
+<section class="sidea reveal">
+  <div class="wrap">
+    <span class="kicker">הרעיון</span>
     <h2>לא מתקנים — מתבוננים</h2>
     <p>בשיטת סאטיה אנחנו מניחים שהאדם איננו מוגבל מטבעו, אלא כלוא בגופו ובתודעתו — בזיכרונות, פרשנויות, אמונות ודפוסים.</p>
     <p>החיים נוצרים בפער בין מה שיש לבין מה שציפינו שיהיה, ושם נמצא מקור הסבל. כשמתבוננים במה שיש — דרך הקשבה לתחושות הגוף ולנשימה — נפתח מקום לבחירה.</p>
@@ -323,11 +352,21 @@
   </div>
 </section>
 
+<section class="show reveal">
+  <div class="wrap">
+    <span class="kicker">איך אני מלווה</span>
+    <h2>אני פה לתמוך בך במסע שלך</h2>
+    <p>נבין מה חשוב לך, איך היית רוצה שדברים יראו, ובעיקר מי היית רוצה להיות.</p>
+    <p>נתבונן על הפערים בחיים, באמונות שאינן תומכות ובשחרור זיכרונות שנרשמו בגוף. נחשוף את המנגנונים שאימצנו כדי לשמור על עצמנו.</p>
+    <p>נתבל הכול בהרבה חמלה והבנה של האנושיות שלנו, בהסתכלות על היכולות והמסוגלות שקיימות כבר, ובבניית קשר ומודעות לנשימה ולגוף.</p>
+  </div>
+</section>
+
 <section class="scta reveal">
   <div class="wrap">
     <span class="kicker">הצעד הראשון</span>
-    <h2>רוצים להכיר מקרוב?</h2>
-    <p>שיחת היכרות קצרה, ללא עלות וללא התחייבות.</p>
+    <h2>מזמינה אותך לשיחת היכרות קצרה</h2>
+    <p>חינמית וללא התחייבות. ללוות אנשים במסע החיים זאת זכות עבורי.</p>
     <div class="row">
       <a class="btn" href="https://wa.me/972526788944" target="_blank" rel="noopener">לקביעת שיחת היכרות <svg><use href="#i-arrow"/></svg></a>
       <a class="btn ghost" href="coaching.html">לעמוד האימון</a>
