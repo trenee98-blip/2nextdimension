@@ -176,6 +176,7 @@
     .prog h3 { font-size: clamp(1.6rem, 2.8vw, 2rem); margin-bottom: 8px; color: var(--berry); }
     .tagline { color: var(--gold-deep); font-weight: 700; margin-bottom: 14px; font-size: 1.06rem; line-height: 1.5; }
     .prog p { color: var(--ink-soft); font-size: 1.04rem; margin-bottom: 18px; flex: 1; }
+    .prog .scope { font-size: .95rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 10px; margin: 0 0 14px; }
     .pmeta { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip { border: 1px solid var(--gold); padding: 3px 14px; font-weight: 600; font-size: .88rem; color: var(--ink); background: rgba(176,134,60,.1); }
     .note { margin: clamp(40px, 6vw, 60px) auto 0; max-width: 640px; color: var(--ink-soft); font-size: 1rem; }
@@ -197,6 +198,13 @@
     .cband-in { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
     .cband h2 { color: #f4ecda; text-shadow: 0 2px 20px rgba(0,0,0,.5); margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); }
 
+    .cloops { background: var(--bg-2); text-align: center; }
+    .cloopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1040px; margin: 30px auto 0; text-align: right; }
+    .cloop { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 20px 18px 22px; }
+    .cloop h3 { font-size: 1.15rem; color: var(--berry); margin: 0 0 6px; }
+    .cloop p { margin: 0; color: var(--ink-soft); font-size: .98rem; line-height: 1.65; }
+    @media (max-width: 980px) { .cloopgrid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .cloopgrid { grid-template-columns: 1fr; max-width: 440px; } }
     .cfits { text-align: right; }
     .cfwrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 6vw, 72px); align-items: center; max-width: 1000px; margin: 0 auto; }
     .cfphoto { padding: 10px; border: 1px solid var(--gold); background: var(--bg); max-width: 360px; margin: 0 auto; }
@@ -295,7 +303,7 @@
       <a href="meditation.html">מדיטציה</a>
       <a href="index.html#contact">צור קשר</a>
     </nav>
-    <a href="#start" class="nav-cta">שיחת היכרות</a>
+    <a href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%20%D7%9E%D7%94%20%D7%A9%D7%9E%D7%A2%D7%A1%D7%99%D7%A7%20%D7%90%D7%95%D7%AA%D7%99%20%D7%A2%D7%9B%D7%A9%D7%99%D7%95%3A%20" target="_blank" rel="noopener" class="nav-cta" data-track="nav_whatsapp">שיחת היכרות</a>
     <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navMobile">
       <svg><use href="#i-menu"/></svg>
     </button>
@@ -348,6 +356,19 @@
 <section class="cband reveal">
   <div class="cband-in">
     <h2>לאט לאט נוצרים בהירות וחיבור</h2>
+  </div>
+</section>
+
+<section class="cloops reveal">
+  <div class="wrap">
+    <span class="kicker">זה יכול להיות…</span>
+    <h2>תקועים בתוך לופ?</h2>
+    <div class="cloopgrid">
+      <div class="cloop"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עושה לי טוב ולא עובד.</p></div>
+      <div class="cloop"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס — כדרך לנסות להישמר מפני סכנה.</p></div>
+      <div class="cloop"><h3>לופ מחשבתי</h3><p>אמונות מגבילות, חשיבה אובססיבית, לנסות להיערך למה שעלול לקרות.</p></div>
+      <div class="cloop"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
+    </div>
   </div>
 </section>
 
@@ -413,6 +434,7 @@
           <h3>התמכרות</h3>
           <div class="tagline">ליווי במקביל לעבודה בקבוצות 12 צעדים</div>
           <p>ההתמכרות איננה הבעיה — היא הסימפטום. יש ערך בעבודה פנימית ותודעתית במקביל לתהליך הגמילה: נפגוש חלקים פנימיים הישרדותיים, ונלמד להישאר בנוכחות מול רגשות וחוסר אונים.</p>
+          <p class="scope">אני מלווה אנשים בתוך תהליך גמילה, כתמיכה לצד ליווי מקצועי או קבוצות 12 צעדים. זה אינו תחליף לטיפול, ואין לי הסמכה ייעודית בתחום ההתמכרויות.</p>
           <div class="pmeta"><span class="chip">לצד קבוצות 12 צעדים</span></div>
         </div>
       </div>

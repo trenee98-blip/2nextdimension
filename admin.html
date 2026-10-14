@@ -139,6 +139,8 @@
     <div class="box">
       <h3>מאיפה הגיעו</h3>
       <div id="sources"></div>
+      <h3 style="margin-top:18px;">לפי עמוד</h3>
+      <div id="pages"></div>
       <h3 style="margin-top:18px;">מכשיר</h3>
       <div id="devices"></div>
     </div>
@@ -268,6 +270,12 @@
     const bySrc = {};
     events.filter(x => x.event === 'visit').forEach(x => { const s = x.source || 'לא ידוע'; bySrc[s] = (bySrc[s] || 0) + 1; });
     $('sources').innerHTML = bars(bySrc, visits) || '<div style="color:var(--muted);font-size:0.85rem;">אין נתונים עדיין</div>';
+
+    // pages
+    const PAGE_LBL = { home: 'דף הבית', about: 'נעים להכיר', coaching: 'אימון אישי', meditation: 'מדיטציה', lectures: 'הרצאות', lecture1: 'הרצאה 1', landing: 'הרצאה 2' };
+    const byPage = {};
+    events.filter(x => x.event === 'visit').forEach(x => { const k = PAGE_LBL[x.page] || x.page || '?'; byPage[k] = (byPage[k] || 0) + 1; });
+    $('pages').innerHTML = bars(byPage, visits) || '<div style="color:var(--muted);font-size:0.85rem;">אין נתונים עדיין</div>';
 
     // devices
     const byDev = {};
