@@ -131,8 +131,10 @@
   <div class="section-title">תנועה באתר · <span id="a-range" style="font-weight:400;color:var(--muted);font-size:0.85rem;">7 ימים אחרונים</span></div>
   <div class="analytics">
     <div class="box">
-      <h3>המשפך — מכניסה להרשמה</h3>
+      <h3>כניסות ולחיצות על כפתורים</h3>
       <div class="funnel" id="funnel"></div>
+      <h3 style="margin-top:18px;">על מה לוחצים</h3>
+      <div id="clicks"></div>
     </div>
     <div class="box">
       <h3>מאיפה הגיעו</h3>
@@ -245,9 +247,7 @@
 
     const steps = [
       ['נכנסו לאתר', visits, visits],
-      ['לחצו "הרשמה"', cta, visits],
-      ['התחילו למלא', fstart, visits],
-      ['השלימו הרשמה', regs7, visits]
+      ['לחצו על כפתור פנייה', cta, visits]
     ];
     $('funnel').innerHTML = steps.map((s, i) => {
       const [lbl, val, base] = s;
@@ -258,6 +258,11 @@
         '<span class="lbl">' + lbl + '</span>' +
         '<span class="rate">' + stepRate + '</span></div>';
     }).join('');
+
+    // which buttons were pressed
+    const byBtn = {};
+    events.filter(x => x.event === 'cta_click').forEach(x => { const k = x.source || '?'; byBtn[k] = (byBtn[k] || 0) + 1; });
+    $('clicks').innerHTML = bars(byBtn, cta) || '<div style="color:var(--muted);font-size:0.85rem;">עדיין אין לחיצות</div>';
 
     // sources (of visits)
     const bySrc = {};

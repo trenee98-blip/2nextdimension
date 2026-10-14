@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>קבוצת מדיטציה בזום — ריני טוויל</title>
-  <meta name="description" content="קבוצת מדיטציה מונחת בזום, חמש פעמים בשבוע, בחינם. תרגול נוכחות, חיבור לגוף ולנשימה, וסבב שיתוף — עם ריני טוויל." />
-  <meta property="og:title" content="קבוצת מדיטציה בזום — ריני טוויל" />
-  <meta property="og:description" content="מדיטציה מונחת 5 ימים בשבוע, בחינם — לחזור למה שכבר נמצא בתוכנו." />
+  <title>קבוצת מדיטציה מונחת בזום, בחינם | ריני טוויל</title>
+  <link rel="canonical" href="https://2nextdimension.com/meditation.html" />
+  <meta name="description" content="קבוצת מדיטציה מונחת בזום עם ריני טוויל: 5 ימים בשבוע בבוקר, בחינם. ביום רביעי תפילה דו־כיוונית במקום מדיטציה מונחת. ועוד יותר מ־40 מדיטציות להאזנה." />
+  <meta property="og:title" content="קבוצת מדיטציה מונחת בזום, בחינם | ריני טוויל" />
+  <meta property="og:description" content="קבוצת מדיטציה מונחת בזום עם ריני טוויל: 5 ימים בשבוע בבוקר, בחינם. ביום רביעי תפילה דו־כיוונית במקום מדיטציה מונחת. ועוד יותר מ־40 מדיטציות להאזנה." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://2nextdimension.com/assets/med-practice.jpg" />
   <meta name="theme-color" content="#f7f2e8" />
@@ -98,6 +99,7 @@
     .mhero .kicker::before, .mhero .kicker::after { color: #d9b978; }
     .mhero h1 { font-size: clamp(2.4rem, 6.6vw, 4.6rem); color: #f4ecda; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 2px 22px rgba(0,0,0,.6); }
     .mhero .sub { color: #efe6d4; font-size: clamp(1.1rem, 2.5vw, 1.45rem); margin: 0 auto 8px; max-width: 640px; }
+    .wednote { color: #efe6d4; font-size: 1rem; margin: 16px auto 0; opacity: .92; }
     .freebadge { display: inline-block; margin-top: 26px; border: 1px solid var(--gold); color: #f4ecda; padding: 4px 34px 8px; font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(2rem, 4.6vw, 2.8rem); line-height: 1.1; background: rgba(20,16,14,.35); }
     .mhero .btn { margin-top: 34px; background: var(--bg); color: var(--ink); }
     .mhero .btn:hover { background: var(--gold); color: var(--ink); }
@@ -157,6 +159,9 @@
     .spot iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 12px; }
     .mlisten .btn { margin-top: 28px; }
 
+    .mnext { background: var(--bg); text-align: center; padding: clamp(56px, 8vw, 96px) 0; }
+    .mnext .kicker { justify-content: center; }
+    .mnext p { max-width: 620px; margin: 0 auto 26px; color: var(--ink-soft); font-size: 1.12rem; }
     .mjoin { background: var(--bg-3); text-align: center; }
     .mjoin .kicker { justify-content: center; }
     .mjoin .lead { margin-left: auto; margin-right: auto; margin-bottom: 34px; }
@@ -249,7 +254,8 @@
     <span class="kicker">קבוצת מדיטציה</span>
     <h1>לחזור למה שכבר נמצא בתוכנו</h1>
     <p class="sub">מדיטציה מונחת בזום, 5 ימים בשבוע — כדי לתרגל נוכחות ולהתחיל את היום מתוך בחירה.</p>
-    <div class="freebadge">הכול בחינם</div><br />
+    <div class="freebadge">הכול בחינם</div>
+    <p class="wednote">ימים א׳–ה׳ בבוקר · ביום רביעי תפילה דו־כיוונית במקום מדיטציה מונחת</p>
     <a href="#join" class="btn">בקשת הצטרפות <svg><use href="#i-arrow"/></svg></a>
   </div>
 </section>
@@ -351,6 +357,15 @@
   </div>
 </section>
 
+<section class="mnext reveal">
+  <div class="wrap">
+    <span class="kicker">להמשיך הלאה</span>
+    <h2>התרגול מדבר אליכם? יש גם ליווי אישי</h2>
+    <p>אימון אישי בשיטת סאטיה, פגישה שבועית בזום: להסיר חסמים, להשתחרר ממנגנונים הישרדותיים ולבחור מי רוצים להיות.</p>
+    <a class="btn" href="coaching.html" data-track="meditation_to_coaching">לעמוד האימון האישי <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
 <section class="mjoin reveal" id="join">
   <div class="wrap">
     <span class="kicker">להצטרפות</span>
@@ -361,8 +376,6 @@
       <input type="text" id="jName" autocomplete="name" required />
       <label for="jPhone">וואטסאפ</label>
       <input type="tel" id="jPhone" autocomplete="tel" inputmode="tel" required />
-      <label for="jEmail">אימייל</label>
-      <input type="email" id="jEmail" autocomplete="email" required />
       <input type="text" id="jWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <button type="submit" class="btn" id="jBtn">שלחו בקשת הצטרפות <svg><use href="#i-arrow"/></svg></button>
       <p class="jmsg" id="jMsg" role="status"></p>
@@ -413,6 +426,16 @@
   var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBydW9na3h2cnZpZ2hiZXpva2d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODU5NDIsImV4cCI6MjA5NjU2MTk0Mn0.0qd8iDxx2qaxI9vL6XZkczTZ9UtO8SkadtHXP7DtGCM';
   var sb = supabase.createClient(SB_URL, SB_KEY);
 
+  // ---- click tracking: which buttons people press (stored as cta_click; label in `source`) ----
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('[data-track]') : null;
+    if (!el) return;
+    try {
+      var dev = (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'נייד' : 'מחשב';
+      sb.from('page_views').insert({ page: 'meditation', event: 'cta_click', source: el.getAttribute('data-track'), device: dev }).then(function () {});
+    } catch (err) {}
+  });
+
   function _source() {
     try {
       var p = new URLSearchParams(location.search);
@@ -443,13 +466,11 @@
     if (document.getElementById('jWebsite').value) return;
     var name = document.getElementById('jName').value.trim();
     var phone = document.getElementById('jPhone').value.trim();
-    var email = document.getElementById('jEmail').value.trim();
     msg.style.color = '#a0524a';
     if (!name) { msg.textContent = 'אנא כתבו שם.'; return; }
     if (phone.replace(/\D/g, '').length < 9) { msg.textContent = 'אנא כתבו מספר וואטסאפ תקין.'; return; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'אנא כתבו אימייל תקין.'; return; }
     btn.disabled = true;
-    var res = await sb.from('registrations').insert({ name: name, email: email, phone: phone, lecture: 'קבוצת מדיטציה' });
+    var res = await sb.from('registrations').insert({ name: name, email: '', phone: phone, lecture: 'קבוצת מדיטציה' });
     if (res.error) { btn.disabled = false; msg.textContent = 'משהו השתבש, אפשר לנסות שוב או לכתוב לי בוואטסאפ.'; return; }
     msg.style.color = '#856224';
     msg.textContent = 'תודה, נרשמת! פותחת עכשיו את וואטסאפ — רק ללחוץ "שליחה" כדי שההודעה תגיע אליי:';
