@@ -106,10 +106,14 @@
     .be-banner { display: block; width: 66.8%; max-width: 588px; margin: 0 auto 40px; }
     @media (max-width: 620px) { .free-banner { width: calc(100% + 28px); max-width: none; margin: 32px -14px 10px; } .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; margin: 0 auto 32px; } }
     .hero-main { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; max-width: 1040px; margin: 0 auto; padding-top: clamp(22px, 2.6vw, 30px); text-align: right; }
-    .hero h1 { font-size: clamp(1.9rem, 4.2vw, 3.1rem); font-weight: 700; color: var(--berry); line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.01em; text-wrap: balance; }
-    .hero p.sub { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--ink); max-width: 600px; margin: 0 0 14px; font-weight: 500; text-wrap: balance; }
+    .hero h1 { font-size: clamp(1.8rem, 3.8vw, 2.8rem); font-weight: 700; color: var(--berry); line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.01em; text-wrap: balance; }
+    .hero p.sub { color: var(--ink); max-width: 640px; margin: 0 0 12px; }
+    .hero p.sub .sub-big { display: block; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.45rem, 2.9vw, 2.05rem); line-height: 1.25; color: var(--ink); }
+    .hero p.sub .sub-line { display: block; font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 500; margin-top: 4px; color: var(--ink-soft); }
     .hero p.sub .hl { color: var(--berry); font-weight: 700; }
-    .hero p.who { color: var(--gold-deep); font-weight: 700; font-size: 1.02rem; margin: 0 0 22px; letter-spacing: .02em; }
+    .hero .who { margin: 0 0 18px; display: flex; flex-direction: column; gap: 0; }
+    .hero .who span { display: block; color: var(--gold-deep); font-weight: 800; font-size: clamp(1.05rem, 1.7vw, 1.2rem); line-height: 1.4; letter-spacing: .02em; }
+    .hero .who .who-name { font-family: 'Noto Serif Hebrew', serif; color: var(--berry); font-size: clamp(1.35rem, 2.4vw, 1.7rem); font-weight: 700; }
     .hero .btn { margin: 0; }
     .hero .hero-free { display: block; margin-top: 12px; color: var(--ink-soft); font-size: .95rem; }
     .hero-portrait { width: 100%; max-width: 300px; margin: 0 auto; padding: 10px; border: 1px solid var(--gold); background: var(--dark); }
@@ -241,6 +245,7 @@
     .beliefs { background: var(--dark); color: #efe6d4; position: relative; overflow: hidden; }
     .beliefs .bg { position: absolute; inset: 0; background: url('assets/h-belief-bg.jpg') center / cover; opacity: 0.28; }
     .beliefs .wrap { position: relative; z-index: 1; }
+    .beliefs .bitem .n { font-family: inherit !important; font-size: 1.3rem !important; color: #d9b978; line-height: 1.6; }
     .beliefs .kicker { color: #d9b978; }
     .beliefs .kicker::before, .beliefs .kicker::after { color: #d9b978; }
     .beliefs h2 { color: #f4ecda; }
@@ -339,18 +344,38 @@
   <div class="hero-main">
     <div class="hero-text">
       <h1>לחיות מתוך חופש ובחירה</h1>
-      <p class="sub">ליווי אישי בשיטת סאטיה: להכיר את הדפוסים וליצור יותר בחירה בחיי היום־יום.</p>
-      <p class="who">ריני טוויל · מאמנת אישית בשיטת סאטיה · מנחת מדיטציה</p>
-      <a href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%20%D7%9E%D7%94%20%D7%A9%D7%9E%D7%A2%D7%A1%D7%99%D7%A7%20%D7%90%D7%95%D7%AA%D7%99%20%D7%A2%D7%9B%D7%A9%D7%99%D7%95%3A%20" target="_blank" rel="noopener" class="btn" data-track="hero_whatsapp">לתיאום שיחת היכרות בוואטסאפ <svg><use href="#i-arrow"/></svg></a>
-      <span class="hero-free">ללא עלות וללא התחייבות · בזום</span>
+      <p class="sub"><span class="sub-big">ליווי אישי בשיטת סאטיה:</span><span class="sub-line">להכיר את החסמים וליצור יותר בחירה ביומיום</span></p>
+      <div class="who"><span class="who-name">ריני טוויל</span><span>מאמנת אישית בשיטת סאטיה</span><span>מנחת מדיטציה</span></div>
+      <a href="https://wa.me/972526788944?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%99%D7%A0%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%20%D7%9E%D7%94%20%D7%A9%D7%9E%D7%A2%D7%A1%D7%99%D7%A7%20%D7%90%D7%95%D7%AA%D7%99%20%D7%A2%D7%9B%D7%A9%D7%99%D7%95%3A%20" target="_blank" rel="noopener" class="btn" data-track="hero_whatsapp">לתיאום שיחת היכרות <svg><use href="#i-arrow"/></svg></a>
+      <span class="hero-free">ללא עלות וללא התחייבות</span>
     </div>
     <div class="hero-portrait"><img src="assets/n-rini-portrait.jpg" alt="ריני טוויל" /></div>
   </div>
   <ol class="hero-points">
-    <li><span class="n">01</span><h3>להשתחרר מ…</h3><p><span class="hl">התמכרות</span> · פחד · אשמה · בושה · כעס</p></li>
-    <li><span class="n">02</span><h3>ומ…</h3><p>דפוסים והרגלים של <span class="hl">שליטה</span> · אמונות מגבילות · זיכרונות</p></li>
-    <li><span class="n">03</span><h3>דרך עבודה עם…</h3><p><span class="hl">תחושות גוף</span> · <span class="hl">חלקים הישרדותיים</span> · <span class="hl">בחירה</span> — מי אני רוצה להיות ומה מונע ממני</p></li>
+    <li><h3>להשתחרר מ…</h3><p><span class="hl">התמכרות</span> · פחד · אשמה · בושה · כעס</p></li>
+    <li><h3>ומ…</h3><p>דפוסים והרגלים של <span class="hl">שליטה</span> · אמונות מגבילות · זיכרונות</p></li>
+    <li><h3>דרך עבודה עם…</h3><p><span class="hl">תחושות גוף</span> · <span class="hl">חלקים הישרדותיים</span> · <span class="hl">בחירה</span> — מי אני רוצה להיות ומה מונע ממני</p></li>
   </ol>
+</section>
+
+<!-- TRIAD (black & white) -->
+<section class="triad reveal center">
+  <div class="wrap">
+    <div class="triad-grid">
+      <figure>
+        <div class="thead"><div class="tword">חמלה</div><div class="tcap"><p>אהבה נדיבה</p></div></div>
+        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" loading="lazy" decoding="async" /></div>
+      </figure>
+      <figure>
+        <div class="thead"><div class="tword">נוכחות</div><div class="tcap"><p>להאט ולשהות</p></div></div>
+        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" loading="lazy" decoding="async" /></div>
+      </figure>
+      <figure>
+        <div class="thead"><div class="tword">בחירה</div><div class="tcap"><p>מי אני רוצה להיות?</p></div></div>
+        <div class="timg"><img src="assets/n2b-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /></div>
+      </figure>
+    </div>
+  </div>
 </section>
 
 <!-- LOOPS -->
@@ -375,27 +400,25 @@
 <!-- OFFERINGS -->
 <section class="offerings reveal" id="offerings">
   <div class="wrap">
-    <span class="kicker">איך מתחילים</span>
-    <h2 style="margin-bottom:40px;">ליווי אישי, ודרכים להכיר</h2>
+    <h2 style="margin-bottom:40px;">איך מתחילים</h2>
     <a href="coaching.html" class="ocard primary" style="--accent: var(--berry)" data-track="card_coaching">
       <div class="thumb"><img src="assets/h-card-coaching.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="body">
-        <span class="tag">ההצעה המרכזית</span>
         <h3>אימון אישי בשיטת סאטיה</h3>
         <p>תהליך 1:1 בזום, פגישה שבועית של 60 דקות: לראות את הדפוסים, להסיר חסמים ולהשתחרר ממנגנונים הישרדותיים — כולל התמכרויות ודפוסים של פחד, אשמה ובושה — ולבחור מי אני רוצה להיות ואיך אני רוצה לחיות.</p>
         <span class="go">לתוכניות ולמחירים →</span>
       </div>
     </a>
-    <p class="also">להתחיל בהיכרות:</p>
+    <p class="also">להתחיל בהיכרות</p>
     <a href="meditation.html" class="ocard rowcard" style="--accent: #7d8b6a" data-track="card_meditation">
       <div class="thumb"><img src="assets/h-card-meditation.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="body">
-        <h3>מדיטציה בחינם ותכנים</h3>
-        <p>קבוצת מדיטציה מונחת בזום, 5 ימים בשבוע — דרך נעימה להכיר את הקול ואת דרך ההנחיה. ועוד מדיטציות להאזנה ולתרגול בכל שעה.</p>
+        <h3>מדיטציה</h3>
+        <p>מדיטציה מונחת 5 ימים בזום, בחינם</p>
         <span class="go">להצטרפות →</span>
       </div>
     </a>
-    <p class="also">הרצאות וסדנאות:</p>
+    <p class="also">הרצאות וסדנאות</p>
     <div class="cards">
       <a href="lectures.html" class="ocard" style="--accent: var(--teal)" data-track="card_lectures">
         <div class="thumb"><img src="assets/h-card-lectures.jpg" alt="" loading="lazy" decoding="async" /></div>
@@ -424,7 +447,7 @@
     <h2>ליווי שנשען על הכשרה, ידע וניסיון</h2>
     <p class="lead">הכשרה באימון בשיטת סאטיה, לצד שנים של עיסוק בתחום ההתפתחות האישית ובדרך האישית שעברתי בעצמי.</p>
     <div class="proggrid">
-      <div class="procard main"><span class="py"><bdi dir="ltr">2024–2026</bdi></span><h3>אימון בשיטת סאטיה</h3><p>הכשרה באימושין: עבודה עם נוכחות ובחירה, דרך שיח והיכרות, בנוסף להתבוננות ושהייה בתחושות גוף ונשימה.</p></div>
+      <div class="procard main"><span class="py"><bdi dir="ltr">2024–2026</bdi></span><h3>אימון בשיטת סאטיה</h3><p>הכשרה באימושיין: עבודה עם נוכחות ובחירה, דרך שיח והיכרות, בנוסף להתבוננות ושהייה בתחושות גוף ונשימה.</p></div>
       <div class="procard"><h3>הנחיית מדיטציה</h3><p>קבוצת מדיטציה מונחת בזום, 5 ימים בשבוע.</p></div>
       <div class="procard"><h3>תקשורת לא אלימה (NVC)</h3><p>צרכים ורגשות, ושיח מבוסס חמלה.</p></div>
       <div class="procard"><h3>גמילה והתמכרויות</h3><p>שחרור שליטה והתמודדות עם חוסר אונים, וליווי לצד קבוצות 12 צעדים.</p></div>
@@ -432,26 +455,6 @@
       <div class="procard"><h3>קבלת החלטות משותפות</h3><p>יצירת הסכמות ועבודה בשיתוף פעולה.</p></div>
     </div>
     <p style="margin-top:34px;"><a href="about.html" class="link-more" data-track="pro_about">להכיר אותי לעומק <svg><use href="#i-arrow"/></svg></a></p>
-  </div>
-</section>
-
-<!-- TRIAD (black & white) -->
-<section class="triad reveal center">
-  <div class="wrap">
-    <div class="triad-grid">
-      <figure>
-        <div class="thead"><div class="tword">חמלה</div><div class="tcap"><p>אהבה נדיבה</p></div></div>
-        <div class="timg"><img src="assets/n1-compassion.jpg" alt="פרפר על תפרחת" loading="lazy" decoding="async" /></div>
-      </figure>
-      <figure>
-        <div class="thead"><div class="tword">נוכחות</div><div class="tcap"><p>להאט ולשהות</p></div></div>
-        <div class="timg"><img src="assets/n3-presence.jpg" alt="מבט זברה" loading="lazy" decoding="async" /></div>
-      </figure>
-      <figure>
-        <div class="thead"><div class="tword">בחירה</div><div class="tcap"><p>מי אני רוצה להיות?</p></div></div>
-        <div class="timg"><img src="assets/n2b-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /></div>
-      </figure>
-    </div>
   </div>
 </section>
 
@@ -567,10 +570,10 @@
     <span class="kicker">אני מאמינה</span>
     <h2>מה מנחה אותי?</h2>
     <ul class="blist">
-      <li class="bitem"><span class="n">01</span><span class="t">ככל שנרחיב את הידע, מודעות ונוכחות שלנו — כך נרחיב את החופש והבחירה.</span></li>
-      <li class="bitem"><span class="n">02</span><span class="t">אנשים הם נשמות טהורות ואין־סופיות. הכל אפשרי — מעבר להגבלות של זמן ומקום.</span></li>
-      <li class="bitem"><span class="n">03</span><span class="t">אנחנו גם יצורים הישרדותיים, וההיכרות עם החלקים ההישרדותיים היא שמאפשרת להשתחרר ולהתרחב אל הנשמה.</span></li>
-      <li class="bitem"><span class="n">04</span><span class="t">לכל חלק בתוכנו יש תפקיד, והוא שמר עלינו בתקופה מסוימת. התפקיד שלנו הוא לשמוע את המסר, להכיר תודה על הדאגה — ולמצוא דרכים חדשות, שמאפשרות יותר חופש ובחירה.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">ככל שנרחיב את הידע, מודעות ונוכחות שלנו — כך נרחיב את החופש והבחירה.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">אנשים הם נשמות טהורות ואין־סופיות. הכל אפשרי — מעבר להגבלות של זמן ומקום.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">אנחנו גם יצורים הישרדותיים, וההיכרות עם החלקים ההישרדותיים היא שמאפשרת להשתחרר ולהתרחב אל הנשמה.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">לכל חלק בתוכנו יש תפקיד, והוא שמר עלינו בתקופה מסוימת. התפקיד שלנו הוא לשמוע את המסר, להכיר תודה על הדאגה — ולמצוא דרכים חדשות, שמאפשרות יותר חופש ובחירה.</span></li>
     </ul>
   </div>
 </section>
