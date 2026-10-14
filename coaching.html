@@ -188,6 +188,12 @@
     .cq p { font-family: 'Noto Serif Hebrew', serif; font-weight: 600; font-size: clamp(1.02rem, 1.9vw, 1.16rem); line-height: 1.7; }
     @media (max-width: 760px) { .cqgrid { grid-template-columns: 1fr; } }
 
+    .cfaq { background: var(--bg-2); text-align: center; }
+    .faqgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 34px auto 0; text-align: right; }
+    .faqcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 26px 24px 28px; }
+    .faqcard h3 { font-size: 1.3rem; color: var(--berry); margin: 0 0 10px; line-height: 1.35; }
+    .faqcard p { margin: 0; color: var(--ink-soft); font-size: 1.08rem; line-height: 1.7; }
+    @media (max-width: 860px) { .faqgrid { grid-template-columns: 1fr; max-width: 460px; } }
     .csteps { background: var(--bg); text-align: center; }
 
 
@@ -278,6 +284,9 @@
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Service","name":"אימון אישי בשיטת סאטיה","serviceType":"אימון אישי","provider":{"@type":"Person","name":"ריני טוויל","url":"https://2nextdimension.com/"},"areaServed":"IL","offers":{"@type":"Offer","price":"300","priceCurrency":"ILS","description":"פגישה של 60 דקות בזום"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "איך נראה מפגש ראשון?", "acceptedAnswer": {"@type": "Answer", "text": "מפגש היכרות: להכיר יותר לעומק מאיפה את.ה בא.ה."}}, {"@type": "Question", "name": "האם מתחייבים לסדרה?", "acceptedAnswer": {"@type": "Answer", "text": "לא. אפשר לעצור את התהליך מתי שרוצים."}}, {"@type": "Question", "name": "איך בוחרים מסלול? ומה אם לא ברור מה רוצים?", "acceptedAnswer": {"@type": "Answer", "text": "אפשר לבחור מסלול, או להגיע גם בלי לדעת מה בדיוק רוצים."}}]}
   </script>
 </head>
 <body>
@@ -461,6 +470,18 @@
     <div class="cqgrid">
       <div class="cq"><p>כשהתחלתי את האימון איתך, לא שיערתי <span class="hl">עד כמה האימון יהיה משמעותי עבורי</span>. צעד אחר צעד, בתוך <span class="hl">מרחב בטוח, מכיל ולא שיפוטי</span>, למדתי לעצור. למדתי להקשיב. <span class="hl">למדתי להיות נוכחת באמת עם עצמי</span>.</p></div>
       <div class="cq"><p>בעיניי, זו המשמעות האמיתית של ה<span class="hl">אימון איתך</span> — לגלות, בעדינות ובאומץ, <span class="hl">את מי שאת ואת הכוחות הקיימים בך</span>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cfaq reveal">
+  <div class="wrap">
+    <span class="kicker">שאלות נפוצות</span>
+    <h2>לפני שמתחילים</h2>
+    <div class="faqgrid">
+      <div class="faqcard"><h3>איך נראה מפגש ראשון?</h3><p>מפגש היכרות: להכיר יותר לעומק מאיפה את.ה בא.ה.</p></div>
+      <div class="faqcard"><h3>האם מתחייבים לסדרה?</h3><p>לא. אפשר לעצור את התהליך מתי שרוצים.</p></div>
+      <div class="faqcard"><h3>איך בוחרים מסלול? ומה אם לא ברור מה רוצים?</h3><p>אפשר לבחור מסלול, או להגיע גם בלי לדעת מה בדיוק רוצים.</p></div>
     </div>
   </div>
 </section>
