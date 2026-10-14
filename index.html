@@ -174,13 +174,16 @@
     .offerings .also { text-align: center; color: var(--ink-soft); margin: 34px 0 22px; font-weight: 600; }
     @media (max-width: 760px) { .ocard.primary { flex-direction: column; } .ocard.primary .thumb { flex: none; min-height: 0; aspect-ratio: 16 / 10; } }
     .loops { background: var(--bg-2); text-align: center; }
-    .loopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1080px; margin: 34px auto 0; text-align: right; }
-    .loopcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 22px 20px 24px; }
-    .loopcard h3 { font-size: 1.2rem; color: var(--berry); margin: 0 0 8px; }
-    .loopcard p { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.65; }
-    .loopnote { max-width: 760px; margin: clamp(30px, 4vw, 46px) auto 0; }
-    .loopnote p { color: var(--ink-soft); font-size: 1.14rem; margin: 0 0 14px; }
-    .loopnote .loopclose { color: var(--ink); font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.5; margin-top: 22px; }
+    .loopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1180px; margin: 34px auto 0; text-align: right; }
+    .loopcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 28px 24px 30px; }
+    .loopcard h3 { font-size: 1.4rem; color: var(--berry); margin: 0 0 10px; line-height: 1.3; }
+    .loopcard p { margin: 0; color: var(--ink-soft); font-size: 1.2rem; line-height: 1.6; }
+    .loopnote { max-width: 900px; margin: clamp(44px, 6vw, 72px) auto 0; }
+    .loopnote p { color: var(--ink-soft); font-size: clamp(1.25rem, 2.3vw, 1.5rem); line-height: 1.55; margin: 0 0 18px; }
+    .loopnote .loopbig { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: var(--berry); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; margin-bottom: 26px; }
+    .loopnote .loopsay { color: var(--ink); font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 600; line-height: 1.5; margin: 26px 0; }
+    .loopnote .loopsay .hl { color: var(--berry); font-weight: 800; }
+    .loopnote .loopclose { color: var(--ink); font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.5; margin-top: 30px; }
     .loopnote .hl { color: var(--berry); }
     @media (max-width: 980px) { .loopgrid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .loopgrid { grid-template-columns: 1fr; max-width: 440px; } }
@@ -385,8 +388,9 @@
       <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
     </div>
     <div class="loopnote">
-      <p>לפעמים מרגיש שהמנגנונים האלו חזקים מאיתנו. יש הרבה חוסר אונים — כשמחליטים שלא רוצים, ואז נופלים שוב לאותם דפוסים והרגלים.</p>
-      <p>זה יוצר ייאוש, חוסר תקווה וחוסר אמון בעצמי: שאני מסוגל.ת לחיות חיים של בחירה וחופש, של שלווה ושמחה.</p>
+      <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
+      <p class="loopmid">כשמחליטים שלא רוצים — ואז נופלים שוב לאותם דפוסים והרגלים. זה יוצר ייאוש וחוסר תקווה.</p>
+      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span><br /><span class="hl">חוסר אמון בעצמי</span> — שאני מסוגל.ת לחיות חיים של בחירה וחופש, של שלווה ושמחה.</p>
       <p class="loopclose">מה שמפעיל את המנגנון הזה חזק, ומצריך <span class="hl">חמלה, נוכחות ובחירה</span> כדי להשתחרר ולחיות את החיים שלנו — עם החופש להיות מי שאנחנו רוצים להיות.</p>
     </div>
   </div>
@@ -400,7 +404,7 @@
       <div class="thumb"><img src="assets/h-card-coaching.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="body">
         <h3>אימון אישי בשיטת סאטיה</h3>
-        <p>תהליך 1:1 בזום, פגישה שבועית של 60 דקות: לראות את הדפוסים, להסיר חסמים ולהשתחרר ממנגנונים הישרדותיים — כולל התמכרויות ודפוסים של פחד, אשמה ובושה — ולבחור מי אני רוצה להיות ואיך אני רוצה לחיות.</p>
+        <p>תהליך 1:1 בזום, פגישה שבועית של 60 דקות: לראות את הדפוסים, להסיר חסמים ולהשתחרר ממנגנונים הישרדותיים — כולל התמכרויות — ולבחור מי להיות.</p>
         <span class="go">לתוכניות ולמחירים →</span>
       </div>
     </a>
@@ -419,16 +423,14 @@
         <div class="thumb"><img src="assets/h-card-lectures.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>הרצאות</h3>
-          <p>על פחד, בריחה והתמכרויות יומיומיות — והחופש לבחור אחרת. כרגע אין תאריך להרצאה חדשה; אפשר לראות את ההרצאות שהיו ולהזמין הרצאה לקבוצה או לארגון.</p>
-          <span class="go">להרצאות שהיו ולהזמנה →</span>
+          <span class="go">להרצאות →</span>
         </div>
       </a>
       <a href="lectures.html#updates" class="ocard" style="--accent: var(--gold)" data-track="card_workshops">
         <div class="thumb"><img src="assets/h-card-workshops.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>סדנאות ומעגלים</h3>
-          <p>עבודה קבוצתית עמוקה, בקצב שמאפשר לתהליך להתרחש — יחד. בקרוב; אפשר להצטרף לעדכונים.</p>
-          <span class="go">לעדכונים →</span>
+          <span class="go">בקרוב</span>
         </div>
       </a>
     </div>
