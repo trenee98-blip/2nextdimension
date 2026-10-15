@@ -163,6 +163,34 @@
     header.nav:not(.scrolled) .nav-toggle svg { fill: #f4ecda !important; }
     @media (max-width: 820px) { .ahero-grid { grid-template-columns: 1fr; text-align: center; } .ahero .kicker { justify-content: center; } .ahero .sub { margin-left: auto; margin-right: auto; } .aphoto { max-width: 280px; } }
 
+    /* ============ EXPLORE (3 domains x 2 items) ============ */
+    .explore { background: var(--bg-2); }
+    .domain { margin-bottom: clamp(48px, 7vw, 76px); }
+    .domain:last-child { margin-bottom: 0; }
+    .dsingle { max-width: 760px; margin: 0 auto; text-align: center; }
+    @media (min-width: 761px) { .dsingle { max-width: 520px; } }
+    .dsingle .dphoto { aspect-ratio: 16 / 7; overflow: hidden; border: 1px solid var(--gold); position: relative; }
+    .dsingle .dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+    .dsingle:hover .dphoto img { transform: scale(1.05); }
+    .dlabel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(247, 242, 232, 0.5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); border: 1px solid var(--gold); padding: 14px 44px 16px; font-family: 'Noto Serif Hebrew', serif; font-weight: 900; font-size: clamp(1.9rem, 4.4vw, 3rem); color: var(--ink); white-space: nowrap; }
+    @media (max-width: 760px) { .dlabel { font-size: 1.75rem; padding: 9px 30px 11px; } }
+    .dcap2 { background: var(--berry); padding: clamp(18px, 3vw, 26px) clamp(24px, 5vw, 44px); }
+    .dcap2 p { font-weight: 700; font-size: clamp(1.05rem, 2.3vw, 1.35rem); color: #f4ecda; line-height: 1.6; }
+    .hl-flourish { color: var(--berry); }
+    .hl-flourish::before, .hl-flourish::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--berry); vertical-align: middle; margin: 0 10px; }
+    /* ============ BELIEFS ============ */
+    .beliefs { background: var(--dark); color: #efe6d4; position: relative; overflow: hidden; }
+    .beliefs .bg { position: absolute; inset: 0; background: url('assets/h-belief-bg.jpg') center / cover; opacity: 0.28; }
+    .beliefs .wrap { position: relative; z-index: 1; }
+    .beliefs .bitem .n { font-family: inherit !important; font-size: 1.3rem !important; color: #d9b978; line-height: 1.6; }
+    .beliefs .kicker { color: #d9b978; }
+    .beliefs .kicker::before, .beliefs .kicker::after { color: #d9b978; }
+    .beliefs h2 { color: #f4ecda; }
+    .blist { display: grid; gap: 0; max-width: 900px; margin-top: 10px; }
+    .blist .bitem { list-style: none; display: grid; grid-template-columns: auto 1fr; gap: 22px; padding: 30px 0; border-bottom: 1px solid rgba(239, 230, 212, 0.16); }
+    .blist .bitem:first-child { border-top: 1px solid rgba(239, 230, 212, 0.16); }
+    .blist .n { font-family: 'Noto Serif Hebrew', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; color: rgba(217, 185, 120, 0.5); line-height: 1; }
+    .blist .t { font-family: 'Noto Serif Hebrew', serif; font-size: clamp(1.15rem, 2.5vw, 1.55rem); font-weight: 400; line-height: 1.55; align-self: center; }
     .astory { background: var(--bg); }
     .astory .wrap { max-width: 760px; }
     .astory p { font-size: 1.16rem; color: var(--ink-soft); margin-bottom: 20px; }
@@ -309,6 +337,22 @@
   </div>
 </section>
 
+<!-- BELIEFS -->
+<section class="beliefs reveal">
+  <div class="bg"></div>
+  <div class="wrap">
+    <span class="kicker">אני מאמינה</span>
+    <h2>מה מנחה אותי?</h2>
+    <ul class="blist">
+      <li class="bitem"><span class="n">✦</span><span class="t">ככל שנרחיב את הידע, מודעות ונוכחות שלנו — כך נרחיב את החופש והבחירה.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">אנשים הם נשמות טהורות ואין־סופיות. הכל אפשרי — מעבר להגבלות של זמן ומקום.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">אנחנו גם יצורים הישרדותיים, וההיכרות עם החלקים ההישרדותיים היא שמאפשרת להשתחרר ולהתרחב אל הנשמה.</span></li>
+      <li class="bitem"><span class="n">✦</span><span class="t">לכל חלק בתוכנו יש תפקיד, והוא שמר עלינו בתקופה מסוימת. התפקיד שלנו הוא לשמוע את המסר, להכיר תודה על הדאגה — ולמצוא דרכים חדשות, שמאפשרות יותר חופש ובחירה.</span></li>
+    </ul>
+  </div>
+</section>
+
+
 <section class="aexp reveal">
   <div class="wrap">
     <span class="kicker">הניסיון שלי</span>
@@ -324,6 +368,49 @@
     </div>
   </div>
 </section>
+
+<!-- EXPLORE -->
+<section class="explore reveal">
+  <div class="wrap">
+    <span class="kicker">תחומי התבוננות</span>
+    <h2>המסע חזרה לעצמי <span class="hl-flourish">להשתחרר</span> ממה שמגביל אותי</h2>
+
+    <div class="domain">
+      <div class="dsingle">
+        <div class="dcap2"><p>תרגול מודעות ונוכחות דרך חיבור לגוף</p></div>
+        <div class="dphoto">
+          <img width="435" height="580" src="assets/n9-body.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">תחושות</h3>
+        </div>
+        <div class="dcap2"><p>הרחבת הידע על המנגנון ההישרדותי ותגובתי</p></div>
+      </div>
+    </div>
+
+    <div class="domain">
+      <div class="dsingle">
+        <div class="dcap2"><p>הגדרת רגשות והבנה איך הם משרתים אותנו</p></div>
+        <div class="dphoto">
+          <img width="350" height="467" src="assets/n6-patterns.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">רגשות</h3>
+        </div>
+        <div class="dcap2"><p>התבוננות על עצמנו דרך דפוסים והרגלים</p></div>
+      </div>
+    </div>
+
+    <div class="domain">
+      <div class="dsingle">
+        <div class="dcap2"><p>הבנה של הסיפור שאנחנו מספרים לעצמנו</p></div>
+        <div class="dphoto">
+          <img width="350" height="467" src="assets/n11-beliefs.jpg" alt="" loading="lazy" decoding="async" />
+          <h3 class="dlabel">מחשבות</h3>
+        </div>
+        <div class="dcap2"><p>חשיפת האמונות והפרדיגמות שאימצנו</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <section class="aquote">
   <p>החיים שלי השתנו לא כי משהו חיצוני השתנה — אלא כי משהו פנימי השתחרר.</p>
