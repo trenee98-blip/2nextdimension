@@ -28,7 +28,7 @@
       --card:      #fffdf8;
       --ink:       #221d18;
       --ink-soft:  #675e50;
-      --muted:     #756b5b;
+      --muted:     #675e50;
       --gold:      #b0863c;
       --gold-deep: #7a5920;
       --berry:     #6b4a2e;
@@ -270,11 +270,11 @@
     footer .footer-free { max-width: 300px; margin: 0 auto 10px; opacity: 0.92; }
     footer .footer-be { width: 66.8%; max-width: 200px; margin: 0 auto 20px; opacity: 0.92; }
     footer .f-brand { font-family: 'Noto Serif Hebrew', serif; font-size: 1.18rem; color: #f4ecda; margin-bottom: 6px; }
-    footer .f-tag { font-size: 0.78rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
+    footer .f-tag { font-size: 0.875rem; letter-spacing: 0.24em; color: #c99a4e; margin-bottom: 14px; }
     footer .f-join { display: inline-flex; align-items: center; gap: 10px; border: 1px solid #d9b978; background: rgba(176, 134, 60, .18); color: #f4ecda; padding: 11px 24px; margin: 0 auto 24px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: background .25s, color .25s; }
     footer .f-join svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
     footer .f-join:hover { background: #d9b978; color: #1c1712; }
-    footer p { font-size: 0.85rem; }
+    footer p { font-size: 0.875rem; }
     footer a { color: #d9b978; text-decoration: none; }
 
     /* ---- accessibility: skip link + keyboard focus ---- */
@@ -282,6 +282,7 @@
     .skip-link:focus { top: 12px; }
     :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 3px solid #d9b978; outline-offset: 2px; box-shadow: 0 0 0 2px #1c1712; border-radius: 2px; }
     main:focus { outline: none; }
+    nav a[aria-current] { color: var(--gold-deep); font-weight: 800; border-bottom: 2px solid currentColor; }
     /* ---- comfortable touch targets (44px) + stable image boxes ---- */
     img { height: auto; }
     .nav-toggle { width: 44px; height: 44px; }
@@ -325,7 +326,7 @@
     </div>
     <nav class="nav-links">
       <a href="about.html">נעים להכיר</a>
-      <a href="coaching.html">אימון אישי</a>
+      <a href="coaching.html" aria-current="page">אימון אישי</a>
       <a href="lectures.html">הרצאות</a>
       <a href="meditation.html">מדיטציה</a>
       <a href="index.html#contact">צור קשר</a>
@@ -337,7 +338,7 @@
   </div>
   <nav class="nav-mobile" id="navMobile">
     <a href="about.html">נעים להכיר</a>
-    <a href="coaching.html">אימון אישי</a>
+    <a href="coaching.html" aria-current="page">אימון אישי</a>
     <a href="lectures.html">הרצאות</a>
     <a href="meditation.html">מדיטציה</a>
     <a href="index.html#contact">צור קשר</a>
