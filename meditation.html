@@ -213,6 +213,18 @@
     .skip-link:focus { top: 12px; }
     :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 3px solid #d9b978; outline-offset: 2px; box-shadow: 0 0 0 2px #1c1712; border-radius: 2px; }
     main:focus { outline: none; }
+    /* ---- comfortable touch targets (44px) + stable image boxes ---- */
+    img { height: auto; }
+    .nav-toggle { width: 44px; height: 44px; }
+    .brand { display: inline-flex; align-items: center; min-height: 44px; }
+    .link-more { min-height: 44px; }
+    footer a { display: inline-block; padding: 12px 4px; }
+    .qr-arrow { width: 44px; height: 44px; }
+    .qr-dots { gap: 0; }
+    .qr-dot { width: 44px; height: 44px; background: transparent; }
+    .qr-dot::before { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--line); transition: background .3s; }
+    .qr-dot.active::before { background: var(--gold); }
+    .qr-dot::after { display: none; }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
@@ -271,8 +283,8 @@
 </section>
 
 <div class="ybanner">
-  <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
-  <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
+  <img width="1800" height="179" class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
+  <img width="1202" height="179" class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
 </div>
 
 <section class="mabout reveal">
@@ -286,7 +298,7 @@
         <p>למעשה, המטרה היא לא להגיע לשום מקום, אלא <span class="hl">לחזור למשהו שכבר נמצא בתוכנו</span>.</p>
         <p>התרגול יוצר מרווחים ומאט את הקצב. וכך, ביום־יום, יש לנו יותר כלים <span class="hl">לחיות מתוך בחירה</span> — במקום להיות מנוהלים על ידי החלקים ההישרדותיים.</p>
       </div>
-      <div class="mphoto"><img src="assets/med-practice.jpg" alt="ריני מתרגלת מדיטציה על החוף" loading="lazy" decoding="async" /></div>
+      <div class="mphoto"><img width="760" height="950" src="assets/med-practice.jpg" alt="ריני מתרגלת מדיטציה על החוף" loading="lazy" decoding="async" /></div>
     </div>
   </div>
 </section>
@@ -354,7 +366,7 @@
 <section class="mwho reveal">
   <div class="wrap">
     <div class="mgrid">
-      <div class="mphoto"><img src="assets/med-who.jpg" alt="ריני מביטה אל הים" loading="lazy" decoding="async" /></div>
+      <div class="mphoto"><img width="760" height="949" src="assets/med-who.jpg" alt="ריני מביטה אל הים" loading="lazy" decoding="async" /></div>
       <div class="mtext">
         <span class="kicker">למי זה מיועד</span>
         <h2>כולם מוזמנים</h2>
@@ -401,8 +413,8 @@
 
 <footer>
   <div class="fwrap">
-    <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
-    <img class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
+    <img width="1800" height="179" class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <img width="1202" height="179" class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="f-brand">ריני טוויל</div>
     <div class="f-tag">המסע למימד הבא</div>
     <a class="f-join" href="https://chat.whatsapp.com/CdntaTJLq1QGbNYFEH0XAo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg> הצטרפות לקבוצת הוואטסאפ — תוכן ועדכונים</a>

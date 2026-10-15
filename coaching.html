@@ -282,6 +282,18 @@
     .skip-link:focus { top: 12px; }
     :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 3px solid #d9b978; outline-offset: 2px; box-shadow: 0 0 0 2px #1c1712; border-radius: 2px; }
     main:focus { outline: none; }
+    /* ---- comfortable touch targets (44px) + stable image boxes ---- */
+    img { height: auto; }
+    .nav-toggle { width: 44px; height: 44px; }
+    .brand { display: inline-flex; align-items: center; min-height: 44px; }
+    .link-more { min-height: 44px; }
+    footer a { display: inline-block; padding: 12px 4px; }
+    .qr-arrow { width: 44px; height: 44px; }
+    .qr-dots { gap: 0; }
+    .qr-dot { width: 44px; height: 44px; background: transparent; }
+    .qr-dot::before { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--line); transition: background .3s; }
+    .qr-dot.active::before { background: var(--gold); }
+    .qr-dot::after { display: none; }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
@@ -345,8 +357,8 @@
 </section>
 
 <div class="ybanner">
-  <img class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
-  <img class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
+  <img width="1800" height="179" class="free-banner" src="assets/n17-free-yourself.jpg" alt="Free Yourself" decoding="async" />
+  <img width="1202" height="179" class="be-banner" src="assets/be-yourself.jpg" alt="Be Yourself" decoding="async" />
 </div>
 
 <section class="cproc reveal">
@@ -357,10 +369,10 @@
         <h2>להשתחרר ממה שמגביל אותי</h2>
         <p class="lead">בליווי אנחנו מתבוננים על החיים כפי שהם היום ועל הפערים.</p>
       </div>
-      <div class="cintro-photo"><img src="assets/coach-forest.jpg" alt="ריני טוויל" loading="lazy" decoding="async" /></div>
+      <div class="cintro-photo"><img width="597" height="746" src="assets/coach-forest.jpg" alt="ריני טוויל" loading="lazy" decoding="async" /></div>
     </div>
     <div class="cside">
-      <div class="cside-img"><img src="assets/coach-swing-side.jpg" alt="" loading="lazy" decoding="async" /></div>
+      <div class="cside-img"><img width="291" height="580" src="assets/coach-swing-side.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="cpoints">
         <div class="cpoint"><div class="n">01</div><div><h3>להתבונן</h3><p>לראות את הפער בין המציאות היום לבין מה שהיינו רוצים. זה יכול להרגיש כמו סבל, אכזבה, תקיעות או חוסר אונים.</p></div></div>
         <div class="cpoint"><div class="n">02</div><div><h3>להכיר</h3><p>את עצמנו לעומק, להשתחרר דרך שיח ונוכחות עם תחושות גוף ונשימה, ממה שמונע התקדמות וצמיחה.</p></div></div>
@@ -392,7 +404,7 @@
 <section class="cfits reveal">
   <div class="wrap">
     <div class="cfwrap">
-      <div class="cfphoto"><img src="assets/coach-deer.jpg" alt="" loading="lazy" decoding="async" /></div>
+      <div class="cfphoto"><img width="720" height="952" src="assets/coach-deer.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="cftext">
         <span class="kicker">למי זה מתאים</span>
         <h2>כשרוצים לעבור תהליך עומק ומרגישים ש…</h2>
@@ -416,7 +428,7 @@
     <div class="plist">
 
       <div class="prog">
-        <div class="pimg"><span class="pnum">01</span><img src="assets/coach-pat-1.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <div class="pimg"><span class="pnum">01</span><img width="720" height="540" src="assets/coach-pat-1.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="pbody">
           <h3>המסע</h3>
           <div class="tagline">לאפשר לעצמי את התמיכה להיות מי שאני רוצה</div>
@@ -426,7 +438,7 @@
       </div>
 
       <div class="prog">
-        <div class="pimg"><span class="pnum">02</span><img src="assets/coach-pat-5.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <div class="pimg"><span class="pnum">02</span><img width="720" height="539" src="assets/coach-pat-5.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="pbody">
           <h3>מיקוד</h3>
           <div class="tagline">עשרה מפגשים לתנועה משמעותית בתחום חיים אחד</div>
@@ -436,7 +448,7 @@
       </div>
 
       <div class="prog">
-        <div class="pimg"><span class="pnum">03</span><img src="assets/coach-pat-3.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <div class="pimg"><span class="pnum">03</span><img width="720" height="540" src="assets/coach-pat-3.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="pbody">
           <h3>קבלת החלטה</h3>
           <div class="tagline">מיקוד סביב בחירה אחת חשובה</div>
@@ -446,7 +458,7 @@
       </div>
 
       <div class="prog">
-        <div class="pimg"><span class="pnum">04</span><img src="assets/coach-pat-7.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <div class="pimg"><span class="pnum">04</span><img width="720" height="540" src="assets/coach-pat-7.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="pbody">
           <h3>התמכרות</h3>
           <div class="tagline">ליווי במקביל לעבודה בקבוצות 12 צעדים</div>
@@ -543,8 +555,8 @@
 
 <footer>
   <div class="fwrap">
-    <img class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
-    <img class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
+    <img width="1800" height="179" class="footer-free" src="assets/n17-free-yourself.jpg" alt="Free Yourself" loading="lazy" decoding="async" />
+    <img width="1202" height="179" class="footer-be" src="assets/be-yourself.jpg" alt="Be Yourself" loading="lazy" decoding="async" />
     <div class="f-brand">ריני טוויל</div>
     <div class="f-tag">המסע למימד הבא</div>
     <a class="f-join" href="https://chat.whatsapp.com/CdntaTJLq1QGbNYFEH0XAo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg> הצטרפות לקבוצת הוואטסאפ — תוכן ועדכונים</a>
