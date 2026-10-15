@@ -126,7 +126,7 @@
     .hero-points .hl { color: var(--ink); font-weight: 700; }
     @media (max-width: 820px) { .hero-points { grid-template-columns: 1fr; max-width: 460px; } }
     @media (max-width: 820px) { .hero-main { grid-template-columns: 1fr; text-align: center; } .hero p.sub { margin-left: auto; margin-right: auto; } .hero-portrait { max-width: 280px; } }
-    .triad { background: var(--bg-2); }
+    .triad { background: var(--bg); }
     .triad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 760px; margin: 0 auto; }
     .triad-grid figure { text-align: center; }
     .timg { aspect-ratio: 4 / 5; padding: 12px; background: var(--card); border: 1px solid var(--gold); overflow: hidden; }
@@ -140,7 +140,7 @@
     @media (max-width: 760px) { .triad-grid { grid-template-columns: 1fr; gap: 40px; max-width: 250px; margin: 0 auto; } }
 
     /* ============ OFFERINGS ============ */
-    .offerings { background: var(--bg); }
+    .offerings { background: var(--bg-2); }
     .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
     .ocard { flex: 1 1 250px; max-width: 340px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
     .ocard:hover { transform: translateY(-6px); box-shadow: 0 22px 48px -20px rgba(44,38,32,0.32); }
@@ -178,6 +178,8 @@
     .loopnote .loopsay .hl { color: var(--berry); font-weight: 800; }
     .loopnote .loopclose { color: var(--ink); font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.5; margin-top: 30px; }
     .loopnote .hl { color: var(--berry); }
+    .loopnote .trio { display: inline; white-space: normal; }
+    .loopnote .trio > span { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.7em; line-height: 1; color: var(--berry); letter-spacing: .02em; padding: 0 .12em; border-bottom: 3px solid var(--gold); }
     @media (max-width: 980px) { .loopgrid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .loopgrid { grid-template-columns: 1fr; max-width: 440px; } }
     .prosec { background: var(--bg-3); text-align: center; }
@@ -334,6 +336,26 @@
   </div>
 </section>
 
+<!-- LOOPS -->
+<section class="loops reveal" id="loops">
+  <div class="wrap">
+    <span class="kicker">זה יכול להיות…</span>
+    <h2>תקועים בתוך לופ?</h2>
+    <div class="loopgrid">
+      <div class="loopcard"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עושה לי טוב ולא עובד.</p></div>
+      <div class="loopcard"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס — כדרך לנסות להישמר מפני סכנה.</p></div>
+      <div class="loopcard"><h3>לופ מחשבתי</h3><p>אמונות מגבילות, חשיבה אובססיבית, לנסות להיערך למה שעלול לקרות.</p></div>
+      <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
+    </div>
+    <div class="loopnote">
+      <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
+      <p class="loopmid">כשמחליטים שלא רוצים — ואז נופלים שוב לאותם דפוסים והרגלים. זה יוצר ייאוש וחוסר תקווה.</p>
+      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span><br /><span class="hl">חוסר אמון בעצמי</span> — שאני מסוגל.ת לחיות חיים של בחירה וחופש, של שלווה ושמחה.</p>
+      <p class="loopclose">מה שמפעיל את המנגנון הזה חזק, ומצריך <span class="trio"><span>חמלה</span>, <span>נוכחות</span> ו<span>בחירה</span></span> כדי להשתחרר ולחיות את החיים שלנו — עם החופש להיות מי שאנחנו רוצים להיות.</p>
+    </div>
+  </div>
+</section>
+
 <!-- TRIAD (black & white) -->
 <section class="triad reveal center">
   <div class="wrap">
@@ -350,26 +372,6 @@
         <div class="thead"><div class="tword">בחירה</div><div class="tcap"><p>מי אני רוצה להיות?</p></div></div>
         <div class="timg"><img width="700" height="875" src="assets/n2b-choice.jpg" alt="מבט נמר" loading="lazy" decoding="async" /></div>
       </figure>
-    </div>
-  </div>
-</section>
-
-<!-- LOOPS -->
-<section class="loops reveal" id="loops">
-  <div class="wrap">
-    <span class="kicker">זה יכול להיות…</span>
-    <h2>תקועים בתוך לופ?</h2>
-    <div class="loopgrid">
-      <div class="loopcard"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עושה לי טוב ולא עובד.</p></div>
-      <div class="loopcard"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס — כדרך לנסות להישמר מפני סכנה.</p></div>
-      <div class="loopcard"><h3>לופ מחשבתי</h3><p>אמונות מגבילות, חשיבה אובססיבית, לנסות להיערך למה שעלול לקרות.</p></div>
-      <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
-    </div>
-    <div class="loopnote">
-      <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
-      <p class="loopmid">כשמחליטים שלא רוצים — ואז נופלים שוב לאותם דפוסים והרגלים. זה יוצר ייאוש וחוסר תקווה.</p>
-      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span><br /><span class="hl">חוסר אמון בעצמי</span> — שאני מסוגל.ת לחיות חיים של בחירה וחופש, של שלווה ושמחה.</p>
-      <p class="loopclose">מה שמפעיל את המנגנון הזה חזק, ומצריך <span class="hl">חמלה, נוכחות ובחירה</span> כדי להשתחרר ולחיות את החיים שלנו — עם החופש להיות מי שאנחנו רוצים להיות.</p>
     </div>
   </div>
 </section>
