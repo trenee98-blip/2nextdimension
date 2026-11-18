@@ -63,8 +63,11 @@
     .center .lead { margin-left: auto; margin-right: auto; }
     .hl { color: var(--berry); font-weight: 700; }
 
-    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 15px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none; background: var(--ink); color: var(--bg); transition: background .25s, transform .2s; }
-    .btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.02em; min-height: 52px; padding: 14px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: 2px solid var(--ink); background: var(--ink); color: var(--bg); box-shadow: 0 10px 22px -12px rgba(28,23,18,.7); transition: background .25s, border-color .25s, transform .2s; }
+    .btn.ghost { background: var(--card); color: var(--ink); box-shadow: none; }
+    .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+    .btn:hover { background: var(--gold-deep); border-color: var(--gold-deep); transform: translateY(-2px); }
+    .btn.ghost:hover { border-color: var(--ink); }
     .btn svg { width: 14px; height: 14px; fill: currentColor; }
     .link-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     .link-more svg { width: 13px; height: 13px; fill: currentColor; }
@@ -144,7 +147,7 @@
     .a-teal { --accent: var(--teal); }
     .a-gold { --accent: var(--gold); }
     .prosec .more { margin-top: 34px; }
-    .about-links { text-align: center; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    .about-links { text-align: center; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
     .ocard { flex: 1 1 250px; max-width: 340px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
     .ocard:hover { transform: translateY(-6px); box-shadow: 0 22px 48px -20px rgba(44,38,32,0.32); }
@@ -156,7 +159,11 @@
     .ocard .body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
     .ocard h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
     .ocard p { color: var(--ink-soft); font-size: 0.97rem; flex: 1; }
-    .ocard .go { margin-top: 16px; color: var(--gold-deep); font-weight: 600; font-size: 0.9rem; }
+    .ocard .go { margin-top: 18px; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 30px; border: 2px solid var(--ink); background: var(--ink); color: var(--bg); font-weight: 700; font-size: 1.05rem; border-radius: 2px; box-shadow: 0 10px 22px -12px rgba(28,23,18,.7); transition: background .25s, border-color .25s; }
+    .ocard .go svg { width: 14px; height: 14px; fill: currentColor; }
+    .ocard:hover .go { background: var(--gold-deep); border-color: var(--gold-deep); }
+    .ocard .go.soon { background: transparent; color: var(--ink-soft); border: 2px dashed var(--ink-soft); box-shadow: none; }
+    .ocard:hover .go.soon { background: transparent; border-color: var(--ink-soft); }
     .ocard.primary { flex: none; max-width: 940px; margin: 0 auto 8px; flex-direction: row; border: 1px solid var(--gold); text-align: right; }
     .ocard.primary .thumb { flex: 0 0 38%; aspect-ratio: auto; min-height: 260px; }
     .ocard.primary .body { padding: clamp(26px, 4vw, 44px); justify-content: center; }
@@ -169,16 +176,13 @@
     @media (max-width: 760px) { .ocard.rowcard { flex-direction: column; } .ocard.rowcard .thumb { flex: none; min-height: 0; aspect-ratio: 16 / 9; } }
     .offerings .also { text-align: center; color: var(--ink-soft); margin: 34px 0 22px; font-weight: 600; }
     @media (max-width: 760px) { .ocard.primary { flex-direction: column; } .ocard.primary .thumb { flex: none; min-height: 0; aspect-ratio: 16 / 10; } }
-    .fits { background: var(--bg); text-align: right; }
-    .fwrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 6vw, 72px); align-items: center; max-width: 1000px; margin: 0 auto; }
-    .fphoto { padding: 10px; border: 1px solid var(--gold); background: var(--card); max-width: 360px; margin: 0 auto; }
-    .fphoto img { width: 100%; display: block; }
-    .ftext .kicker { justify-content: flex-start; }
-    .ftext h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
-    .fgrid { display: grid; gap: 12px; margin: 26px 0 0; }
-    .fit { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--gold); padding: 16px 20px; font-size: 1.08rem; line-height: 1.6; }
+    .fits { background: var(--bg); text-align: center; }
+    .fwrap { max-width: 920px; margin: 0 auto; }
+    .fits h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); max-width: 760px; margin-left: auto; margin-right: auto; }
+    .fgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 28px auto 0; text-align: right; }
+    .fit { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--gold); padding: 18px 22px; font-size: 1.08rem; line-height: 1.6; }
     .fit::before { content: '✦'; color: var(--gold); font-size: 1.1rem; line-height: 1.5; flex-shrink: 0; }
-    @media (max-width: 800px) { .fwrap { grid-template-columns: 1fr; } .fphoto { max-width: 300px; } .ftext { text-align: center; } .ftext .kicker { justify-content: center; } .fgrid { text-align: right; } }
+    @media (max-width: 720px) { .fgrid { grid-template-columns: 1fr; } }
     .loops { background: var(--bg-2); text-align: center; }
     .loopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1180px; margin: 34px auto 0; text-align: right; }
     .loopcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 22px 22px 24px; }
@@ -186,14 +190,14 @@
     .loopcard p { margin: 0; color: var(--ink-soft); font-size: 1.2rem; line-height: 1.6; }
     .loopband { background: linear-gradient(rgba(20,15,10,.5), rgba(20,15,10,.5)), url('assets/loop-cosmos.jpg') center / cover no-repeat; background-color: var(--dark); text-align: center; }
     .loopnote { max-width: 900px; margin: 0 auto; }
-    .loopnote p { color: var(--cream); font-size: clamp(1.25rem, 2.3vw, 1.5rem); line-height: 1.55; margin: 0 0 18px; }
-    .loopnote .loopbig { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: var(--gold-light); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; margin-bottom: 26px; }
-    .loopnote .loopsay { color: #fffdf8; font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 600; line-height: 1.5; margin: 26px 0; }
-    .loopnote .loopsay .hl { color: var(--gold-light); font-weight: 800; }
-    .loopnote .loopclose { color: #fffdf8; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.5; margin-top: 30px; }
-    .loopnote .hl { color: var(--gold-light); }
+    .loopnote p { color: #fff; font-size: clamp(1.25rem, 2.3vw, 1.5rem); line-height: 1.55; margin: 0 0 18px; }
+    .loopnote .loopbig { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; margin-bottom: 26px; }
+    .loopnote .loopsay { color: #fff; font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 600; line-height: 1.5; margin: 26px 0; }
+    .loopnote .loopsay .hl { color: #fff; font-weight: 800; }
+    .loopnote .loopclose { color: #fff; font-family: 'Noto Serif Hebrew', serif; font-weight: 700; font-size: clamp(1.4rem, 2.8vw, 1.9rem); line-height: 1.5; margin-top: 30px; }
+    .loopnote .hl { color: #fff; }
     .loopnote .trio { display: inline; white-space: normal; }
-    .loopnote .trio > span { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.7em; line-height: 1; color: var(--gold-light); letter-spacing: .02em; padding: 0 .12em; border-bottom: 3px solid var(--gold-mid); }
+    .loopnote .trio > span { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.7em; line-height: 1; color: #fff; letter-spacing: .02em; padding: 0 .12em; border-bottom: 3px solid var(--gold-mid); }
     @media (max-width: 980px) { .loopgrid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .loopgrid { gap: 12px; margin-top: 26px; } .loopcard { padding: 16px 14px 18px; } .loopcard h3 { font-size: 1.15rem; } .loopcard p { font-size: 1rem; line-height: 1.5; } }
     .prosec { background: var(--bg-3); text-align: center; }
@@ -348,7 +352,6 @@
 <section class="fits reveal">
   <div class="wrap">
     <div class="fwrap">
-      <div class="fphoto"><img width="720" height="952" src="assets/coach-deer.jpg" alt="" loading="lazy" decoding="async" /></div>
       <div class="ftext">
         <span class="kicker">למי זה מתאים</span>
         <h2>כשרוצים לעבור תהליך עומק ומרגישים ש…</h2>
@@ -363,6 +366,17 @@
   </div>
 </section>
 
+<!-- LOOP NOTE (cosmos as the band background) -->
+<section class="loopband reveal center">
+  <div class="wrap">
+    <div class="loopnote">
+      <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
+      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span></p>
+      <p class="loopclose">וזה מצריך <span class="trio"><span>חמלה</span>, <span>נוכחות</span> ו<span>בחירה</span></span> כדי לחיות את החיים עם החופש להיות מי שאנחנו רוצים להיות.</p>
+    </div>
+  </div>
+</section>
+
 <!-- LOOPS -->
 <section class="loops reveal" id="loops">
   <div class="wrap">
@@ -373,17 +387,6 @@
       <div class="loopcard"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס.</p></div>
       <div class="loopcard"><h3>לופ מחשבתי</h3><p>אמונות מגבילות וחשיבה אובססיבית.</p></div>
       <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב ומכתיב את הפעולות.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- LOOP NOTE (cosmos as the band background) -->
-<section class="loopband reveal center">
-  <div class="wrap">
-    <div class="loopnote">
-      <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
-      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span></p>
-      <p class="loopclose">וזה מצריך <span class="trio"><span>חמלה</span>, <span>נוכחות</span> ו<span>בחירה</span></span> כדי לחיות את החיים עם החופש להיות מי שאנחנו רוצים להיות.</p>
     </div>
   </div>
 </section>
@@ -417,7 +420,7 @@
       <div class="body">
         <h3>אימון אישי בשיטת סאטיה</h3>
         <p>תהליך 1:1 בזום, פגישה שבועית של 60 דקות: לראות את הדפוסים, להסיר חסמים ולהשתחרר ממנגנונים הישרדותיים — כולל התמכרויות — ולבחור מי להיות.</p>
-        <span class="go">לתוכניות ולמחירים →</span>
+        <span class="go">לתוכניות ולמחירים <svg><use href="#i-arrow"/></svg></span>
       </div>
     </a>
     <p class="also">להתחיל בהיכרות</p>
@@ -426,7 +429,7 @@
       <div class="body">
         <h3>מדיטציה</h3>
         <p>מדיטציה מונחת 5 ימים בזום, בחינם</p>
-        <span class="go">להצטרפות →</span>
+        <span class="go">להצטרפות <svg><use href="#i-arrow"/></svg></span>
       </div>
     </a>
     <p class="also">הרצאות וסדנאות</p>
@@ -435,14 +438,14 @@
         <div class="thumb"><img width="800" height="534" src="assets/h-card-lectures.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>הרצאות</h3>
-          <span class="go">להרצאות →</span>
+          <span class="go">להרצאות <svg><use href="#i-arrow"/></svg></span>
         </div>
       </a>
       <a href="lectures.html#updates" class="ocard a-gold" data-track="card_workshops">
         <div class="thumb"><img width="800" height="532" src="assets/h-card-workshops.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="body">
           <h3>סדנאות ומעגלים</h3>
-          <span class="go">בקרוב</span>
+          <span class="go soon">בקרוב</span>
         </div>
       </a>
     </div>
@@ -522,7 +525,7 @@
       <div class="name">ריני טוויל</div>
       <p><span class="hl">בת 41, מתגוררת באזור ירושלים, אמא לחמישה.</span> אני לומדת, חוקרת ומעמיקה בעולם, באנשים ובדבר הזה שנקרא "החיים". בוחרת <span class="hl">לאתגר את עצמי</span> ולרדת עד <span class="hl">למצולות</span> — כדי להבין לעומק, ולחזור לספר: על המסע, ועל איך להיות בטוב ולחיות מתוך חופש ובחירה, עם פחות פחד, אשמה ובושה.</p>
       <p>היום אני מתעוררת עם שחר בתחושת הודיה, חיה מתוך <span class="hl">הרבה יותר בחירה</span> — ומלווה אנשים שרוצים את <span class="hl">החופש לבחור</span> ולחיות בהנאה, בתחושת משמעות ושלווה. אני עוסקת ב־12 הצעדים, בסאטיה, בתקשורת מקרבת ובמדיטציה.</p>
-      <div class="about-links"><a href="about.html" class="link-more">להכיר אותי לעומק <svg><use href="#i-arrow"/></svg></a><a href="#contact" class="link-more">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
+      <div class="about-links"><a href="about.html" class="btn">להכיר אותי לעומק <svg><use href="#i-arrow"/></svg></a><a href="#contact" class="btn ghost">לדבר איתי <svg><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
 </section>

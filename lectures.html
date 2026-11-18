@@ -54,8 +54,11 @@
     .center .lead { margin-left: auto; margin-right: auto; }
     .hl { color: var(--berry); font-weight: 700; }
 
-    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; padding: 15px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: none; background: var(--ink); color: var(--bg); transition: background .25s, transform .2s; }
-    .btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.02em; min-height: 52px; padding: 14px 40px; border-radius: 2px; text-decoration: none; cursor: pointer; border: 2px solid var(--ink); background: var(--ink); color: var(--bg); box-shadow: 0 10px 22px -12px rgba(28,23,18,.7); transition: background .25s, border-color .25s, transform .2s; }
+    .btn.ghost { background: var(--card); color: var(--ink); box-shadow: none; }
+    .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+    .btn:hover { background: var(--gold-deep); border-color: var(--gold-deep); transform: translateY(-2px); }
+    .btn.ghost:hover { border-color: var(--ink); }
     .btn svg { width: 14px; height: 14px; fill: currentColor; }
     .link-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     .link-more svg { width: 13px; height: 13px; fill: currentColor; }
