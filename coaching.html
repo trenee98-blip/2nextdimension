@@ -112,7 +112,7 @@
     @media (max-width: 620px) { .ybanner .free-banner { width: calc(100% + 28px); max-width: none; margin: 0 -14px 10px; } .ybanner .be-banner { width: calc((100% + 28px) * 0.668); max-width: none; } }
 
     .cproc { background: var(--bg); text-align: center; }
-    .cproc .kicker, .cfits .kicker, .cprog .kicker, .cquote .kicker, .csteps .kicker, .ccta .kicker { justify-content: center; }
+    .cproc .kicker, .cprog .kicker, .cquote .kicker, .csteps .kicker, .ccta .kicker { justify-content: center; }
     .cproc .lead { margin-left: auto; margin-right: auto; margin-bottom: 44px; }
     .cgrid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1040px; margin: 0 auto; text-align: right; }
     .cstep { background: var(--card); border: 1px solid var(--gold); padding: 30px 26px 34px; }
@@ -156,12 +156,6 @@
       .cpoint { grid-template-columns: 60px 1fr; }
     }
 
-    .cfits { background: var(--bg-2); text-align: center; }
-    .cfits h2 { max-width: 760px; margin-left: auto; margin-right: auto; }
-    .cfgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 900px; margin: 34px auto 0; text-align: right; }
-    .cfit { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--gold); padding: 22px 24px; font-size: 1.08rem; line-height: 1.6; }
-    .cfit::before { content: '✦'; color: var(--gold); font-size: 1.1rem; line-height: 1.5; flex-shrink: 0; }
-    @media (max-width: 720px) { .cfgrid { grid-template-columns: 1fr; } }
 
     .cprog { background: var(--bg); text-align: center; }
     .cprog .lead { margin-left: auto; margin-right: auto; margin-bottom: 52px; }
@@ -206,22 +200,6 @@
     .cband-in { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
     .cband h2 { color: #f4ecda; text-shadow: 0 2px 20px rgba(0,0,0,.5); margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); }
 
-    .cloops { background: var(--bg-2); text-align: center; }
-    .cloopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1040px; margin: 30px auto 0; text-align: right; }
-    .cloop { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 20px 18px 22px; }
-    .cloop h3 { font-size: 1.15rem; color: var(--berry); margin: 0 0 6px; }
-    .cloop p { margin: 0; color: var(--ink-soft); font-size: .98rem; line-height: 1.65; }
-    @media (max-width: 980px) { .cloopgrid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .cloopgrid { grid-template-columns: 1fr; max-width: 440px; } }
-    .cfits { text-align: right; }
-    .cfwrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 6vw, 72px); align-items: center; max-width: 1000px; margin: 0 auto; }
-    .cfphoto { padding: 10px; border: 1px solid var(--gold); background: var(--bg); max-width: 360px; margin: 0 auto; }
-    .cfphoto img { width: 100%; display: block; }
-    .cfits .cftext .kicker { justify-content: flex-start; }
-    .cfits .cftext h2 { max-width: none; margin-left: 0; margin-right: 0; font-size: clamp(1.9rem, 4vw, 2.8rem); }
-    .cfits .cfgrid { grid-template-columns: 1fr; gap: 12px; max-width: none; margin: 26px 0 0; }
-    .cfits .cfit { padding: 16px 20px; font-size: 1.05rem; }
-    @media (max-width: 800px) { .cfwrap { grid-template-columns: 1fr; } .cfphoto { max-width: 300px; } .cfits .cftext { text-align: center; } .cfits .cftext .kicker { justify-content: center; } .cfits .cfgrid { text-align: right; } }
 
     .ctrain { background: var(--bg); padding: clamp(48px, 7vw, 84px) 0; text-align: center; }
     .ctrain-box { max-width: 780px; margin: 0 auto; border: 1px solid var(--gold); background: var(--card); padding: clamp(28px, 5vw, 48px); }
@@ -387,37 +365,6 @@
 <section class="cband reveal">
   <div class="cband-in">
     <h2>לאט לאט נוצרים בהירות וחיבור</h2>
-  </div>
-</section>
-
-<section class="cloops reveal">
-  <div class="wrap">
-    <span class="kicker">זה יכול להיות…</span>
-    <h2>תקועים בתוך לופ?</h2>
-    <div class="cloopgrid">
-      <div class="cloop"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עושה לי טוב ולא עובד.</p></div>
-      <div class="cloop"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס — כדרך לנסות להישמר מפני סכנה.</p></div>
-      <div class="cloop"><h3>לופ מחשבתי</h3><p>אמונות מגבילות, חשיבה אובססיבית, לנסות להיערך למה שעלול לקרות.</p></div>
-      <div class="cloop"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cfits reveal">
-  <div class="wrap">
-    <div class="cfwrap">
-      <div class="cfphoto"><img width="720" height="952" src="assets/coach-deer.jpg" alt="" loading="lazy" decoding="async" /></div>
-      <div class="cftext">
-        <span class="kicker">למי זה מתאים</span>
-        <h2>כשרוצים לעבור תהליך עומק ומרגישים ש…</h2>
-        <div class="cfgrid">
-          <div class="cfit">יש פער בין החיים כרגע לבין מה שהיית.ה רוצה — והוא מכביד</div>
-          <div class="cfit">חוזרים אותם דפוסים, אמונות ותגובות, גם כשמחליטים שלא</div>
-          <div class="cfit">קשה לקבל החלטה בהירה ונוכחת, וקשה לשהות עם חוסר הבהירות</div>
-          <div class="cfit">יש געגוע לגרסה חופשית וברורה יותר של עצמך — ולא ברור איך להגיע אליה</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
