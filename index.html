@@ -143,7 +143,7 @@
     .a-sage { --accent: #7d8b6a; }
     .a-teal { --accent: var(--teal); }
     .a-gold { --accent: var(--gold); }
-    .prosec .more { margin-top: 28px; }
+    .prosec .more { margin-top: 34px; }
     .about-links { text-align: center; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
     .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
     .ocard { flex: 1 1 250px; max-width: 340px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .3s, box-shadow .3s; }
@@ -169,12 +169,22 @@
     @media (max-width: 760px) { .ocard.rowcard { flex-direction: column; } .ocard.rowcard .thumb { flex: none; min-height: 0; aspect-ratio: 16 / 9; } }
     .offerings .also { text-align: center; color: var(--ink-soft); margin: 34px 0 22px; font-weight: 600; }
     @media (max-width: 760px) { .ocard.primary { flex-direction: column; } .ocard.primary .thumb { flex: none; min-height: 0; aspect-ratio: 16 / 10; } }
+    .fits { background: var(--bg); text-align: right; }
+    .fwrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 6vw, 72px); align-items: center; max-width: 1000px; margin: 0 auto; }
+    .fphoto { padding: 10px; border: 1px solid var(--gold); background: var(--card); max-width: 360px; margin: 0 auto; }
+    .fphoto img { width: 100%; display: block; }
+    .ftext .kicker { justify-content: flex-start; }
+    .ftext h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .fgrid { display: grid; gap: 12px; margin: 26px 0 0; }
+    .fit { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--gold); padding: 16px 20px; font-size: 1.08rem; line-height: 1.6; }
+    .fit::before { content: '✦'; color: var(--gold); font-size: 1.1rem; line-height: 1.5; flex-shrink: 0; }
+    @media (max-width: 800px) { .fwrap { grid-template-columns: 1fr; } .fphoto { max-width: 300px; } .ftext { text-align: center; } .ftext .kicker { justify-content: center; } .fgrid { text-align: right; } }
     .loops { background: var(--bg-2); text-align: center; }
     .loopgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1180px; margin: 34px auto 0; text-align: right; }
-    .loopcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 28px 24px 30px; }
+    .loopcard { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--gold); padding: 22px 22px 24px; }
     .loopcard h3 { font-size: 1.4rem; color: var(--berry); margin: 0 0 10px; line-height: 1.3; }
     .loopcard p { margin: 0; color: var(--ink-soft); font-size: 1.2rem; line-height: 1.6; }
-    .loopband { background: linear-gradient(rgba(28,23,18,.76), rgba(28,23,18,.76)), url('assets/loop-spiral.jpg') center / cover no-repeat; background-color: var(--dark); text-align: center; }
+    .loopband { background: linear-gradient(rgba(20,15,10,.5), rgba(20,15,10,.5)), url('assets/loop-cosmos.jpg') center / cover no-repeat; background-color: var(--dark); text-align: center; }
     .loopnote { max-width: 900px; margin: 0 auto; }
     .loopnote p { color: var(--cream); font-size: clamp(1.25rem, 2.3vw, 1.5rem); line-height: 1.55; margin: 0 0 18px; }
     .loopnote .loopbig { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: var(--gold-light); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; margin-bottom: 26px; }
@@ -185,10 +195,10 @@
     .loopnote .trio { display: inline; white-space: normal; }
     .loopnote .trio > span { font-family: 'Amatic SC', 'Noto Serif Hebrew', serif; font-weight: 700; font-size: 1.7em; line-height: 1; color: var(--gold-light); letter-spacing: .02em; padding: 0 .12em; border-bottom: 3px solid var(--gold-mid); }
     @media (max-width: 980px) { .loopgrid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .loopgrid { grid-template-columns: 1fr; max-width: 440px; } }
+    @media (max-width: 560px) { .loopgrid { gap: 12px; margin-top: 26px; } .loopcard { padding: 16px 14px 18px; } .loopcard h3 { font-size: 1.15rem; } .loopcard p { font-size: 1rem; line-height: 1.5; } }
     .prosec { background: var(--bg-3); text-align: center; }
     .prosec .lead { margin-left: auto; margin-right: auto; margin-bottom: 26px; }
-    .trainmain { font-family: 'Noto Serif Hebrew', serif; font-weight: 700; color: var(--berry); font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin: 0 0 22px; }
+    .prosec .btn { padding: 16px 44px; font-size: 1.1rem; }
     .proflist { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; max-width: 880px; margin: 0 auto; padding: 0; }
     .proflist li { border: 1px solid var(--gold); background: var(--card); padding: 7px 18px 9px; font-weight: 600; font-size: 1.02rem; color: var(--ink); }
 
@@ -334,28 +344,46 @@
   </div>
 </section>
 
+<!-- FITS -->
+<section class="fits reveal">
+  <div class="wrap">
+    <div class="fwrap">
+      <div class="fphoto"><img width="720" height="952" src="assets/coach-deer.jpg" alt="" loading="lazy" decoding="async" /></div>
+      <div class="ftext">
+        <span class="kicker">למי זה מתאים</span>
+        <h2>כשרוצים לעבור תהליך עומק ומרגישים ש…</h2>
+        <div class="fgrid">
+          <div class="fit">יש פער בין החיים כרגע לבין מה שהיית.ה רוצה — והוא מכביד</div>
+          <div class="fit">חוזרים אותם דפוסים, אמונות ותגובות, גם כשמחליטים שלא</div>
+          <div class="fit">קשה לקבל החלטה בהירה ונוכחת, וקשה לשהות עם חוסר הבהירות</div>
+          <div class="fit">יש געגוע לגרסה חופשית וברורה יותר של עצמך — ולא ברור איך להגיע אליה</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LOOPS -->
 <section class="loops reveal" id="loops">
   <div class="wrap">
     <span class="kicker">זה יכול להיות…</span>
     <h2>תקועים בתוך לופ?</h2>
     <div class="loopgrid">
-      <div class="loopcard"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עושה לי טוב ולא עובד.</p></div>
-      <div class="loopcard"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס — כדרך לנסות להישמר מפני סכנה.</p></div>
-      <div class="loopcard"><h3>לופ מחשבתי</h3><p>אמונות מגבילות, חשיבה אובססיבית, לנסות להיערך למה שעלול לקרות.</p></div>
-      <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב באופן עצמאי ומכתיב לי את התגובה והפעולות.</p></div>
+      <div class="loopcard"><h3>התמכרות, דפוסים והרגלים</h3><p>לחזור שוב ושוב למה שלא עובד.</p></div>
+      <div class="loopcard"><h3>לופ רגשי</h3><p>פחד, אשמה, בושה וכעס.</p></div>
+      <div class="loopcard"><h3>לופ מחשבתי</h3><p>אמונות מגבילות וחשיבה אובססיבית.</p></div>
+      <div class="loopcard"><h3>לופ תחושות</h3><p>הגוף מגיב ומכתיב את הפעולות.</p></div>
     </div>
   </div>
 </section>
 
-<!-- LOOP NOTE (aloe spiral as the band background) -->
+<!-- LOOP NOTE (cosmos as the band background) -->
 <section class="loopband reveal center">
   <div class="wrap">
     <div class="loopnote">
       <p class="loopbig">לפעמים מרגישים שהמנגנונים האלו חזקים מאיתנו.</p>
-      <p class="loopmid">כשמחליטים שלא רוצים — ואז נופלים שוב לאותם דפוסים והרגלים. זה יוצר ייאוש וחוסר תקווה.</p>
-      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span><br /><span class="hl">חוסר אמון בעצמי</span> — שאני מסוגל.ת לחיות חיים של בחירה וחופש, של שלווה ושמחה.</p>
-      <p class="loopclose">מה שמפעיל את המנגנון הזה חזק, ומצריך <span class="trio"><span>חמלה</span>, <span>נוכחות</span> ו<span>בחירה</span></span> כדי להשתחרר ולחיות את החיים שלנו — עם החופש להיות מי שאנחנו רוצים להיות.</p>
+      <p class="loopsay"><span class="hl">יש הרבה חוסר אונים.</span></p>
+      <p class="loopclose">וזה מצריך <span class="trio"><span>חמלה</span>, <span>נוכחות</span> ו<span>בחירה</span></span> כדי לחיות את החיים עם החופש להיות מי שאנחנו רוצים להיות.</p>
     </div>
   </div>
 </section>
@@ -427,7 +455,6 @@
     <span class="kicker">הכשרה וניסיון</span>
     <h2>הכשרה באימון בשיטת סאטיה</h2>
     <p class="lead">לצד שנים של עיסוק בתחום ההתפתחות האישית ובדרך האישית שעברתי בעצמי.</p>
-    <p class="trainmain"><bdi dir="ltr">2024–2026</bdi> · הכשרה באימושיין</p>
     <ul class="proflist">
       <li>הנחיית מדיטציה</li>
       <li>תקשורת לא אלימה (NVC)</li>
@@ -435,7 +462,7 @@
       <li>דיאלוג עם חלקים פנימיים</li>
       <li>קבלת החלטות משותפות</li>
     </ul>
-    <p class="more"><a href="about.html" class="link-more" data-track="pro_about">להכיר אותי לעומק <svg><use href="#i-arrow"/></svg></a></p>
+    <p class="more"><a href="about.html" class="btn" data-track="pro_about">להכיר אותי והשיטה לעומק <svg><use href="#i-arrow"/></svg></a></p>
   </div>
 </section>
 
